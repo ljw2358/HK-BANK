@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title id="metaTitle">HK BANK | 글로벌 슈퍼 뱅킹 플랫폼</title>
-    <!-- FontAwesome Icons & Google Fonts -->
+    <title>HK BANK | 글로벌 슈퍼 뱅킹 플랫폼</title>
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #f4f7fb;
-            --bg-secondary: #ffffff;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --accent-gold: #d97706;
-            --accent-gold-glow: rgba(217, 119, 6, 0.2);
-            --accent-cyan: #0284c7;
-            --accent-cyan-glow: rgba(2, 132, 199, 0.2);
-            --accent-green: #10b981;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --danger: #ef4444;
+            --bg-body: #f2f4f6;
+            --bg-app: #ffffff;
+            --toss-blue: #0064ff;
+            --text-main: #191f28;
+            --text-muted: #8b95a1;
+            --card-bg: #f8f9fa;
+            --border-color: #e5e8eb;
+            --success: #00c853;
             --pi-color: #f7931a;
         }
 
@@ -28,375 +24,320 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
         select option {
-            background-color: #ffffff !important;
-            color: #1e293b !important;
+            background-color: #1a1a1a !important;
+            color: #ffffff !important;
         }
 
         body {
-            background-color: #e4ecf5;
+            background-color: #222;
             color: var(--text-main);
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
             overflow-x: hidden;
-            padding: 0;
         }
 
         .app-container {
             width: 100%;
             max-width: 480px;
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-app);
             min-height: 100vh;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
             position: relative;
             display: flex;
             flex-direction: column;
-            border-left: 1px solid #cbd5e1;
-            border-right: 1px solid #cbd5e1;
+            padding-bottom: 90px;
         }
 
+        /* 🌟 상단 웅장한 HK BANK 헤더 */
         header {
-            padding: 18px 20px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(14px);
+            background: #ffffff;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .menu-btn {
-            background: #f1f5f9;
-            border: 1px solid var(--card-border);
-            color: var(--accent-gold);
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .menu-btn:active {
-            transform: scale(0.92);
-        }
-
-        .header-center-title {
-            text-align: center;
-        }
-
-        .header-center-title h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
+        .bank-logo {
+            font-size: 20px;
             font-weight: 900;
-            color: var(--accent-gold);
-            letter-spacing: 1.5px;
-        }
-
-        .header-center-title p {
-            font-size: 12px;
-            color: var(--accent-cyan);
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-            font-weight: 600;
-        }
-
-        .profile-badge {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            background: #f8fafc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--accent-gold);
-            font-weight: 900;
-            font-size: 18px;
-            border: 1px solid var(--card-border);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .lang-bar {
-            padding: 12px 20px;
-            background: #f8fafc;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .lang-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--accent-cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-
-        .lang-select {
-            background: #ffffff;
             color: var(--text-main);
-            border: 1px solid var(--card-border);
-            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .bank-logo span.hk {
+            background: var(--toss-blue);
+            color: #fff;
+            padding: 4px 8px;
             border-radius: 8px;
-            font-size: 13px;
-            outline: none;
-            cursor: pointer;
-            max-width: 210px;
-            font-weight: 600;
-        }
-
-        main {
-            padding: 24px 20px;
-            flex: 1;
-            background-color: var(--bg-primary);
-        }
-
-        .hero-section {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .main-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 34px;
+            font-size: 15px;
             font-weight: 900;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            margin-bottom: 6px;
-            text-align: center;
         }
 
-        .sub-title {
-            font-size: 16px;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        .dashboard-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dashboard-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan), var(--accent-green));
-        }
-
-        .dashboard-header {
-            font-size: 19px;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 18px;
+        .header-icons {
             display: flex;
+            gap: 18px;
+            font-size: 22px;
+            color: var(--text-main);
+            cursor: pointer;
             align-items: center;
-            justify-content: space-between;
         }
 
-        .pi-box {
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 14px;
+        /* 메인 화면 */
+        main {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
         }
 
-        .pi-box-title {
+        .welcome-banner {
+            margin-bottom: 20px;
+        }
+
+        .welcome-banner h2 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .welcome-banner p {
             font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* 계좌 카드 */
+        .account-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .account-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .account-name {
+            font-size: 14px;
+            font-weight: 600;
             color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 6px;
+        }
+
+        .account-badge {
+            background: #e8f3ff;
+            color: var(--toss-blue);
+            font-size: 11px;
             font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
         }
 
-        .pi-logo-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--pi-color);
-            color: #fff;
-            border-radius: 50%;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 900;
-            font-size: 14px;
-            font-family: serif;
-            box-shadow: 0 2px 6px rgba(247, 147, 26, 0.4);
-        }
-
-        .pi-amount {
+        .account-balance {
             font-family: 'Roboto Mono', monospace;
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .pi-amount .unit {
-            color: var(--accent-gold);
-            font-size: 16px;
+            font-size: 24px;
             font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 16px;
         }
 
-        .mainnet-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+        .account-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-main);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-action.primary {
+            background: var(--toss-blue);
             color: #ffffff;
             border: none;
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 900;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
-            transition: all 0.2s ease;
         }
 
-        .mainnet-btn:active {
-            transform: scale(0.98);
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 18px;
-        }
-
-        .section-title {
-            font-size: 19px;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        .section-sub {
-            font-size: 12px;
-            color: var(--accent-green);
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 700;
-        }
-
-        .network-grid {
+        /* 빠른 메뉴 */
+        .quick-menu-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 28px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .network-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 18px;
-            cursor: pointer;
-            transition: all 0.25s ease;
+        .quick-menu-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            min-height: 140px;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            gap: 8px;
+            cursor: pointer;
         }
 
-        .network-card:hover, .network-card:active {
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
-            background: #fffbeb;
-            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
-        }
-
-        .card-top-center {
+        .quick-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--card-bg);
+            border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 12px;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: #f1f5f9;
-            border: 1px solid var(--card-border);
+            font-size: 20px;
+            color: var(--toss-blue);
+            border: 1px solid var(--border-color);
         }
 
-        .card-icon-1 { color: #0284c7; font-size: 22px; }
-        .card-icon-2 { color: #d97706; font-size: 22px; }
-        .card-icon-3 { color: #10b981; font-size: 22px; }
-        .card-icon-4 { color: #7c3aed; font-size: 22px; }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 800;
+        .quick-label {
+            font-size: 12px;
+            font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .card-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        footer {
-            padding: 26px 20px;
-            background: #ffffff;
-            border-top: 1px solid var(--card-border);
             text-align: center;
-            font-size: 12px;
+        }
+
+        /* 최근 거래 내역 */
+        .section-box {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .history-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
             color: var(--text-muted);
-            line-height: 1.8;
         }
 
-        footer p.copyright {
-            margin-bottom: 8px;
+        .history-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .history-info p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .history-amount {
             font-family: 'Roboto Mono', monospace;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
         }
 
-        footer p.socials {
-            color: var(--accent-cyan);
-            word-break: break-all;
-            font-weight: 600;
+        .history-amount.plus { color: var(--success); }
+        .history-amount.minus { color: var(--text-main); }
+
+        /* 하단 네비게이션 바 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 100;
         }
 
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-muted);
+            font-size: 11px;
+            cursor: pointer;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .nav-item.active {
+            color: var(--toss-blue);
+            font-weight: 700;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+        }
+
+        /* 🌟 삼선 햄버거 메뉴 서랍 (Drawer) */
         .drawer-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 200;
             opacity: 0;
             pointer-events: none;
@@ -411,17 +352,14 @@
         .drawer-content {
             position: fixed;
             top: 0;
-            left: -330px;
-            width: 320px;
+            left: -320px;
+            width: 300px;
             height: 100vh;
             background: #ffffff;
-            border-right: 1px solid var(--card-border);
             z-index: 201;
             transition: left 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
             overflow-y: auto;
-            padding: 26px 20px;
-            display: flex;
-            flex-direction: column;
+            padding: 24px 20px;
         }
 
         .drawer-overlay.active .drawer-content {
@@ -432,85 +370,78 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--card-border);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .drawer-title {
-            font-size: 17px;
-            font-weight: 900;
-            color: var(--accent-gold);
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .drawer-close {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--toss-blue);
         }
 
         .menu-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .menu-group-title {
-            font-size: 12px;
-            color: var(--accent-cyan);
+            font-size: 11px;
+            color: var(--text-muted);
             text-transform: uppercase;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .drawer-lang-select {
+            width: 100%;
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .menu-item {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 14px 16px;
+            gap: 12px;
+            padding: 12px 14px;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 14px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            transition: all 0.2s ease;
+            font-size: 13px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+            background: var(--card-bg);
             cursor: pointer;
-            font-weight: 700;
-        }
-
-        .menu-item:hover, .menu-item:active {
-            background: #fffbeb;
-            color: var(--accent-gold);
-            border-color: #fde68a;
         }
 
         .menu-item i {
-            width: 22px;
+            color: var(--toss-blue);
+            width: 18px;
             text-align: center;
-            color: var(--accent-gold);
-            font-size: 16px;
         }
 
+        /* 모달 팝업 */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 300;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 20px;
+            transition: opacity 0.3s ease;
         }
 
         .modal.active {
@@ -518,832 +449,771 @@
             pointer-events: auto;
         }
 
-        .modal-body {
+        .modal-sheet {
             background: #ffffff;
-            border: 1px solid var(--card-border);
             width: 100%;
-            max-width: 440px;
+            max-width: 480px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            padding: 24px 20px 36px 20px;
             max-height: 85vh;
-            border-radius: 20px;
-            padding: 26px;
             overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
         }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .modal-title {
-            font-size: 19px;
-            font-weight: 800;
-            color: var(--accent-gold);
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .input-group {
-            margin-bottom: 18px;
-        }
-
-        .input-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .max-btn {
-            background: #fffbeb;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .max-btn:active {
-            background: var(--accent-gold);
-            color: #ffffff;
+        .modal.active .modal-sheet {
+            transform: translateY(0);
         }
 
         .form-control {
             width: 100%;
-            background: #f8fafc;
-            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 14px;
+            font-size: 15px;
             color: var(--text-main);
-            font-size: 14px;
             outline: none;
-            font-weight: 600;
+            margin-top: 6px;
+            margin-bottom: 16px;
         }
 
-        .form-control:focus {
-            border-color: var(--accent-gold);
-            background: #ffffff;
-        }
-
-        .action-btn {
+        .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, var(--accent-gold), #b45309);
-            color: #ffffff;
+            background: var(--toss-blue);
+            color: #fff;
             border: none;
             padding: 16px;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 15px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            margin-top: 12px;
-            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <!-- Sticky Header Nav Bar -->
+
+        <!-- 🌟 상단 웅장한 HK BANK 헤더 -->
         <header>
-            <button class="menu-btn" onclick="toggleDrawer()">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="header-center-title">
-                <h2>HK BANK</h2>
-                <p data-i18n="headerSubText">글로벌 슈퍼 뱅킹 플랫폼</p>
+            <div class="bank-logo">
+                <span class="hk">HK</span> BANK
             </div>
-            <div class="profile-badge">HK</div>
+            <div class="header-icons">
+                <i class="fa-regular fa-bell" onclick="alert('새로운 알림이 없습니다.')"></i>
+                <i class="fa-solid fa-bars" onclick="toggleDrawer()" style="cursor:pointer;"></i>
+            </div>
         </header>
 
-        <!-- 25개국 글로벌 다국어 선택 드롭다운 바 -->
-        <div class="lang-bar">
-            <div class="lang-info">
-                <i class="fa-solid fa-globe"></i>
-                <span data-i18n="langEngineLabel">25개국 글로벌 다국어 엔진</span>
-            </div>
-            <select class="lang-select" id="langSelect" onchange="changeLanguage(this.value)">
-                <option value="ko" selected>🇰🇷 한국어 (Korean)</option>
-                <option value="en">🇺🇸 영어 (English)</option>
-                <option value="zh">🇨🇳 중국어 (Chinese)</option>
-                <option value="ja">🇯🇵 일본어 (Japanese)</option>
-                <option value="ru">🇷🇺 러시아어 (Russian)</option>
-                <option value="vi">🇻🇳 베트남어 (Vietnamese)</option>
-                <option value="th">🇹🇭 태국어 (Thai)</option>
-                <option value="id">🇮🇩 인도네시아어 (Indonesian)</option>
-                <option value="ar">🇵🇸 아랍어 (Arabic)</option>
-                <option value="de">🇩🇪 독일어 (German)</option>
-                <option value="it">🇮🇹 이태리어 (Italian)</option>
-                <option value="fr">🇫🇷 프랑스어 (French)</option>
-                <option value="ng">🇳🇬 나이지리아 (Nigerian)</option>
-                <option value="cm">🇨🇲 카메룬 (Cameroon)</option>
-                <option value="za">🇿🇦 남아공 (South Africa)</option>
-                <option value="hi">🇮🇳 힌디어 (Hindi)</option>
-                <option value="es">🇪🇸 스페인어 (Spanish)</option>
-                <option value="br">🇧🇷 브라질어 (Portuguese)</option>
-                <option value="pk">🇵🇰 우르두어 (Urdu)</option>
-                <option value="bn">🇧🇩 벵골어 (Bengali)</option>
-                <option value="tr">🇹🇷 튀르키예어 (Turkish)</option>
-                <option value="ve">🇻🇪 베네수엘라 (Venezuelan)</option>
-                <option value="ke">🇰🇪 케냐 (Kenyan)</option>
-                <option value="et">🇪🇹 에티오피아 (Ethiopian)</option>
-                <option value="ph">🇵🇭 필리핀 (Filipino)</option>
-            </select>
-        </div>
-
+        <!-- 메인 화면 -->
         <main>
-            <!-- Hero Titles (Centered) -->
-            <div class="hero-section">
-                <h1 class="main-title">HK BANK</h1>
-                <p class="sub-title" data-i18n="subTitle">오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
+            <div class="welcome-banner">
+                <h2 id="txtWelcome">글로벌 슈퍼 뱅킹 플랫폼 👋</h2>
+                <p id="txtSubWelcome">오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
             </div>
 
-            <!-- Personal Asset Dashboard Card -->
-            <div class="dashboard-card">
-                <div class="dashboard-header">
-                    <span data-i18n="dashTitle">HK 주가계좌통장</span>
-                    <span style="font-size: 13px; color: var(--accent-cyan); cursor: pointer; font-weight: 700;" onclick="openProcessModal('wallet')" data-i18n="checkDetail">총금액 보기</span>
+            <!-- 1. HK 주거래 통장 -->
+            <div class="account-card">
+                <div class="account-top">
+                    <span class="account-name"><i class="fa-solid fa-wallet" style="color:var(--toss-blue);"></i> <span id="txtAccountName">HK 주거래통장</span></span>
+                    <span class="account-badge" id="txtWithdrawable">출금가능</span>
                 </div>
-
-                <div class="pi-box">
-                    <div class="pi-amount">
-                        <span id="walletBalanceDisplay">314,159,000</span>
-                        <span class="unit" data-i18n="wonUnit">원</span>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 10px;">
-                    <button class="mainnet-btn" style="background: #f1f5f9; color: var(--text-main); border: 1px solid var(--card-border); font-size: 14px; padding: 12px; box-shadow: none;" onclick="openProcessModal('transfer')" data-i18n="transferBtn">송금하기</button>
-                    <button class="mainnet-btn" style="font-size: 14px; padding: 12px;" onclick="openProcessModal('deposit')" data-i18n="depositBtn">채우기</button>
+                <div class="account-balance" id="mainBalanceDisplay">314,159,000 원</div>
+                <div class="account-actions">
+                    <button class="btn-action" onclick="openModal('transfer')" id="btnTransfer">송금하기</button>
+                    <button class="btn-action primary" onclick="openModal('deposit')" id="btnDeposit">채우기</button>
                 </div>
             </div>
 
-            <!-- Pi Assets & Mainnet Service -->
-            <div class="dashboard-card">
-                <div class="dashboard-header">
-                    <span data-i18n="piDashTitle">Pi 자산 & 메인네비스</span>
-                    <span style="font-size: 12px; color: var(--accent-green); font-weight: 800;" data-i18n="apyRate">3년 31.41% 복리</span>
+            <!-- 2. Pi 신탁 세이프박스 -->
+            <div class="account-card">
+                <div class="account-top">
+                    <span class="account-name"><span style="color:var(--pi-color); font-weight:900;">π</span> <span id="txtPiVaultName">Pi 신탁 & 세이프박스</span></span>
+                    <span class="account-badge" style="background:#e6fffa; color:#00a3c4;" id="txtPiRate">연 31.41% 복리</span>
                 </div>
-
-                <div class="pi-box">
-                    <div class="pi-box-title">
-                        <span class="pi-logo-icon">π</span>
-                        <span data-i18n="piSyncLabel">보유 PI 수량 원장 동기화</span>
-                    </div>
-                    <div class="pi-amount" style="font-size: 22px;">
-                        <span>314,159.00</span>
-                        <span class="unit">PI</span>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 10px;">
-                    <button class="mainnet-btn" style="background: #f1f5f9; color: var(--text-main); border: 1px solid var(--card-border); font-size: 14px; padding: 12px; box-shadow: none;" onclick="openProcessModal('manage')" data-i18n="manageBtn">관리하기</button>
-                    <button class="mainnet-btn" style="font-size: 14px; padding: 12px;" onclick="triggerMainnetRequest()" data-i18n="instantMainnetBtn">즉시 환전</button>
+                <div class="account-balance" id="piVaultDisplay">314,159.00 PI</div>
+                <div class="account-actions">
+                    <button class="btn-action" onclick="openModal('vault')" id="btnManage">관리하기</button>
+                    <button class="btn-action primary" onclick="openModal('swap')" id="btnSwap">즉시 환전</button>
                 </div>
             </div>
 
-            <!-- Distributed Networks Grid Section -->
-            <div class="network-grid">
-                <div class="network-card" onclick="openProcessModal('transfer')">
-                    <div class="card-top-center"><i class="fa-solid fa-paper-plane card-icon-2"></i></div>
-                    <div>
-                        <div class="card-title" data-i18n="net1_title">이체</div>
-                        <div class="card-desc" data-i18n="net1_desc">안전한 멀티시그 송금</div>
-                    </div>
+            <!-- 빠른 메뉴 그리드 -->
+            <div class="quick-menu-grid">
+                <div class="quick-menu-item" onclick="openModal('transfer')">
+                    <div class="quick-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                    <span class="quick-label" id="qMenu1">이체</span>
                 </div>
-
-                <div class="network-card" onclick="openProcessModal('deposit')">
-                    <div class="card-top-center"><i class="fa-solid fa-vault card-icon-4"></i></div>
-                    <div>
-                        <div class="card-title" data-i18n="net2_title">채우기</div>
-                        <div class="card-desc" data-i18n="net2_desc">잔액 충전 및 예치 볼트</div>
-                    </div>
+                <div class="quick-menu-item" onclick="openModal('deposit')">
+                    <div class="quick-icon"><i class="fa-solid fa-won-sign"></i></div>
+                    <span class="quick-label" id="qMenu2">채우기</span>
                 </div>
-
-                <div class="network-card" onclick="openProcessModal('micro')">
-                    <div class="card-top-center"><i class="fa-solid fa-hand-holding-dollar card-icon-3"></i></div>
-                    <div>
-                        <div class="card-title" data-i18n="net3_title">마이크로대출</div>
-                        <div class="card-desc" data-i18n="net3_desc">UBI 기반 무담보 소액 신용</div>
-                    </div>
+                <div class="quick-menu-item" onclick="openModal('loan')">
+                    <div class="quick-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <span class="quick-label" id="qMenu3">마이너스대출</span>
                 </div>
-
-                <div class="network-card" onclick="openProcessModal('qr')">
-                    <div class="card-top-center"><i class="fa-solid fa-qrcode card-icon-1"></i></div>
-                    <div>
-                        <div class="card-title" data-i18n="net4_title">QR결제</div>
-                        <div class="card-desc" data-i18n="net4_desc">오프라인 글로벌 상거래 에스크로</div>
-                    </div>
+                <div class="quick-menu-item" onclick="openModal('pay')">
+                    <div class="quick-icon"><i class="fa-solid fa-qrcode"></i></div>
+                    <span class="quick-label" id="qMenu4">QR결제</span>
                 </div>
             </div>
 
-            <!-- Recent Transactions -->
-            <div class="dashboard-card" style="margin-bottom: 20px;">
-                <div class="section-header" style="margin-bottom: 12px;">
-                    <h2 class="section-title" style="font-size: 17px;" data-i18n="recentTxTitle">최근 거래 내역</h2>
-                    <span class="section-sub" style="cursor: pointer;" onclick="openInfoModal('faq')" data-i18n="viewAll">전체보기</span>
+            <!-- 최근 거래 내역 -->
+            <div class="section-box">
+                <div class="section-title-row">
+                    <h3 class="section-title" id="txtHistoryTitle">최근 거래 내역</h3>
+                    <span style="font-size:12px; color:var(--text-muted); cursor:pointer;" onclick="alert('전체 내역 조회')" id="txtViewAll">전체보기</span>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8fafc; border: 1px solid var(--card-border); border-radius: 12px;">
-                        <div>
-                            <div style="font-size: 13px; font-weight: 800; color: var(--text-main);">HK ROBOT 개발 지원금</div>
-                            <div style="font-size: 11px; color: var(--text-muted);">오늘 오전 10:24</div>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-left">
+                            <div class="history-icon"><i class="fa-solid fa-robot"></i></div>
+                            <div class="history-info">
+                                <h4 id="txtHist1Title">HK-ROBOT 개발 지원금</h4>
+                                <p id="txtHist1Time">오늘 오전 10:24</p>
+                            </div>
                         </div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--accent-green);">+ 50,000,000 원</div>
+                        <div class="history-amount plus">+ 50,000,000원</div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8fafc; border: 1px solid var(--card-border); border-radius: 12px;">
-                        <div>
-                            <div style="font-size: 13px; font-weight: 800; color: var(--text-main);">스타벅스 (결제커피)</div>
-                            <div style="font-size: 11px; color: var(--text-muted);">어제 오후 2:15</div>
+                    <div class="history-item">
+                        <div class="history-left">
+                            <div class="history-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                            <div class="history-info">
+                                <h4 id="txtHist2Title">스타벅스 (블랙커피)</h4>
+                                <p id="txtHist2Time">어제 오후 2:15</p>
+                            </div>
                         </div>
-                        <div style="font-size: 13px; font-weight: 800; color: var(--danger);">- 4,500 원</div>
+                        <div class="history-amount minus">- 4,500원</div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!-- Footer Section -->
-        <footer>
-            <p class="copyright">© 2026 HK BANK. All Rights Reserved.</p>
-            <p class="socials" style="margin-bottom: 12px;" data-i18n="supportEmailText">
-                Support: support@hkwb.world
-            </p>
-            <div style="display: flex; justify-content: center; gap: 16px; align-items: center;">
-                <a href="https://www.youtube.com/@Hyekong2026" target="_blank" style="color: #ef4444; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; background: #fef2f2; padding: 8px 14px; border-radius: 10px; border: 1px solid #fecaca;">
-                    <i class="fa-brands fa-youtube"></i> YouTube
-                </a>
-                <a href="https://www.tiktok.com/@hyekong2026" target="_blank" style="color: #0f172a; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 8px 14px; border-radius: 10px; border: 1px solid #cbd5e1;">
-                    <i class="fa-brands fa-tiktok"></i> TikTok
-                </a>
-            </div>
-        </footer>
+        <!-- 하단 네비게이션 탭 -->
+        <nav class="bottom-nav">
+            <a class="nav-item active"><i class="fa-solid fa-house"></i><span id="navHome">홈</span></a>
+            <a class="nav-item" onclick="alert('자산 통합 리포트')"><i class="fa-solid fa-chart-pie"></i><span id="navAsset">자산</span></a>
+            <a class="nav-item" onclick="alert('혜택 및 UBI 분배')"><i class="fa-solid fa-bolt"></i><span id="navBenefit">혜택</span></a>
+            <a class="nav-item" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i><span id="navMenu">전체메뉴</span></a>
+        </nav>
     </div>
 
-    <!-- Slide-out Navigation Drawer -->
+    <!-- 🌟 삼선 햄버거 메뉴 서랍 (16개국어 다국어 엔진) -->
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawerOutside(event)">
         <div class="drawer-content">
             <div class="drawer-header">
-                <span class="drawer-title" data-i18n="drawerTitle">HK NAVIGATOR</span>
-                <button class="drawer-close" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+                <span class="drawer-title" id="drawerTitle">HK BANK NAVIGATOR</span>
+                <button onclick="toggleDrawer()" style="background:none;border:none;font-size:20px;cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
-            <!-- Core Legal & Compliance -->
+            <!-- 🌐 16개국어 다국어 선택 엔진 -->
             <div class="menu-group">
-                <div class="menu-group-title" data-i18n="menuGroup1Title">Core Legal & Compliance</div>
-                <div class="menu-item" onclick="openInfoModal('whitepaper')">
-                    <i class="fa-solid fa-file-contract"></i> <span data-i18n="menu_wp">백서 (Whitepaper v3.1)</span>
-                </div>
-                <div class="menu-item" onclick="openInfoModal('faq')">
-                    <i class="fa-solid fa-circle-question"></i> <span data-i18n="menu_faq">자주 묻는 질문 (FAQ)</span>
-                </div>
-                <div class="menu-item" onclick="openInfoModal('policies')">
-                    <i class="fa-solid fa-shield-halved"></i> <span data-i18n="menu_pol">3대 POLICIES (AML·KYC)</span>
-                </div>
+                <div class="menu-group-title" id="langGroupTitle">🌍 Core 16-Language Engine</div>
+                <select class="drawer-lang-select" id="langSelect" onchange="changeGlobalLanguage(this.value)">
+                    <option value="ko" selected>🇰🇷 한국어 (Korean)</option>
+                    <option value="en">🇺🇸 English (영어)</option>
+                    <option value="zh">🇨🇳 中文 (중국어)</option>
+                    <option value="ja">🇯🇵 日本語 (일본어)</option>
+                    <option value="ru">🇷🇺 Русский (러시아어)</option>
+                    <option value="vi">🇻🇳 Tiếng Việt (베트남어)</option>
+                    <option value="th">🇹🇭 ไทย (태국어)</option>
+                    <option value="id">🇮🇩 Bahasa Indonesia (인도네시아어)</option>
+                    <option value="ps">🇵🇸 العربية (팔레스타인/아랍어)</option>
+                    <option value="de">🇩🇪 Deutsch (독일어)</option>
+                    <option value="it">🇮🇹 Italiano (이탈리아어)</option>
+                    <option value="fr">🇫🇷 Français (프랑스어)</option>
+                    <option value="yo">🇳🇬 Yorùbá (나이지리아)</option>
+                    <option value="pcm">🇨🇲 Pidgin (카메룬)</option>
+                    <option value="zu">🇿🇦 isiZulu (남아공)</option>
+                    <option value="es">🇪🇸 Español (스페인어)</option>
+                    <option value="hi">🇮🇳 हिन्दी (힌디어)</option>
+                </select>
             </div>
 
+            <!-- 🌟 9대 미래 혁신 생태계 허브 -->
             <div class="menu-group">
-                <div class="menu-group-title" data-i18n="menuGroup2Title">HK Global Ecosystem Hubs</div>
-                <a class="menu-item" href="https://ljw2358.github.io/HK-ROBOT" target="_blank">
-                    <i class="fa-solid fa-robot"></i> <span data-i18n="hub_robot">로봇: HK-ROBOT</span>
-                </a>
-                <a class="menu-item" href="https://ljw2358.github.io/HK-NEXUS" target="_blank">
-                    <i class="fa-solid fa-glasses"></i> <span data-i18n="hub_nexus">스마트 글래스: HK-NEXUS</span>
-                </a>
-                <a class="menu-item" href="https://ljw2358.github.io/HK-UAM" target="_blank">
-                    <i class="fa-solid fa-helicopter" style="color:var(--accent-gold);"></i> <span data-i18n="hub_uam">UAM: HK-UAM</span>
-                </a>
+                <div class="menu-group-title" id="ecoGroupTitle">HK 9 Major Future Ecosystems</div>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-WORLDBANK" target="_blank"><i class="fa-solid fa-building-columns" style="color:#0064ff;"></i> <span id="eco1">1. 웹3 디지털 뱅킹 (HK BANK)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-ROBOT" target="_blank"><i class="fa-solid fa-robot" style="color:#00c853;"></i> <span id="eco2">2. 휴머노이드 로봇 (HK-ROBOT)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-NEXUS" target="_blank"><i class="fa-solid fa-glasses" style="color:#9c27b0;"></i> <span id="eco3">3. AI 스마트 글래스 (HK-NEXUS)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-UAM" target="_blank"><i class="fa-solid fa-helicopter" style="color:#ff9800;"></i> <span id="eco4">4. 도심항공교통 (HK-UAM)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-QUANTUM" target="_blank"><i class="fa-solid fa-dna" style="color:#00bcd4;"></i> <span id="eco5">5. 퀀텀 바이오 (HK-QUANTUM)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-SPACE" target="_blank"><i class="fa-solid fa-rocket" style="color:#673ab7;"></i> <span id="eco6">6. 우주항공 (HK-SPACE)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-FUSION" target="_blank"><i class="fa-solid fa-sun" style="color:#ff5722;"></i> <span id="eco7">7. 인공태양 핵융합 (HK-FUSION)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-DEFENSE" target="_blank"><i class="fa-solid fa-shield-halved" style="color:#607d8b;"></i> <span id="eco8">8. 첨단 방산산업 (HK-DEFENSE)</span></a>
+                <a class="menu-item" href="https://ljw2358.github.io/HK-MEGA" target="_blank"><i class="fa-solid fa-city" style="color:#e91e63;"></i> <span id="eco9">9. 해오름 특별시 (HK-MEGA CITY)</span></a>
             </div>
         </div>
     </div>
 
-    <!-- Modals Container -->
-    <div class="modal" id="appModal">
-        <div class="modal-body">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">프로세스 구동</h3>
-                <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <!-- 모달 팝업 창 -->
+    <div class="modal" id="bankModal" onclick="closeModalOutside(event)">
+        <div class="modal-sheet">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h3 id="modalTitle" style="font-size:18px; font-weight:700;">금융 작업</h3>
+                <button onclick="closeModal()" style="background:none;border:none;font-size:20px;cursor:pointer;"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div id="modalContent"></div>
+            <div id="modalBodyContent"></div>
         </div>
     </div>
 
-    <!-- JavaScript Platform Logic & 25-Nation Full Translation Engines -->
+    <!-- 스크립트 및 16개 국어 전체 실시간 번역 사전 데이터베이스 엔진 -->
     <script>
-        let baseInterest = 12450892.600000;
-        let currentWalletBalance = 314159000;
-        let currentLang = 'ko';
-        let generatedAuthCode = "123456";
-        let activeProcessId = null;
-        let activeModalType = null;
+        let currentBalance = 314159000;
 
         const translations = {
             ko: {
-                headerSubText: "글로벌 슈퍼 뱅킹 플랫폼", langEngineLabel: "25개국 글로벌 다국어 엔진", subTitle: "오늘도 안전하고 스마트한 금융 생활을 지원합니다.",
-                dashTitle: "HK 주가계좌통장", checkDetail: "총금액 보기", wonUnit: "원", transferBtn: "송금하기", depositBtn: "채우기",
-                piDashTitle: "Pi 자산 & 메인네비스", apyRate: "3년 31.41% 복리", piSyncLabel: "보유 PI 수량 원장 동기화",
-                manageBtn: "관리하기", instantMainnetBtn: "즉시 환전", recentTxTitle: "최근 거래 내역", viewAll: "전체보기",
-                net1_title: "이체", net1_desc: "안전한 멀티시그 송금", net2_title: "채우기", net2_desc: "잔액 충전 및 예치 볼트",
-                net3_title: "마이크로대출", net3_desc: "UBI 기반 무담보 소액 신용", net4_title: "QR결제", net4_desc: "오프라인 글로벌 상거래 에스크로",
-                mainnetAlert: "테스트 파이 원장 동기화 및 즉시 환전 신청이 완료되었습니다!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "핵심 법률 및 컴플라이언스", menuGroup2Title: "HK 글로벌 생태계 허브",
-                menu_wp: "백서 (Whitepaper v3.1)", menu_faq: "자주 묻는 질문 (FAQ)", menu_pol: "3대 POLICIES (AML·KYC)",
-                hub_robot: "로봇: HK-ROBOT", hub_nexus: "스마트 글래스: HK-NEXUS", hub_uam: "도심항공교통: HK-UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "글로벌 슈퍼 뱅킹 플랫폼 👋",
+                subWelcome: "오늘도 안전하고 스마트한 금융 생활을 지원합니다.",
+                accountName: "HK 주거래통장",
+                withdrawable: "출금가능",
+                btnTransfer: "송금하기",
+                btnDeposit: "채우기",
+                piVaultName: "Pi 신탁 & 세이프박스",
+                piRate: "연 31.41% 복리",
+                btnManage: "관리하기",
+                btnSwap: "즉시 환전",
+                qMenu1: "이체",
+                qMenu2: "채우기",
+                qMenu3: "마이너스대출",
+                qMenu4: "QR결제",
+                historyTitle: "최근 거래 내역",
+                viewAll: "전체보기",
+                hist1Title: "HK-ROBOT 개발 지원금",
+                hist1Time: "오늘 오전 10:24",
+                hist2Title: "스타벅스 (블랙커피)",
+                hist2Time: "어제 오후 2:15",
+                navHome: "홈",
+                navAsset: "자산",
+                navBenefit: "혜택",
+                navMenu: "전체메뉴"
             },
             en: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based unsecured credit", net4_title: "QR Pay", net4_desc: "Offline commerce escrow",
-                mainnetAlert: "Mainnet synchronization and instant swap completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper v3.1", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot: HK-ROBOT", hub_nexus: "Smart Glasses: HK-NEXUS", hub_uam: "UAM: HK-UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Global Super Banking Platform 👋",
+                subWelcome: "Supporting your safe and smart financial life every day.",
+                accountName: "HK Main Account",
+                withdrawable: "Available",
+                btnTransfer: "Transfer",
+                btnDeposit: "Deposit",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Manage",
+                btnSwap: "Instant Swap",
+                qMenu1: "Transfer",
+                qMenu2: "Deposit",
+                qMenu3: "Credit Loan",
+                qMenu4: "QR Pay",
+                historyTitle: "Recent Transactions",
+                viewAll: "View All",
+                hist1Title: "HK-ROBOT R&D Subsidy",
+                hist1Time: "Today 10:24 AM",
+                hist2Title: "Starbucks (Black Coffee)",
+                hist2Time: "Yesterday 2:15 PM",
+                navHome: "Home",
+                navAsset: "Assets",
+                navBenefit: "Benefits",
+                navMenu: "Menu"
             },
             zh: {
-                headerSubText: "全球超级银行平台", langEngineLabel: "25国多语言引擎", subTitle: "支持您安全智能的金融生活。",
-                dashTitle: "HK 股票账户", checkDetail: "查看总额", wonUnit: "韩元", transferBtn: "转账", depositBtn: "充值",
-                piDashTitle: "Pi 资产与主网", apyRate: "3年 31.41% 复利", piSyncLabel: "持有 Pi 账本同步",
-                manageBtn: "管理", instantMainnetBtn: "即时兑换", recentTxTitle: "最近交易", viewAll: "查看全部",
-                net1_title: "转账", net1_desc: "安全多签转账", net2_title: "充值", net2_desc: "余额充值与金库",
-                net3_title: "小额贷款", net3_desc: "UBI 无担保信用", net4_title: "QR 支付", net4_desc: "离线商业托管",
-                mainnetAlert: "主网同步与即时兑换申请已完成！",
-                drawerTitle: "HK 导航器", menuGroup1Title: "核心法律与合规", menuGroup2Title: "HK 全球生态枢纽",
-                menu_wp: "白皮书 v3.1", menu_faq: "常见问题", menu_pol: "三大政策",
-                hub_robot: "机器人: HK-ROBOT", hub_nexus: "智能眼镜: HK-NEXUS", hub_uam: "城市空中交通: HK-UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "全球超级银行平台 👋",
+                subWelcome: "每天支持您安全、智能的金融生活。",
+                accountName: "HK 主账户",
+                withdrawable: "可提现",
+                btnTransfer: "转账",
+                btnDeposit: "充值",
+                piVaultName: "Pi 信托与保险箱",
+                piRate: "年化 31.41%",
+                btnManage: "管理",
+                btnSwap: "即时兑换",
+                qMenu1: "转账",
+                qMenu2: "充值",
+                qMenu3: "信用贷款",
+                qMenu4: "QR支付",
+                historyTitle: "近期交易",
+                viewAll: "查看全部",
+                hist1Title: "HK-ROBOT 研发补贴",
+                hist1Time: "今天上午 10:24",
+                hist2Title: "星巴克 (黑咖啡)",
+                hist2Time: "昨天下午 2:15",
+                navHome: "首页",
+                navAsset: "资产",
+                navBenefit: "福利",
+                navMenu: "菜单"
             },
             ja: {
-                headerSubText: "グローバルスーパーバンキングプラットフォーム", langEngineLabel: "25カ国対応言語エンジン", subTitle: "安全でスマートな金融生活をサポートします。",
-                dashTitle: "HK 株式口座", checkDetail: "総額表示", wonUnit: "KRW", transferBtn: "送金する", depositBtn: "チャージ",
-                piDashTitle: "Pi 資産 ＆ メインネット", apyRate: "3年 31.41% 複利", piSyncLabel: "保有 Pi 台帳同期",
-                manageBtn: "管理する", instantMainnetBtn: "即時換金", recentTxTitle: "最近の取引", viewAll: "すべて見る",
-                net1_title: "送金", net1_desc: "安全なマルチシグ送金", net2_title: "チャージ", net2_desc: "残高チャージ＆ヴォルト",
-                net3_title: "マイクロローン", net3_desc: "UBI 無担保小口信用", net4_title: "QR決済", net4_desc: "オフライン商業エスクロー",
-                mainnetAlert: "メインネット同期および即時換金申請が完了しました！",
-                drawerTitle: "HK ナビゲーター", menuGroup1Title: "コンプライアンス", menuGroup2Title: "HK エコシステムハブ",
-                menu_wp: "ホワイトペーパー v3.1", menu_faq: "よくある質問", menu_pol: "3大ポリシー",
-                hub_robot: "ロボット: HK-ROBOT", hub_nexus: "スマートグラス: HK-NEXUS", hub_uam: "UAM: HK-UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "グローバルスーパーバンキングプラットフォーム 👋",
+                subWelcome: "安全でスマートな金融生活を毎日サポートします。",
+                accountName: "HK メイン口座",
+                withdrawable: "出金可能",
+                btnTransfer: "送金",
+                btnDeposit: "チャージ",
+                piVaultName: "Pi トラスト＆セーフボックス",
+                piRate: "年利 31.41%",
+                btnManage: "管理",
+                btnSwap: "即時スワップ",
+                qMenu1: "送金",
+                qMenu2: "チャージ",
+                qMenu3: "カードローン",
+                qMenu4: "QR決済",
+                historyTitle: "最近の取引履歴",
+                viewAll: "すべて見る",
+                hist1Title: "HK-ROBOT 開発支援金",
+                hist1Time: "本日 午前 10:24",
+                hist2Title: "スターバックス (ブラックコーヒー)",
+                hist2Time: "昨日 午後 2:15",
+                navHome: "ホーム",
+                navAsset: "資産",
+                navBenefit: "特典",
+                navMenu: "メニュー"
             },
             ru: {
-                headerSubText: "Глобальная супер-банковская платформа", langEngineLabel: "Языковой движок (25 стран)", subTitle: "Безопасная и умная финансовая жизнь.",
-                dashTitle: "Счет HK Stock", checkDetail: "Всего", wonUnit: "KRW", transferBtn: "Перевод", depositBtn: "Пополнить",
-                piDashTitle: "Pi активы и мейнет", apyRate: "3 года 31.41% APY", piSyncLabel: "Синхронизация реестра Pi",
-                manageBtn: "Управление", instantMainnetBtn: "Обмен", recentTxTitle: "Транзакции", viewAll: "Все",
-                net1_title: "Перевод", net1_desc: "Мультисиг перевод", net2_title: "Депозит", net2_desc: "Пополнение баланса",
-                net3_title: "Микрокредит", net3_desc: "Кредит UBI", net4_title: "QR Оплата", net4_desc: "Эскроу платежи",
-                mainnetAlert: "Запрос на синхронизацию мейнета завершен!",
-                drawerTitle: "HK НАВИГАТОР", menuGroup1Title: "Юридический комплаенс", menuGroup2Title: "Экосистема HK",
-                menu_wp: "Белая бумага", menu_faq: "FAQ", menu_pol: "Политики",
-                hub_robot: "Робот", hub_nexus: "Очки", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Глобальная супер-банковская платформа 👋",
+                subWelcome: "Безопасная и умная финансовая жизнь каждый день.",
+                accountName: "Основной счет HK",
+                withdrawable: "Доступно",
+                btnTransfer: "Перевод",
+                btnDeposit: "Пополнить",
+                piVaultName: "Pi Траст и Сейф",
+                piRate: "31.41% годовых",
+                btnManage: "Управление",
+                btnSwap: "Обмен",
+                qMenu1: "Перевод",
+                qMenu2: "Пополнить",
+                qMenu3: "Кредит",
+                qMenu4: "QR Оплата",
+                historyTitle: "История транзакций",
+                viewAll: "Все",
+                hist1Title: "Субсидия HK-ROBOT",
+                hist1Time: "Сегодня 10:24",
+                hist2Title: "Starbucks (Черный кофе)",
+                hist2Time: "Вчера 14:15",
+                navHome: "Главная",
+                navAsset: "Активы",
+                navBenefit: "Бонусы",
+                navMenu: "Меню"
             },
             vi: {
-                headerSubText: "Nền tảng ngân hàng siêu cấp toàn cầu", langEngineLabel: "Công cụ ngôn ngữ 25 quốc gia", subTitle: "Hỗ trợ cuộc sống tài chính an toàn và thông minh.",
-                dashTitle: "Tài khoản chứng khoán HK", checkDetail: "Xem tổng", wonUnit: "KRW", transferBtn: "Chuyển tiền", depositBtn: "Nạp tiền",
-                piDashTitle: "Tài sản Pi & Mainnet", apyRate: "3 năm 31.41% APY", piSyncLabel: "Đồng bộ sổ cái Pi",
-                manageBtn: "Quản lý", instantMainnetBtn: "Đổi ngay", recentTxTitle: "Giao dịch gần đây", viewAll: "Xem tất cả",
-                net1_title: "Chuyển khoản", net1_desc: "Chuyển đa chữ ký an toàn", net2_title: "Nạp tiền", net2_desc: "Nạp số dư & két",
-                net3_title: "Cho vay vi mô", net3_desc: "Tín dụng UBI", net4_title: "Thanh toán QR", net4_desc: "Ký quỹ thương mại",
-                mainnetAlert: "Yêu cầu đồng bộ Mainnet thành công!",
-                drawerTitle: "HK ĐIỀU HƯỚNG", menuGroup1Title: "Pháp lý & Tuân thủ", menuGroup2Title: "Trung tâm sinh thái",
-                menu_wp: "Sách trắng", menu_faq: "FAQ", menu_pol: "Chính sách",
-                hub_robot: "Robot", hub_nexus: "Kính", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Nền tảng Ngân hàng Siêu cấp Toàn cầu 👋",
+                subWelcome: "Hỗ trợ cuộc sống tài chính an toàn và thông minh mỗi ngày.",
+                accountName: "Tài khoản chính HK",
+                withdrawable: "Có thể rút",
+                btnTransfer: "Chuyển tiền",
+                btnDeposit: "Nạp tiền",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Quản lý",
+                btnSwap: "Đổi ngay",
+                qMenu1: "Chuyển",
+                qMenu2: "Nạp",
+                qMenu3: "Vay tín chấp",
+                qMenu4: "QR Pay",
+                historyTitle: "Giao dịch gần đây",
+                viewAll: "Xem tất cả",
+                hist1Title: "Trợ cấp R&D HK-ROBOT",
+                hist1Time: "Hôm nay 10:24 SA",
+                hist2Title: "Starbucks (Cà phê đen)",
+                hist2Time: "Hôm qua 2:15 CH",
+                navHome: "Trang chủ",
+                navAsset: "Tài sản",
+                navBenefit: "Ưu đãi",
+                navMenu: "Menu"
             },
             th: {
-                headerSubText: "แพลตฟอร์มธนาคารซูเปอร์ระดับโลก", langEngineLabel: "เครื่องมือภาษา 25 ประเทศ", subTitle: "สนับสนุนชีวิตทางการเงินที่ปลอดภัยและชาญฉลาด",
-                dashTitle: "บัญชีหุ้น HK", checkDetail: "ดูยอดรวม", wonUnit: "KRW", transferBtn: "โอนเงิน", depositBtn: "เติมเงิน",
-                piDashTitle: "สินทรัพย์ Pi & เมน넷", apyRate: "3 ปี 31.41% APY", piSyncLabel: "ซิงค์บัญชี Pi",
-                manageBtn: "จัดการ", instantMainnetBtn: "แลกเปลี่ยนทันที", recentTxTitle: "ธุรกรรมล่าสุด", viewAll: "ดูทั้งหมด",
-                net1_title: "โอนเงิน", net1_desc: "โอน Multisig ปลอดภัย", net2_title: "เติมเงิน", net2_desc: "เติมยอดคงเหลือและห้องนิรภัย",
-                net3_title: "สินเชื่อรายย่อย", net3_desc: "เครดิต UBI", net4_title: "QR เพย์", net4_desc: "เอสโครว์การค้า",
-                mainnetAlert: "คำขอซิงค์ Mainnet สำเร็จแล้ว!",
-                drawerTitle: "HK เนวิเกเตอร์", menuGroup1Title: "กฎหมายและการปฏิบัติ", menuGroup2Title: "ศูนย์กลางระบบนิเวศ",
-                menu_wp: "ไวท์เพปเปอร์", menu_faq: "FAQ", menu_pol: "นโยบาย",
-                hub_robot: "หุ่นยนต์", hub_nexus: "แว่นตา", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "แพลตฟอร์มธนาคารซูเปอร์ระดับโลก 👋",
+                subWelcome: "สนับสนุนชีวิตทางการเงินที่ปลอดภัยและชาญฉลาดของคุณทุกวัน",
+                accountName: "บัญชีหลัก HK",
+                withdrawable: "ถอนได้",
+                btnTransfer: "โอนเงิน",
+                btnDeposit: "เติมเงิน",
+                piVaultName: "Pi ทรัสต์ & เซฟบ็อกซ์",
+                piRate: "31.41% ต่อปี",
+                btnManage: "จัดการ",
+                btnSwap: "แลกเปลี่ยนทันที",
+                qMenu1: "โอน",
+                qMenu2: "เติม",
+                qMenu3: "สินเชื่อ",
+                qMenu4: "QR เพย์",
+                historyTitle: "ประวัติการทำธุรกรรม",
+                viewAll: "ดูทั้งหมด",
+                hist1Title: "เงินสนับสนุน HK-ROBOT",
+                hist1Time: "วันนี้ 10:24 น.",
+                hist2Title: "สตาร์벅스 (กาแฟดำ)",
+                hist2Time: "เมื่อวาน 14:15 น.",
+                navHome: "หน้าแรก",
+                navAsset: "สินทรัพย์",
+                navBenefit: "สิทธิประโยชน์",
+                navMenu: "เมนู"
             },
             id: {
-                headerSubText: "Platform Perbankan Super Global", langEngineLabel: "Mesin Bahasa 25 Negara", subTitle: "Mendukung kehidupan finansial yang aman dan cerdas.",
-                dashTitle: "Akun Saham HK", checkDetail: "Lihat Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Isi Saldo",
-                piDashTitle: "Aset Pi & Mainnet", apyRate: "3 Thn 31.41% APY", piSyncLabel: "Sinkronisasi Buku Besar Pi",
-                manageBtn: "Kelola", instantMainnetBtn: "Tukar Instan", recentTxTitle: "Transaksi Terbaru", viewAll: "Lihat Semua",
-                net1_title: "Transfer", net1_desc: "Transfer multisig aman", net2_title: "Isi Saldo", net2_desc: "Top up & vault",
-                net3_title: "Pinjaman Mikro", net3_desc: "Kredit berbasis UBI", net4_title: "Bayar QR", net4_desc: "Escrow perdagangan",
-                mainnetAlert: "Permintaan sinkronisasi Mainnet berhasil!",
-                drawerTitle: "NAVIGATOR HK", menuGroup1Title: "Hukum & Kepatuhan", menuGroup2Title: "Pusat Ekosistem",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Kebijakan",
-                hub_robot: "Robot", hub_nexus: "Kacamata", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Platform Perbankan Super Global 👋",
+                subWelcome: "Mendukung kehidupan finansial yang aman dan cerdas setiap hari.",
+                accountName: "Akun Utama HK",
+                withdrawable: "Tersedia",
+                btnTransfer: "Transfer",
+                btnDeposit: "Setor",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Kelola",
+                btnSwap: "Tukar Cepat",
+                qMenu1: "Transfer",
+                qMenu2: "Setor",
+                qMenu3: "Pinjaman",
+                qMenu4: "QR Pay",
+                historyTitle: "Transaksi Terakhir",
+                viewAll: "Lihat Semua",
+                hist1Title: "Subsidi R&D HK-ROBOT",
+                hist1Time: "Hari ini 10:24",
+                hist2Title: "Starbucks (Kopi Hitam)",
+                hist2Time: "Kemarin 14:15",
+                navHome: "Beranda",
+                navAsset: "Aset",
+                navBenefit: "Manfaat",
+                navMenu: "Menu"
             },
-            ar: {
-                headerSubText: "منصة الخدمات المصرفية الفائقة العالمية", langEngineLabel: "محرك اللغات لـ 25 دولة", subTitle: "دعم حياتك المالية الآمنة والذكية.",
-                dashTitle: "حساب أسهم HK", checkDetail: "عرض الإجمالي", wonUnit: "وون", transferBtn: "تحويل", depositBtn: "إيداع",
-                piDashTitle: "أصول Pi & الشبكة الرئيسية", apyRate: "3 سنوات 31.41% APY", piSyncLabel: "مزامنة سجل Pi",
-                manageBtn: "إدارة", instantMainnetBtn: "تبديل فوري", recentTxTitle: "المعاملات الأخيرة", viewAll: "عرض الكل",
-                net1_title: "تحويل", net1_desc: "تحويل آمن متعدد التوقيع", net2_title: "إيداع", net2_desc: "شحن الرصيد والخزنة",
-                net3_title: "قرض مصغر", net3_desc: "ائتمان قائم على UBI", net4_title: "دفع QR", net4_desc: "ضمان تجاري",
-                mainnetAlert: "تم اكتمال طلب مزامنة الشبكة الرئيسية بنجاح!",
-                drawerTitle: "الملاح HK", menuGroup1Title: "القوانين والامتثال", menuGroup2Title: "محاور النظام البيئي",
-                menu_wp: "ورقة العمل", menu_faq: "الأسئلة الشائعة", menu_pol: "السياسات",
-                hub_robot: "روبوت", hub_nexus: "نظارات", hub_uam: "طيران", supportEmailText: "Support: support@hkwb.world"
+            ps: {
+                welcome: "منصة الخدمات المصرفية العالمية الخارقة 👋",
+                subWelcome: "دعم حياتك المالية الآمنة والذكية كل يوم.",
+                accountName: "حساب HK الرئيسي",
+                withdrawable: "متاح للسحب",
+                btnTransfer: "تحويل",
+                btnDeposit: "إيداع",
+                piVaultName: "صندوق أمان Pi",
+                piRate: "عائد سنوي 31.41%",
+                btnManage: "إدارة",
+                btnSwap: "تبديل فوري",
+                qMenu1: "تحويل",
+                qMenu2: "إيداع",
+                qMenu3: "قرض",
+                qMenu4: "دفع QR",
+                historyTitle: "المعاملات الأخيرة",
+                viewAll: "عرض الكل",
+                hist1Title: "دعم تطوير HK-ROBOT",
+                hist1Time: "اليوم 10:24 صباحاً",
+                hist2Title: "ستاربكس (قهوة سوداء)",
+                hist2Time: "أمس 2:15 ظهراً",
+                navHome: "الرئيسية",
+                navAsset: "الأصول",
+                navBenefit: "المزايا",
+                navMenu: "القائمة"
             },
             de: {
-                headerSubText: "Globale Super-Banking-Plattform", langEngineLabel: "25-Nationen-Sprach-Engine", subTitle: "Unterstützung für Ihr sicheres und smartes Finanzleben.",
-                dashTitle: "HK Aktienkonto", checkDetail: "Gesamt", wonUnit: "KRW", transferBtn: "Überweisen", depositBtn: "Einzahlen",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3 J. 31,41% APY", piSyncLabel: "Pi-Ledger-Sync",
-                manageBtn: "Verwalten", instantMainnetBtn: "Soforttausch", recentTxTitle: "Transaktionen", viewAll: "Alle",
-                net1_title: "Überweisung", net1_desc: "Sicherer Multisig-Transfer", net2_title: "Einzahlen", net2_desc: "Guthaben & Vault",
-                net3_title: "Mikrokredit", net3_desc: "UBI-Kredit", net4_title: "QR Pay", net4_desc: "Handels-Escrow",
-                mainnetAlert: "Mainnet-Synchronisierung erfolgreich!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Recht & Compliance", menuGroup2Title: "Ökosystem Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Richtlinien",
-                hub_robot: "Roboter", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Globale Super-Banking-Plattform 👋",
+                subWelcome: "Unterstützung für Ihr sicheres und intelligentes Finanzleben jeden Tag.",
+                accountName: "HK Hauptkonto",
+                withdrawable: "Verfügbar",
+                btnTransfer: "Überweisen",
+                btnDeposit: "Einzahlen",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31,41% Zinsen",
+                btnManage: "Verwalten",
+                btnSwap: "Soforttausch",
+                qMenu1: "Überweisung",
+                qMenu2: "Einzahlen",
+                qMenu3: "Kredit",
+                qMenu4: "QR-Pay",
+                historyTitle: "Letzte Transaktionen",
+                viewAll: "Alle anzeigen",
+                hist1Title: "HK-ROBOT Forschungsförderung",
+                hist1Time: "Heute 10:24 Uhr",
+                hist2Title: "Starbucks (Schwarzer Kaffee)",
+                hist2Time: "Gestern 14:15 Uhr",
+                navHome: "Start",
+                navAsset: "Vermögen",
+                navBenefit: "Vorteile",
+                navMenu: "Menü"
             },
             it: {
-                headerSubText: "Piattaforma di Super Banking Globale", langEngineLabel: "Motore linguistico a 25 nazioni", subTitle: "Supporto per la tua vita finanziaria sicura.",
-                dashTitle: "Conto Azionario HK", checkDetail: "Totale", wonUnit: "KRW", transferBtn: "Trasferisci", depositBtn: "Deposita",
-                piDashTitle: "Asset Pi & Mainnet", apyRate: "3 anni 31,41% APY", piSyncLabel: "Sincronizzazione registro Pi",
-                manageBtn: "Gestisci", instantMainnetBtn: "Scambio istantaneo", recentTxTitle: "Transazioni", viewAll: "Vedi tutti",
-                net1_title: "Trasferimento", net1_desc: "Trasferimento multisig sicuro", net2_title: "Deposito", net2_desc: "Ricarica e vault",
-                net3_title: "Microcredito", net3_desc: "Credito UBI", net4_title: "Pagamento QR", net4_desc: "Escrow commerciale",
-                mainnetAlert: "Sincronizzazione Mainnet completata!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Conformità Legale", menuGroup2Title: "Hub dell'Ecosistema",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Politiche",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Piattaforma di Super Banking Globale 👋",
+                subWelcome: "Supporta la tua vita finanziaria sicura e intelligente ogni giorno.",
+                accountName: "Conto Principale HK",
+                withdrawable: "Disponibile",
+                btnTransfer: "Trasferisci",
+                btnDeposit: "Deposita",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Gestisci",
+                btnSwap: "Scambio Immediato",
+                qMenu1: "Trasferisci",
+                qMenu2: "Deposita",
+                qMenu3: "Prestito",
+                qMenu4: "QR Pay",
+                historyTitle: "Transazioni Recenti",
+                viewAll: "Mostra Tutto",
+                hist1Title: "Sussidio R&D HK-ROBOT",
+                hist1Time: "Oggi 10:24",
+                hist2Title: "Starbucks (Caffè Nero)",
+                hist2Time: "Ieri 14:15",
+                navHome: "Home",
+                navAsset: "Patrimonio",
+                navBenefit: "Vantaggi",
+                navMenu: "Menu"
             },
             fr: {
-                headerSubText: "Plateforme bancaire mondiale", langEngineLabel: "Moteur multilingue 25 nations", subTitle: "Soutien à votre vie financière sécurisée.",
-                dashTitle: "Compte Actions HK", checkDetail: "Voir total", wonUnit: "KRW", transferBtn: "Transférer", depositBtn: "Déposer",
-                piDashTitle: "Actifs Pi & Mainnet", apyRate: "3 ans 31,41% APY", piSyncLabel: "Synchro registre Pi",
-                manageBtn: "Gérer", instantMainnetBtn: "Échange instantané", recentTxTitle: "Transactions", viewAll: "Voir tout",
-                net1_title: "Transfert", net1_desc: "Transfert multisig sécurisé", net2_title: "Dépôt", net2_desc: "Recharge & coffre",
-                net3_title: "Microcrédit", net3_desc: "Crédit UBI", net4_title: "Paiement QR", net4_desc: "Séquestre commercial",
-                mainnetAlert: "Synchronisation Mainnet réussie !",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Conformité Légale", menuGroup2Title: "Hubs de l'Écosystème",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Politiques",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Plateforme de Super Banque Mondiale 👋",
+                subWelcome: "Soutenir votre vie financière sûre et intelligente au quotidien.",
+                accountName: "Compte Principal HK",
+                withdrawable: "Disponible",
+                btnTransfer: "Transférer",
+                btnDeposit: "Déposer",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Gérer",
+                btnSwap: "Échange Instantané",
+                qMenu1: "Transfert",
+                qMenu2: "Dépôt",
+                qMenu3: "Crédit",
+                qMenu4: "QR Pay",
+                historyTitle: "Transactions Récents",
+                viewAll: "Tout Voir",
+                hist1Title: "Subvention R&D HK-ROBOT",
+                hist1Time: "Aujourd'hui 10:24",
+                hist2Title: "Starbucks (Café Noir)",
+                hist2Time: "Hier 14:15",
+                navHome: "Accueil",
+                navAsset: "Actifs",
+                navBenefit: "Avantages",
+                navMenu: "Menu"
             },
-            ng: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based credit", net4_title: "QR Pay", net4_desc: "Commerce escrow",
-                mainnetAlert: "Mainnet synchronization and instant swap completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper v3.1", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot: HK-ROBOT", hub_nexus: "Smart Glasses: HK-NEXUS", hub_uam: "UAM: HK-UAM", supportEmailText: "Support: support@hkwb.world"
+            yo: {
+                welcome: "Eto Banki Agbaye Super 👋",
+                subWelcome: "Agbekalẹ igbesi aye inawo to daju ati ti o gbọn lojoojumọ.",
+                accountName: "Account HK Akọkọ",
+                withdrawable: "To wa fun yiyọ",
+                btnTransfer: "Riran Owo",
+                btnDeposit: "Fikun Owo",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Ṣakoso",
+                btnSwap: "Iṣiparọ Kiakia",
+                qMenu1: "Riran Owo",
+                qMenu2: "Fikun Owo",
+                qMenu3: "Agbin Owo",
+                qMenu4: "QR Pay",
+                historyTitle: "Awọn Isọtẹlẹ Owo Titun",
+                viewAll: "Awo Gbogbo",
+                hist1Title: "Owo Idagbasoke HK-ROBOT",
+                hist1Time: "Loni Aago 10:24",
+                hist2Title: "Starbucks (Kọfi Dudu)",
+                hist2Time: "Ana Aago 2:15",
+                navHome: "Ile",
+                navAsset: "Awọn Dukia",
+                navBenefit: "Awọn Anfaani",
+                navMenu: "Eto"
             },
-            cm: {
-                headerSubText: "Plateforme bancaire mondiale", langEngineLabel: "Moteur multilingue 25 nations", subTitle: "Soutien à votre vie financière sécurisée.",
-                dashTitle: "Compte Actions HK", checkDetail: "Voir total", wonUnit: "KRW", transferBtn: "Transférer", depositBtn: "Déposer",
-                piDashTitle: "Actifs Pi & Mainnet", apyRate: "3 ans 31,41% APY", piSyncLabel: "Synchro registre Pi",
-                manageBtn: "Gérer", instantMainnetBtn: "Échange", recentTxTitle: "Transactions", viewAll: "Voir tout",
-                net1_title: "Transfert", net1_desc: "Transfert sécurisé", net2_title: "Dépôt", net2_desc: "Recharge",
-                net3_title: "Microcrédit", net3_desc: "Crédit UBI", net4_title: "Paiement QR", net4_desc: "Séquestre",
-                mainnetAlert: "Synchronisation réussie !",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Conformité", menuGroup2Title: "Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Politiques",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+            pcm: {
+                welcome: "Global Super Banking Platform 👋",
+                subWelcome: "Dey kam support ya safe and smart money life everyday.",
+                accountName: "HK Main Account",
+                withdrawable: "Dey ready for comot",
+                btnTransfer: "Send Money",
+                btnDeposit: "Put Money",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Arrange am",
+                btnSwap: "Change sharp sharp",
+                qMenu1: "Send",
+                qMenu2: "Put",
+                qMenu3: "Borrow Money",
+                qMenu4: "QR Pay",
+                historyTitle: "Recent Transactions",
+                viewAll: "See All",
+                hist1Title: "HK-ROBOT Money Support",
+                hist1Time: "Today 10:24 AM",
+                hist2Title: "Starbucks (Black Coffee)",
+                hist2Time: "Yesterday 2:15 PM",
+                navHome: "Home",
+                navAsset: "Assets",
+                navBenefit: "Gain",
+                navMenu: "Menu"
             },
-            za: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based credit", net4_title: "QR Pay", net4_desc: "Commerce escrow",
-                mainnetAlert: "Mainnet synchronization completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            hi: {
-                headerSubText: "वैश्विक सुपर बैंकिंग प्लेटफॉर्म", langEngineLabel: "25-राष्ट्र भाषा इंजन", subTitle: "आपके सुरक्षित और स्मार्ट वित्तीय जीवन का समर्थन।",
-                dashTitle: "HK स्टॉक खाता", checkDetail: "कुल देखें", wonUnit: "KRW", transferBtn: "स्थानांतरण", depositBtn: "जमा करें",
-                piDashTitle: "Pi परिसंपत्तियाँ और मेननेट", apyRate: "3 वर्ष 31.41% APY", piSyncLabel: "Pi लेज़र सिंक",
-                manageBtn: "प्रबंधित करें", instantMainnetBtn: "तत्काल स्वैप", recentTxTitle: "हाल के लेनदेन", viewAll: "सभी देखें",
-                net1_title: "स्थानांतरण", net1_desc: "सुरक्षित ट्रांसफर", net2_title: "जमा", net2_desc: "बैलेंस टॉप-अप",
-                net3_title: "सूक्ष्म ऋण", net3_desc: "UBI क्रेडिट", net4_title: "QR पे", net4_desc: "कॉमर्स एस्क्रो",
-                mainnetAlert: "मेननेट सिंक्रोनाइज़ेशन सफलतापूर्वक पूरा हुआ!",
-                drawerTitle: "HK नेविगेटर", menuGroup1Title: "कानूनी और अनुपालन", menuGroup2Title: "पारिस्थितिकी तंत्र केंद्र",
-                menu_wp: "श्वेतपत्र", menu_faq: "FAQ", menu_pol: "नीतियां",
-                hub_robot: "रोबोट", hub_nexus: "स्मार्ट ग्लास", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+            zu: {
+                welcome: "Isikhungo Sebhange Esinkulu Sasezweni 👋",
+                subWelcome: "Sisekela impilo yakho yezezimali ephephile nehlakaniphile nsuku zonke.",
+                accountName: "I-Akhawunti Enkulu Ye-HK",
+                withdrawable: "Iyayitholakala",
+                btnTransfer: "Thumela",
+                btnDeposit: "Faka Imali",
+                piVaultName: "I-Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Phatha",
+                btnSwap: "Shintsha Manje",
+                qMenu1: "Thumela",
+                qMenu2: "Faka Imali",
+                qMenu3: "Inkokhelo",
+                qMenu4: "I-QR Pay",
+                historyTitle: "Ukuthengiselana Kwakamuva",
+                viewAll: "Buka Konke",
+                hist1Title: "Uxhaso Lwe-HK-ROBOT",
+                hist1Time: "Namuhla 10:24 AM",
+                hist2Title: "Starbucks (Ikhofi Elimnyama)",
+                hist2Time: "Izolo 2:15 PM",
+                navHome: "Ikhaya",
+                navAsset: "Inceba",
+                navBenefit: "Izinketho",
+                navMenu: "Iimenyu"
             },
             es: {
-                headerSubText: "Plataforma de Superbanca Global", langEngineLabel: "Motor de idioma de 25 naciones", subTitle: "Apoyando tu vida financiera segura e inteligente.",
-                dashTitle: "Cuenta de Valores HK", checkDetail: "Ver Total", wonUnit: "KRW", transferBtn: "Transferir", depositBtn: "Depositar",
-                piDashTitle: "Activos Pi y Mainnet", apyRate: "3 años 31.41% APY", piSyncLabel: "Sincronización Pi",
-                manageBtn: "Gestionar", instantMainnetBtn: "Cambio instantáneo", recentTxTitle: "Transacciones", viewAll: "Ver todo",
-                net1_title: "Transferencia", net1_desc: "Transferencia segura", net2_title: "Depósito", net2_desc: "Recarga de saldo",
-                net3_title: "Microcrédito", net3_desc: "Crédito UBI", net4_title: "QR Pay", net4_desc: "Fideicomiso comercial",
-                mainnetAlert: "¡Sincronización de Mainnet completada con éxito!",
-                drawerTitle: "HK NAVEGADOR", menuGroup1Title: "Cumplimiento Legal", menuGroup2Title: "Centros del Ecosistema",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Políticas",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+                welcome: "Plataforma de Súper Banca Global 👋",
+                subWelcome: "Apoyando su vida financiera segura e inteligente todos los días.",
+                accountName: "Cuenta Principal HK",
+                withdrawable: "Disponible",
+                btnTransfer: "Transferir",
+                btnDeposit: "Depositar",
+                piVaultName: "Pi Trust & SafeBox",
+                piRate: "31.41% APY",
+                btnManage: "Gestionar",
+                btnSwap: "Intercambio Instantáneo",
+                qMenu1: "Transferir",
+                qMenu2: "Depositar",
+                qMenu3: "Crédito",
+                qMenu4: "Pago QR",
+                historyTitle: "Transacciones Recientes",
+                viewAll: "Ver Todo",
+                hist1Title: "Subsidio de I+D HK-ROBOT",
+                hist1Time: "Hoy 10:24 AM",
+                hist2Title: "Starbucks (Café Negro)",
+                hist2Time: "Ayer 2:15 PM",
+                navHome: "Inicio",
+                navAsset: "Activos",
+                navBenefit: "Beneficios",
+                navMenu: "Menú"
             },
-            br: {
-                headerSubText: "Plataforma Global de Super Banking", langEngineLabel: "Motor de Idiomas de 25 Países", subTitle: "Apoiando sua vida financeira segura e inteligente.",
-                dashTitle: "Conta de Ações HK", checkDetail: "Ver Total", wonUnit: "KRW", transferBtn: "Transferir", depositBtn: "Depositar",
-                piDashTitle: "Ativos Pi & Mainnet", apyRate: "3 Anos 31.41% APY", piSyncLabel: "Sincronização Pi",
-                manageBtn: "Gerenciar", instantMainnetBtn: "Troca Instantânea", recentTxTitle: "Transações Recentes", viewAll: "Ver Tudo",
-                net1_title: "Transferência", net1_desc: "Transferência segura", net2_title: "Depósito", net2_desc: "Recarga de saldo",
-                net3_title: "Microcrédito", net3_desc: "Crédito UBI", net4_title: "QR Pay", net4_desc: "Escrow comercial",
-                mainnetAlert: "Sincronização da Mainnet concluída com sucesso!",
-                drawerTitle: "HK NAVEGADOR", menuGroup1Title: "Conformidade Legal", menuGroup2Title: "Hubs do Ecossistema",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Políticas",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            pk: {
-                headerSubText: "عالمی سپر بینکنگ پلیٹ فارم", langEngineLabel: "25 ممالک کی لینگویج انجن", subTitle: "آپ کی محفوظ اور سمارٹ مالیاتی زندگی کی حمایت۔",
-                dashTitle: "HK اسٹاک اکاؤنٹ", checkDetail: "کل دیکھیں", wonUnit: "KRW", transferBtn: "منتقل کریں", depositBtn: "جمع کریں",
-                piDashTitle: "Pi اثاثے اور مین نیٹ", apyRate: "3 سال 31.41% APY", piSyncLabel: "Pi لیجر مطابقت",
-                manageBtn: "انتظام کریں", instantMainnetBtn: "فوری تبادلہ", recentTxTitle: "حالیہ لین دین", viewAll: "سب دیکھیں",
-                net1_title: "منتقلی", net1_desc: "محفوظ ٹرانسفر", net2_title: "جمع", net2_desc: "بیلنس ٹاپ اپ",
-                net3_title: "مائیکرو لون", net3_desc: "UBI کریڈٹ", net4_title: "QR پے", net4_desc: "कॉमर्स एस्क्रो",
-                mainnetAlert: "مین نیٹ کی مطابقت کامیابی کے ساتھ مکمل ہو گئی!",
-                drawerTitle: "HK نیویگیٹر", menuGroup1Title: "قانون اور تعمیل", menuGroup2Title: "ایکوسسٹم ہبز",
-                menu_wp: "وائٹ پیپر", menu_faq: "FAQ", menu_pol: "پالیسیاں",
-                hub_robot: "روبوٹ", hub_nexus: "سمارٹ گلاسز", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            bn: {
-                headerSubText: "গ্লোবাল সুপার ব্যাংকিং প্ল্যাটফর্ম", langEngineLabel: "২৫-জাতির ভাষা ইঞ্জিন", subTitle: "আপনার নিরাপদ এবং স্মার্ট আর্থিক জীবন সমর্থন করে।",
-                dashTitle: "HK স্টক অ্যাকাউন্ট", checkDetail: "মোট দেখুন", wonUnit: "KRW", transferBtn: "স্থানান্তর", depositBtn: "জমা",
-                piDashTitle: "Pi সম্পদ এবং মেইননেট", apyRate: "৩ বছর ৩১.৪১% APY", piSyncLabel: "Pi লেজার সিঙ্ক",
-                manageBtn: "পরিচালনা", instantMainnetBtn: "তাত্ক্ষণিক সোয়াপ", recentTxTitle: "সাম্প্রতিক লেনদেন", viewAll: "সব দেখুন",
-                net1_title: "স্থানান্তর", net1_desc: "নিরাপদ স্থানান্তর", net2_title: "জমা", net2_desc: "ব্যালেন্স টপ-আপ",
-                net3_title: "মাইক্রোলোন", net3_desc: "UBI ক্রেডিট", net4_title: "QR পে", net4_desc: "কমার্স এসক্রো",
-                mainnetAlert: "মেইননেট সিঙ্ক্রোনাইজেশন সফলভাবে সম্পন্ন হয়েছে!",
-                drawerTitle: "HK নেভিগেटर", menuGroup1Title: "আইনি ও সম্মতি", menuGroup2Title: "ইকোসিস্টেম হাব",
-                menu_wp: "হোয়াইটপেপার", menu_faq: "প্রশ্নোত্তর", menu_pol: "নীতিমালা",
-                hub_robot: "রোবট", hub_nexus: "স্মার্ট গ্লাস", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            tr: {
-                headerSubText: "Küresel Süper Bankacılık Platformu", langEngineLabel: "25 Ülke Dil Motoru", subTitle: "Güvenli ve akıllı finansal yaşamınızı destekliyoruz.",
-                dashTitle: "HK Hisse Hesabı", checkDetail: "Toplamı Gör", wonUnit: "KRW", transferBtn: "Para Gönder", depositBtn: "Yatır",
-                piDashTitle: "Pi Varlıkları & Ana Ağ", apyRate: "3 Yıl %31.41 Bileşik", piSyncLabel: "Pi Defteri Senkronizasyonu",
-                manageBtn: "Yönet", instantMainnetBtn: "Anında Takas", recentTxTitle: "Son İşlemler", viewAll: "Tümünü Gör",
-                net1_title: "Transfer", net1_desc: "Güvenli çoklu imza transferi", net2_title: "Yatır", net2_desc: "Bakiye yükleme ve kasa",
-                net3_title: "Mikro Kredi", net3_desc: "UBI tabanlı teminatsız kredi", net4_title: "QR Ödeme", net4_desc: "Çevrimdışı ticaret emaneti",
-                mainnetAlert: "Ana ağ senkronizasyonu ve anında takas başarıyla tamamlandı!",
-                drawerTitle: "HK NAVİGATÖR", menuGroup1Title: "Yasal & Uyumluluk", menuGroup2Title: "Eko-Sistem Merkezleri",
-                menu_wp: "Teknik İnceleme", menu_faq: "SSS", menu_pol: "Politikalar",
-                hub_robot: "Robot", hub_nexus: "Akıllı Gözlük", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            ve: {
-                headerSubText: "Plataforma de Superbanca Global", langEngineLabel: "Motor de Idiomas de 25 Naciones", subTitle: "Apoyando tu vida financiera segura e inteligente.",
-                dashTitle: "Cuenta de Acciones HK", checkDetail: "Ver Total", wonUnit: "KRW", transferBtn: "Transferir", depositBtn: "Depositar",
-                piDashTitle: "Activos Pi & Mainnet", apyRate: "3 Años 31.41% APY", piSyncLabel: "Sincronización Pi",
-                manageBtn: "Gestionar", instantMainnetBtn: "Intercambio", recentTxTitle: "Transacciones", viewAll: "Ver todo",
-                net1_title: "Transferencia", net1_desc: "Transferencia segura", net2_title: "Depósito", net2_desc: "Recarga de saldo",
-                net3_title: "Microcrédito", net3_desc: "Crédito UBI", net4_title: "QR Pay", net4_desc: "Fideicomiso comercial",
-                mainnetAlert: "¡Sincronización de Mainnet completada con éxito!",
-                drawerTitle: "HK NAVEGADOR", menuGroup1Title: "Cumplimiento Legal", menuGroup2Title: "Centros del Ecosistema",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "Políticas",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            ke: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based credit", net4_title: "QR Pay", net4_desc: "Commerce escrow",
-                mainnetAlert: "Mainnet synchronization completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            et: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based credit", net4_title: "QR Pay", net4_desc: "Commerce escrow",
-                mainnetAlert: "Mainnet synchronization completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
-            },
-            ph: {
-                headerSubText: "Global Super Banking Platform", langEngineLabel: "25-Nation Language Engine", subTitle: "Supporting your smart and secure financial life.",
-                dashTitle: "HK Stock Account", checkDetail: "View Total", wonUnit: "KRW", transferBtn: "Transfer", depositBtn: "Deposit",
-                piDashTitle: "Pi Assets & Mainnet", apyRate: "3-Yr 31.41% APY", piSyncLabel: "Holding Pi Ledger Sync",
-                manageBtn: "Manage", instantMainnetBtn: "Instant Swap", recentTxTitle: "Recent Transactions", viewAll: "View All",
-                net1_title: "Transfer", net1_desc: "Secure multisig transfer", net2_title: "Deposit", net2_desc: "Balance top-up & vault",
-                net3_title: "Microloan", net3_desc: "UBI based credit", net4_title: "QR Pay", net4_desc: "Commerce escrow",
-                mainnetAlert: "Mainnet synchronization completed successfully!",
-                drawerTitle: "HK NAVIGATOR", menuGroup1Title: "Core Legal & Compliance", menuGroup2Title: "HK Global Ecosystem Hubs",
-                menu_wp: "Whitepaper", menu_faq: "FAQ", menu_pol: "3 Policies",
-                hub_robot: "Robot", hub_nexus: "Smart Glasses", hub_uam: "UAM", supportEmailText: "Support: support@hkwb.world"
+            hi: {
+                welcome: "ग्लोबल सुपर बैंकिंग प्लेटफॉर्म 👋",
+                subWelcome: "हर दिन आपके सुरक्षित और समझदारी भरे वित्तीय जीवन का समर्थन करता है।",
+                accountName: "HK मुख्य खाता",
+                withdrawable: "निकालने योग्य",
+                btnTransfer: "ट्रांसफर करें",
+                btnDeposit: "जमा करें",
+                piVaultName: "Pi ट्रस्ट और सेफ़बॉक्स",
+                piRate: "31.41% वार्षिक ब्याज",
+                btnManage: "प्रबंधित करें",
+                btnSwap: "तुरंत स्वैप करें",
+                qMenu1: "ट्रांसफर",
+                qMenu2: "जमा करें",
+                qMenu3: "क्रेडिट लोन",
+                qMenu4: "QR पे",
+                historyTitle: "हाल के लेन-देन",
+                viewAll: "सभी देखें",
+                hist1Title: "HK-ROBOT अनुसंधान सब्सिडी",
+                hist1Time: "आज सुबह 10:24",
+                hist2Title: "स्टारबक्स (ब्लैक कॉफ़ी)",
+                hist2Time: "कल दोपहर 2:15",
+                navHome: "होम",
+                navAsset: "संपत्ति",
+                navBenefit: "लाभ",
+                navMenu: "मेनू"
             }
         };
+
+        function changeGlobalLanguage(lang) {
+            const t = translations[lang] || translations['ko'];
+            document.getElementById('txtWelcome').innerText = t.welcome;
+            document.getElementById('txtSubWelcome').innerText = t.subWelcome;
+            document.getElementById('txtAccountName').innerText = t.accountName;
+            document.getElementById('txtWithdrawable').innerText = t.withdrawable;
+            document.getElementById('btnTransfer').innerText = t.btnTransfer;
+            document.getElementById('btnDeposit').innerText = t.btnDeposit;
+            document.getElementById('txtPiVaultName').innerText = t.piVaultName;
+            document.getElementById('txtPiRate').innerText = t.piRate;
+            document.getElementById('btnManage').innerText = t.btnManage;
+            document.getElementById('btnSwap').innerText = t.btnSwap;
+            document.getElementById('qMenu1').innerText = t.qMenu1;
+            document.getElementById('qMenu2').innerText = t.qMenu2;
+            document.getElementById('qMenu3').innerText = t.qMenu3;
+            document.getElementById('qMenu4').innerText = t.qMenu4;
+            document.getElementById('txtHistoryTitle').innerText = t.historyTitle;
+            document.getElementById('txtViewAll').innerText = t.viewAll;
+            document.getElementById('txtHist1Title').innerText = t.hist1Title;
+            document.getElementById('txtHist1Time').innerText = t.hist1Time;
+            document.getElementById('txtHist2Title').innerText = t.hist2Title;
+            document.getElementById('txtHist2Time').innerText = t.hist2Time;
+            document.getElementById('navHome').innerText = t.navHome;
+            document.getElementById('navAsset').innerText = t.navAsset;
+            document.getElementById('navBenefit').innerText = t.navBenefit;
+            document.getElementById('navMenu').innerText = t.navMenu;
+        }
 
         function toggleDrawer() {
             document.getElementById('drawerOverlay').classList.toggle('active');
         }
 
-        function closeDrawerOutside(event) {
-            if (event.target.id === 'drawerOverlay') {
+        function closeDrawerOutside(e) {
+            if (e.target.id === 'drawerOverlay') {
                 toggleDrawer();
             }
         }
 
-        function triggerMainnetRequest() {
-            const t = translations[currentLang] || translations['en'];
-            alert(t.mainnetAlert);
-        }
-
-        function openProcessModal(processId) {
-            activeProcessId = processId;
-            activeModalType = null;
-            renderProcessModalContent();
-        }
-
-        function renderProcessModalContent() {
-            const processId = activeProcessId;
-            if (!processId) return;
-
-            const modal = document.getElementById('appModal');
+        function openModal(type) {
+            const modal = document.getElementById('bankModal');
             const title = document.getElementById('modalTitle');
-            const content = document.getElementById('modalContent');
+            const content = document.getElementById('modalBodyContent');
 
-            generatedAuthCode = Math.floor(100000 + Math.random() * 900000).toString();
-
-            if (processId === 'transfer') {
+            if (type === 'transfer') {
                 title.innerText = "계좌간 간편 송금";
                 content.innerHTML = `
-                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px; font-weight:700;">보유 잔액: <span style="color:var(--accent-gold);">314,159,000 원</span></div>
-                    <div class="input-group">
-                        <label class="input-label"><span>받는 사람 주소 (계좌번호 / 지갑 주소)</span></label>
-                        <input class="form-control" id="recipientAddress" placeholder="상대방 계좌번호 또는 지갑 주소 입력">
+                    <div style="margin-bottom:16px;">
+                        <label style="font-size:13px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:6px;">보낼 금액</label>
+                        <input class="form-control" id="transferAmt" placeholder="금액 입력 (원)">
                     </div>
-                    <div class="input-group">
-                        <label class="input-label"><span>송금 금액 (원)</span> <button class="max-btn" onclick="setMaxTransfer()">전액</button></label>
-                        <input class="form-control" id="transferAmount" placeholder="금액 입력 (원)">
-                    </div>
-                    <div class="input-group">
-                        <label class="input-label">보안 인증번호 (<span style="color:var(--accent-gold); font-weight:800;">${generatedAuthCode}</span>)</label>
-                        <input class="form-control" id="userInputCode" placeholder="6자리 인증번호 입력" maxlength="6">
-                    </div>
-                    <button class="action-btn" onclick="executeTransfer()">송금하기</button>
+                    <button class="btn-submit" onclick="executeTransfer()">송금하기</button>
                 `;
-            } else if (processId === 'deposit') {
+            } else if (type === 'deposit') {
                 title.innerText = "계좌 잔액 채우기";
                 content.innerHTML = `
-                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px; font-weight:700;">계좌 잔액을 안전하게 충전합니다.</div>
-                    <div class="input-group">
-                        <label class="input-label"><span>채울 금액 (원)</span></label>
-                        <input class="form-control" id="depositAmount" placeholder="채울 금액 입력 (원)">
+                    <div style="margin-bottom:16px;">
+                        <label style="font-size:13px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:6px;">채울 금액</label>
+                        <input class="form-control" id="depositAmt" placeholder="채울 금액 입력 (원)">
                     </div>
-                    <div class="input-group">
-                        <label class="input-label">보안 인증번호 (<span style="color:var(--accent-gold); font-weight:800;">${generatedAuthCode}</span>)</label>
-                        <input class="form-control" id="userInputCode" placeholder="6자리 인증번호 입력" maxlength="6">
-                    </div>
-                    <button class="action-btn" onclick="executeDeposit()">가져오기</button>
-                `;
-            } else if (processId === 'manage') {
-                title.innerText = "프로세스 실행 (관리하기)";
-                content.innerHTML = `
-                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px; font-weight:700;">즉시 환전 및 원장 동기화 프로세스 실행</div>
-                    <div class="input-group">
-                        <label class="input-label">인증 코드 (<span style="color:var(--accent-gold); font-weight:800;">${generatedAuthCode}</span>)</label>
-                        <input class="form-control" id="userInputCode" placeholder="6자리 입력" maxlength="6">
-                    </div>
-                    <button class="action-btn" onclick="verifyAndExecute('manage')">확인</button>
+                    <button class="btn-submit" onclick="executeDeposit()">가져오기</button>
                 `;
             } else {
-                title.innerText = processId.toUpperCase();
+                title.innerText = "프로세스 실행";
                 content.innerHTML = `
-                    <div style="font-size:13px; color:var(--text-muted); margin-bottom:14px; font-weight:700;">프로세스 구동 준비 완료</div>
-                    <div class="input-group">
-                        <label class="input-label">인증 코드 (<span style="color:var(--accent-gold); font-weight:800;">${generatedAuthCode}</span>)</label>
-                        <input class="form-control" id="userInputCode" placeholder="6자리 입력" maxlength="6">
-                    </div>
-                    <button class="action-btn" onclick="verifyAndExecute('${processId}')">확인</button>
+                    <div style="font-size:14px; color:var(--text-muted); margin-bottom:16px;">정상적으로 연결되었습니다.</div>
+                    <button class="btn-submit" onclick="closeModal()">확인</button>
                 `;
             }
 
-            modal.classList.add('active');
-        }
-
-        function setMaxTransfer() {
-            document.getElementById('transferAmount').value = "314159000";
-        }
-
-        function executeTransfer() {
-            const addr = document.getElementById('recipientAddress').value.trim();
-            const amt = document.getElementById('transferAmount').value.trim();
-            const code = document.getElementById('userInputCode').value.trim();
-
-            if(!addr) {
-                alert("❌ 받는 사람 주소(계좌번호)를 입력해 주세요 형님!");
-                return;
-            }
-            if(!amt) {
-                alert("❌ 송금할 금액을 입력해 주세요 형님!");
-                return;
-            }
-            if(code !== generatedAuthCode) {
-                alert("❌ 인증번호가 일치하지 않습니다.");
-                return;
-            }
-            alert(`✅ [송금 완료] 주소: ${addr} / 금액: ${Number(amt).toLocaleString()}원 송금이 안전하게 처리되었습니다!`);
-            closeModal();
-        }
-
-        function executeDeposit() {
-            const amt = document.getElementById('depositAmount').value.trim();
-            const code = document.getElementById('userInputCode').value.trim();
-
-            if(!amt) {
-                alert("❌ 채울 금액을 입력해 주세요 형님!");
-                return;
-            }
-            if(code !== generatedAuthCode) {
-                alert("❌ 인증번호가 일치하지 않습니다.");
-                return;
-            }
-            alert(`✅ [채우기 완료] ${Number(amt).toLocaleString()}원이 정상적으로 충전되었습니다!`);
-            closeModal();
-        }
-
-        function verifyAndExecute(processId) {
-            const codeInput = document.getElementById('userInputCode');
-            const userEntered = codeInput ? codeInput.value.trim() : "";
-            if(userEntered !== generatedAuthCode) {
-                alert("❌ 인증번호가 일치하지 않습니다.");
-                return;
-            }
-            alert("✅ [철통 보안 인증 성공] 프로세스가 정상 실행되었습니다!");
-            closeModal();
-        }
-
-        function openInfoModal(type) {
-            activeModalType = type;
-            activeProcessId = null;
-            toggleDrawer();
-            renderInfoModalContent();
-        }
-
-        function renderInfoModalContent() {
-            const type = activeModalType;
-            if (!type) return;
-
-            const modal = document.getElementById('appModal');
-            const title = document.getElementById('modalTitle');
-            const content = document.getElementById('modalContent');
-
-            title.innerText = type.toUpperCase();
-            content.innerHTML = `<div style="font-size:13px; line-height:1.6; color:var(--text-main); max-height:60vh; overflow-y:auto; font-weight:600;">HK BANK 글로벌 컴플라이언스 및 철통 보안 스펙이 정상 로드되었습니다.</div>`;
             modal.classList.add('active');
         }
 
         function closeModal() {
-            document.getElementById('appModal').classList.remove('active');
-            activeModalType = null;
-            activeProcessId = null;
+            document.getElementById('bankModal').classList.remove('active');
         }
 
-        function changeLanguage(lang) {
-            currentLang = lang;
-            let t = translations[lang] || translations['en'];
-
-            const metaTitleEl = document.getElementById('metaTitle');
-            if(metaTitleEl) {
-                metaTitleEl.innerText = t.dashTitle ? `HK BANK | ${t.dashTitle}` : "HK BANK";
+        function closeModalOutside(e) {
+            if (e.target.id === 'bankModal') {
+                closeModal();
             }
-           
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if(t[key]) {
-                    el.innerText = t[key];
-                }
-            });
+        }
 
-            document.dir = ['ar', 'pk'].includes(lang) ? 'rtl' : 'ltr';
-
-            if (activeProcessId) {
-                renderProcessModalContent();
-            } else if (activeModalType) {
-                renderInfoModalContent();
+        function executeTransfer() {
+            const amtVal = document.getElementById('transferAmt').value.replace(/,/g, '');
+            const amt = parseInt(amtVal);
+            if (isNaN(amt) || amt <= 0) {
+                alert("올바른 금액을 입력해 주세요.");
+                return;
             }
+            currentBalance -= amt;
+            document.getElementById('mainBalanceDisplay').innerText = currentBalance.toLocaleString() + " 원";
+            alert(amt.toLocaleString() + "원이 안전하게 송금되었습니다!");
+            closeModal();
+        }
+
+        function executeDeposit() {
+            const amtVal = document.getElementById('depositAmt').value.replace(/,/g, '');
+            const amt = parseInt(amtVal);
+            if (isNaN(amt) || amt <= 0) {
+                alert("올바른 금액을 입력해 주세요.");
+                return;
+            }
+            currentBalance += amt;
+            document.getElementById('mainBalanceDisplay').innerText = currentBalance.toLocaleString() + " 원";
+            alert(amt.toLocaleString() + "원이 계좌로 충전되었습니다!");
+            closeModal();
         }
     </script>
 </body>
