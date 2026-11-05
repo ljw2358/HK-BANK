@@ -3,855 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK WORLD BANK | 글로벌 슈퍼 뱅킹 플랫폼</title>
+    <title>HK-BANK & WORLD BANK - Toss Minimal Extended Edition</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tossbg: '#f4f4f5',
+                        tossblue: '#3182f6',
+                        tossdark: '#191f28',
+                        tosscard: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg-body: #f4f6f8;
-            --bg-app: #ffffff;
-            --toss-blue: #0064ff;
-            --text-main: #191f28;
-            --text-muted: #8b95a1;
-            --card-bg: #f9fafb;
-            --border-color: #e5e8ec;
-            --success: #00c853;
-            --pi-color: #9f7938;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .app-container {
-            width: 100%;
-            max-width: 480px;
-            background-color: var(--bg-app);
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            padding-bottom: 90px;
-        }
-
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--bg-app);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .logo-text {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #191f28;
-            text-align: center;
-            width: 100%;
-        }
-
-        .lang-selector {
-            background: #f4f6f8;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-size: 13px;
-            outline: none;
-            max-width: 140px;
-            cursor: pointer;
-            position: relative;
-            z-index: 11;
-        }
-
-        .content {
-            padding: 0 20px 40px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .hero-title h1 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #191f28;
-        }
-
-        .hero-title p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .card-balance {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #191f28;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
-            text-decoration: none;
-            user-select: none;
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-        }
-
-        .btn-primary {
-            background-color: var(--toss-blue);
-            color: #ffffff;
-        }
-
-        .btn-secondary {
-            background-color: #e5e8ec;
-            color: #191f28;
-        }
-
-        .btn-pi {
-            background-color: var(--pi-color);
-            color: #ffffff;
-        }
-
-        .grid-menu {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 20px 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .menu-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text-main);
-            background: none;
-            border: none;
-            outline: none;
-            transition: transform 0.2s;
-            padding: 4px;
-        }
-
-        .menu-item:active {
-            transform: scale(0.92);
-        }
-
-        .menu-icon {
-            width: 48px;
-            height: 48px;
-            background-color: #e5e8ec;
-            border-radius: 14px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            transition: background-color 0.2s;
-            pointer-events: none;
-        }
-
-        .menu-item:hover .menu-icon {
-            background-color: var(--toss-blue);
-            color: #ffffff;
-        }
-
-        .menu-name {
-            font-size: 12px;
-            font-weight: 500;
-            text-align: center;
-            pointer-events: none;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-top: 10px;
-            margin-bottom: -5px;
-            text-align: center;
-            color: #191f28;
-        }
-
-        .affiliate-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-        .affiliate-btn {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 10px 6px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #191f28;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .affiliate-btn:hover {
-            border-color: var(--toss-blue);
-            color: var(--toss-blue);
-        }
-
-        .tx-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .tx-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .tx-info h4 {
-            font-size: 14px;
-            margin-bottom: 4px;
-            color: #191f28;
-        }
-
-        .tx-info span {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .tx-amount {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--success);
-        }
-
-        .footer-support {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
-            background-color: #ffffff;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 100;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-muted);
-            font-size: 11px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .nav-item.active, .nav-item:hover {
-            color: var(--toss-blue);
-        }
-
-        .nav-icon {
-            font-size: 20px;
-        }
-
-        #actionModal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease-in-out;
-        }
-        #actionModal.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .modal-content {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            border-radius: 20px;
-            width: 85%;
-            max-width: 360px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .modal-content h3 { font-size: 18px; color: #191f28; }
-        .modal-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-        .modal-close {
-            background: var(--toss-blue);
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-        }
+        body { background-color: #f4f4f5; color: #191f28; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f4f4f5; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
     </style>
 </head>
-<body>
-    <div class="app-container">
-        <header>
-            <div style="width: 20px;"></div>
-            <div class="logo-text">HK WORLD BANK</div>
-            <select class="lang-selector" id="languageSelect">
-                <option value="ko">🇰🇷 한국어</option>
-                <option value="en">🇺🇸 English</option>
-                <option value="zh">🇨🇳 中文</option>
-                <option value="ja">🇯🇵 日本語</option>
-                <option value="es">🇪🇸 Español</option>
-                <option value="fr">🇫🇷 Français</option>
-                <option value="de">🇩🇪 Deutsch</option>
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="ar">🇸🇦 العربية</option>
-                <option value="pt">🇵🇹 Português</option>
-                <option value="hi">🇮🇳 हिन्दी</option>
-                <option value="id">🇮🇩 Bahasa</option>
-                <option value="vi">🇻🇳 Tiếng Việt</option>
-                <option value="th">🇹🇭 ไทย</option>
-                <option value="tr">🇹🇷 Türkçe</option>
-                <option value="nl">🇳🇱 Nederlands</option>
-                <option value="pl">🇵🇱 Polski</option>
-                <option value="uk">🇺🇦 Українська</option>
-                <option value="it">🇮🇹 Italiano</option>
-                <option value="sv">🇸🇪 Svenska</option>
-                <option value="no">🇳🇴 Norsk</option>
-                <option value="fi">🇫🇮 Suomi</option>
-                <option value="da">🇩🇰 Dansk</option>
-                <option value="el">🇬🇷 Ελληνικά</option>
-                <option value="cs">🇨🇿 Čeština</option>
-                <option value="hu">🇭🇺 Magyar</option>
-                <option value="ro">🇷🇴 Română</option>
-                <option value="bg">🇧🇬 Български</option>
-                <option value="sk">🇸🇰 Slovenčina</option>
-                <option value="hr">🇭🇷 Hrvatski</option>
-                <option value="sr">🇷🇸 Српски</option>
-                <option value="ms">🇲🇾 Bahasa Melayu</option>
-                <option value="fil">🇵🇭 Tagalog</option>
-                <option value="sw">🇰🇪 Kiswahili</option>
-                <option value="he">🇮🇱 עברית</option>
-                <option value="fa">🇮🇷 فارسی</option>
-                <option value="ur">🇵🇰 اردو</option>
-                <option value="bn">🇧🇩 বাংলা</option>
-                <option value="ta">🇮🇳 தமிழ்</option>
-                <option value="te">🇮🇳 తెలుగు</option>
-                <option value="mr">🇮🇳 मराठी</option>
-                <option value="gu">🇮🇳 ગુજરાતી</option>
-                <option value="kn">🇮🇳 ಕನ್ನಡ</option>
-                <option value="ml">🇮🇳 മലയാളം</option>
-                <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-                <option value="my">🇲🇲 မြန်မာ</option>
-                <option value="km">🇰🇭 ខ្មែរ</option>
-                <option value="lo">🇱🇦 ລາວ</option>
-                <option value="am">🇪🇹 አማርኛ</option>
-                <option value="ka">🇬🇪 ქართული</option>
-                <option value="hy">🇦🇲 Հայերեն</option>
-                <option value="az">🇦🇿 Azərbaycanca</option>
-                <option value="kk">🇰🇿 Қазақша</option>
-                <option value="uz">🇺🇿 O‘zbekcha</option>
-                <option value="mn">🇲🇳 Монгол</option>
-                <option value="ne">🇳🇵 नेपाली</option>
-                <option value="si">🇱🇰 සිංහල</option>
-                <option value="eu">🇪🇸 Euskara</option>
-                <option value="gl">🇪🇸 Galego</option>
-                <option value="ca">🇪🇸 Català</option>
-            </select>
-        </header>
+<body class="min-h-screen flex flex-col justify-between selection:bg-blue-500 selection:text-white">
 
-        <div class="content">
-            <div class="hero-title">
-                <h1 data-i18n="heroH1">글로벌 슈퍼 뱅킹 플랫폼 🌐</h1>
-                <p data-i18n="heroP">오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
+    <!-- ========================================== -->
+    <!-- 1. TOSS STYLE HEADER -->
+    <!-- ========================================== -->
+    <header class="w-full bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-md mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="bg-blue-600 text-white font-black px-2.5 py-1.5 rounded-xl text-xs tracking-tight shadow-md">HK</div>
+                <h1 class="text-base font-extrabold tracking-tight text-gray-900">
+                    HK-BANK & WORLD
+                </h1>
             </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <span data-i18n="txtMainAcc">HK 주거래통장</span>
-                    <span data-i18n="txtSendAvail">송금가능</span>
-                </div>
-                <div class="card-balance">314,159,000 KRW</div>
-                <div class="card-actions">
-                    <button class="btn btn-primary" id="btnSend" data-i18n="btnSend">송금하기</button>
-                    <button class="btn btn-secondary" id="btnFill" data-i18n="btnFill">채우기</button>
-                </div>
-            </div>
-
-            <div class="card" style="border-color: var(--pi-color);">
-                <div class="card-header">
-                    <span data-i18n="txtPiBox">🪙 Pi 신탁 & 세이프박스</span>
-                    <span data-i18n="txtPiRate" style="color: var(--success);">연 31.41% 복리</span>
-                </div>
-                <div class="card-balance" style="color: var(--pi-color);">314,159.00 PI</div>
-                <div class="card-actions">
-                    <button class="btn btn-secondary" id="btnManage" data-i18n="btnManage">관리하기</button>
-                    <button class="btn btn-pi" id="btnLp" data-i18n="btnLp">유동성 풀참전</button>
-                </div>
-            </div>
-
-            <div class="section-title" data-i18n="txtQuickMenu">빠른 금융 작업</div>
-            <div class="grid-menu">
-                <button class="menu-item" id="menu-1" type="button"><div class="menu-icon">🔗</div><div class="menu-name" data-i18n="m1">지갑연결</div></button>
-                <button class="menu-item" id="menu-2" type="button"><div class="menu-icon">💸</div><div class="menu-name" data-i18n="m2">송금</div></button>
-                <button class="menu-item" id="menu-3" type="button"><div class="menu-icon">💳</div><div class="menu-name" data-i18n="m3">결제</div></button>
-                <button class="menu-item" id="menu-4" type="button"><div class="menu-icon">🏦</div><div class="menu-name" data-i18n="m4">예치</div></button>
-                <button class="menu-item" id="menu-5" type="button"><div class="menu-icon">🎁</div><div class="menu-name" data-i18n="m5">보상</div></button>
-                <button class="menu-item" id="menu-6" type="button"><div class="menu-icon">🌍</div><div class="menu-name" data-i18n="m6">기본소득</div></button>
-                <button class="menu-item" id="menu-7" type="button"><div class="menu-icon">🔄</div><div class="menu-name" data-i18n="m7">스왑</div></button>
-                <button class="menu-item" id="menu-8" type="button"><div class="menu-icon">⚡</div><div class="menu-name" data-i18n="m8">DEX스왑</div></button>
-                <button class="menu-item" id="menu-9" type="button"><div class="menu-icon">💧</div><div class="menu-name" data-i18n="m9">LP스테이킹</div></button>
-                <button class="menu-item" id="menu-10" type="button"><div class="menu-icon">🪙</div><div class="menu-name" data-i18n="m10">파이수량</div></button>
-            </div>
-
-            <div class="section-title" data-i18n="txtAffiliates">HK 그룹 전략 계열사 링크</div>
-            <div class="affiliate-grid">
-                <a href="https://ljw2358.github.io/HK-ROBOT/" target="_blank" class="affiliate-btn">🤖 HK-ROBOT</a>
-                <a href="https://ljw2358.github.io/HK-NEXUS/" target="_blank" class="affiliate-btn">👓 HK-NEXUS</a>
-                <a href="https://ljw2358.github.io/HK-UAM/" target="_blank" class="affiliate-btn">🚁 HK-UAM</a>
-                <a href="https://ljw2358.github.io/HK-FUSION/" target="_blank" class="affiliate-btn">☀️ HK-FUSION</a>
-                <a href="https://ljw2358.github.io/HK-QUANTUMBIO/" target="_blank" class="affiliate-btn">🧬 QUANTUMBIO</a>
-                <a href="https://ljw2358.github.io/HK-SPACE/" target="_blank" class="affiliate-btn">🚀 HK-SPACE</a>
-                <a href="https://ljw2358.github.io/HK-PARTSBANK/" target="_blank" class="affiliate-btn">⚙️ PARTSBANK</a>
-                <a href="https://ljw2358.github.io/HK-DEFENCE-HUB/" target="_blank" class="affiliate-btn">🛡️ DEFENCE-HUB</a>
-                <a href="#" id="t165Btn" class="affiliate-btn" style="border-color: var(--pi-color); color: var(--pi-color);">🏢 T165 랜드마크</a>
-            </div>
-
-            <div class="section-title" data-i18n="txtTxHistory">최근의 거래내역</div>
-            <div class="tx-list">
-                <div class="tx-item">
-                    <div class="tx-info">
-                        <h4 data-i18n="txTitle1">HK-ROBOT 계열사자금</h4>
-                        <span data-i18n="txSub1">스마트시티 인프라</span>
-                    </div>
-                    <div class="tx-amount">+ 50,000,000 KRW</div>
-                </div>
-                <div class="tx-item">
-                    <div class="tx-info">
-                        <h4 data-i18n="txTitle2">HK-NEXUS 스마트 안경 펀딩</h4>
-                        <span data-i18n="txSub2">웨어러블 디바이스 R&D</span>
-                    </div>
-                    <div class="tx-amount">+ 12,500,000 KRW</div>
-                </div>
-            </div>
-
-            <div class="footer-support" data-i18n="txtFooter">
-                AGI 고객센터 삐니(Pini) 24시간 대기 중 | hkwb.world
+            <div class="flex items-center gap-2">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-gray-100 border border-gray-200 text-gray-700 text-[11px] rounded-xl px-2.5 py-1.5 outline-none font-bold cursor-pointer">
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+                <button onclick="connectWallet()" id="walletBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-3.5 py-1.5 rounded-xl text-[11px] shadow-sm transition-all">
+                    지갑·KYC
+                </button>
             </div>
         </div>
+    </header>
 
-        <nav class="bottom-nav">
-            <button class="nav-item active" id="navHome"><span class="nav-icon">🏠</span><span data-i18n="navHome">홈</span></button>
-            <button class="nav-item" id="navTransfer"><span class="nav-icon">💸</span><span data-i18n="navTransfer">송금</span></button>
-            <button class="nav-item" id="navAssets"><span class="nav-icon">📊</span><span data-i18n="navAssets">자산</span></button>
-            <button class="nav-item" id="navPini"><span class="nav-icon">🤖</span><span data-i18n="navPini">삐니AGI</span></button>
-            <button class="nav-item" id="navSettings"><span class="nav-icon">⚙️</span><span data-i18n="navSettings">설정</span></button>
-        </nav>
-    </div>
+    <!-- ========================================== -->
+    <!-- 2. MAIN TOSS-STYLE EXTENDED DASHBOARD -->
+    <!-- ========================================== -->
+    <main class="max-w-md mx-auto px-6 py-6 flex-grow w-full space-y-4">
+        
+        <!-- Total Asset Card -->
+        <section class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 space-y-3">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-gray-400 tracking-wide">내 총 자산 (일상뱅크 + 유동성풀)</span>
+                <span class="text-[10px] bg-blue-50 text-blue-600 font-bold px-2 py-0.5 rounded-full">안전보안 적용중</span>
+            </div>
+            <div>
+                <h2 class="text-2xl font-black text-gray-900 tracking-tight">1,250,480.00 PI</h2>
+                <p class="text-xs text-blue-600 font-semibold mt-0.5">₩ 375,144,000 상당</p>
+            </div>
+            <div class="grid grid-cols-3 gap-2 pt-3 border-t border-gray-100">
+                <button onclick="openAction('송금')" class="bg-gray-50 hover:bg-gray-100 py-2.5 rounded-2xl text-xs font-bold text-gray-700 transition-colors flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-paper-plane text-blue-600"></i> 송금
+                </button>
+                <button onclick="openAction('결제')" class="bg-gray-50 hover:bg-gray-100 py-2.5 rounded-2xl text-xs font-bold text-gray-700 transition-colors flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-credit-card text-emerald-600"></i> 결제
+                </button>
+                <button onclick="openAction('예치')" class="bg-gray-50 hover:bg-gray-100 py-2.5 rounded-2xl text-xs font-bold text-gray-700 transition-colors flex flex-col items-center gap-1">
+                    <i class="fa-solid fa-vault text-amber-600"></i> 예치
+                </button>
+            </div>
+        </section>
 
-    <div id="actionModal">
-        <div class="modal-content">
-            <h3 id="modalTitle">알림</h3>
-            <p id="modalDesc">기능이 실행됩니다.</p>
-            <button class="modal-close" id="modalCloseBtn" data-i18n="btnClose">확인</button>
+        <!-- 자주 쓰는 계좌 / 지갑 목록 -->
+        <section class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 space-y-3">
+            <div class="text-xs font-extrabold text-gray-800">보유 계좌 및 지갑</div>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 font-bold"><i class="fa-solid fa-wallet"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-900">HK-BANK 주거래 통장</div>
+                            <div class="text-[11px] text-gray-400">간편 송금 및 일상 결제</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-extrabold text-gray-900">45,200.00 PI</div>
+                        <div class="text-[10px] text-gray-400">₩ 13,560,000</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-xs pt-2 border-t border-gray-50">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 font-bold"><i class="fa-solid fa-water"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-900">유동성풀 지갑 (Liq. Pool)</div>
+                            <div class="text-[11px] text-gray-400">DEX 및 LP 스테이킹 연동</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-extrabold text-purple-600">1,205,280.00 PI</div>
+                        <div class="text-[10px] text-gray-400">₩ 361,584,000</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10대 연동망 핵심 메뉴 (토스 스타일 리스트) -->
+        <section class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 space-y-2">
+            <div class="text-xs font-extrabold text-gray-800 px-1 mb-2">빠른 금융 작업 (10대 연동망)</div>
+            
+            <div onclick="openFeature('기본소득 (UBI)')" class="flex items-center justify-between p-2.5 hover:bg-gray-50 rounded-2xl cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-red-50 flex items-center justify-center text-red-600 text-xs font-bold"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <span class="text-xs font-bold text-gray-800">기본소득 (UBI 30% 환원)</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-gray-300 text-[10px]"></i>
+            </div>
+
+            <div onclick="openFeature('DEX 스왑')" class="flex items-center justify-between p-2.5 hover:bg-gray-50 rounded-2xl cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-xs font-bold"><i class="fa-solid fa-chart-line"></i></div>
+                    <span class="text-xs font-bold text-gray-800">DEX 스왑 및 토큰 교환</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-gray-300 text-[10px]"></i>
+            </div>
+
+            <div onclick="openFeature('에어드랍 보상')" class="flex items-center justify-between p-2.5 hover:bg-gray-50 rounded-2xl cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600 text-xs font-bold"><i class="fa-solid fa-gift"></i></div>
+                    <span class="text-xs font-bold text-gray-800">에어드랍 및 플랫폼 보상</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-gray-300 text-[10px]"></i>
+            </div>
+        </section>
+
+        <!-- 최근 거래 내역 -->
+        <section class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 space-y-3">
+            <div class="text-xs font-extrabold text-gray-800">최근 거래 내역</div>
+            <div class="space-y-3 text-xs">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 font-bold"><i class="fa-solid fa-arrow-down"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-900">HK 사회재단 UBI 보조금</div>
+                            <div class="text-[10px] text-gray-400">오늘 오전 9:00</div>
+                        </div>
+                    </div>
+                    <div class="font-extrabold text-blue-600">+1,500 PI</div>
+                </div>
+                <div class="flex items-center justify-between pt-2 border-t border-gray-50">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 font-bold"><i class="fa-solid fa-arrow-up"></i></div>
+                        <div>
+                            <div class="font-bold text-gray-900">해오름 특별시 가맹점 결제</div>
+                            <div class="text-[10px] text-gray-400">어제 오후 2:15</div>
+                        </div>
+                    </div>
+                    <div class="font-extrabold text-gray-900">-350 PI</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 3. AGI CUSTOMER SUPPORT (AI 삐니) -->
+    <!-- ========================================== -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="togglePiniChat()" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105">
+            <i class="fa-solid fa-robot text-lg"></i>
+        </button>
+        <!-- Chat Modal -->
+        <div id="piniChatModal" class="hidden absolute bottom-16 right-0 w-80 bg-white border border-gray-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+            <div class="bg-gray-900 px-4 py-3 flex items-center justify-between text-white">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot text-blue-400"></i>
+                    <span class="font-bold text-xs">토스 스타일 AGI 삐니 고객센터</span>
+                </div>
+                <button onclick="togglePiniChat()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-4 h-60 overflow-y-auto text-xs text-gray-700 flex flex-col gap-2 bg-gray-50" id="chatLogs">
+                <div class="bg-white p-3 rounded-2xl border border-gray-200 self-start max-w-[85%] shadow-sm">
+                    안녕하세요 혜공 형님! 토스 감성을 살리면서도 알차게 구성한 HK-BANK AGI 고객센터 삐니입니다. 무엇을 도와드릴까요?
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-gray-200 flex gap-2">
+                <input type="text" id="chatInput" placeholder="무엇이든 물어보세요..." class="flex-grow bg-gray-100 border border-gray-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-blue-500">
+                <button onclick="sendPiniMessage()" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-xs font-bold">전송</button>
+            </div>
         </div>
     </div>
+
+    <!-- ========================================== -->
+    <!-- 4. TOSS STYLE FOOTER -->
+    <!-- ========================================== -->
+    <footer class="w-full bg-white border-t border-gray-100 py-5 text-center">
+        <div class="max-w-md mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-[11px] text-gray-400">
+                © 2026 HK-BANK. Toss UI Architecture. Chairman Hyekong.
+            </p>
+            <div class="flex items-center gap-4">
+                <a href="https://youtube.com/@Hyekong2026" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors text-base" title="YouTube @Hyekong2026">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://tiktok.com/@hyekong2026" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors text-base" title="TikTok @hyekong2026">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
     <script>
-        let currentModalKeyTitle = "modalDefaultTitle";
-        let currentModalKeyDesc = "modalDefaultDesc";
-
-        function openModal(titleKey, descKey) {
-            currentModalKeyTitle = titleKey;
-            currentModalKeyDesc = descKey;
-            
-            const lang = document.getElementById('languageSelect').value;
-            const translations = i18nData[lang] || i18nData['en'];
-
-            document.getElementById('modalTitle').innerText = translations[titleKey] || titleKey;
-            document.getElementById('modalDesc').innerText = translations[descKey] || descKey;
-            document.getElementById('actionModal').classList.add('show');
+        function changeLanguage(lang) {
+            alert(`[HK-BANK] 언어가 ${lang.toUpperCase()} (으)로 전환되었습니다.`);
         }
-
-        function closeModal() {
-            document.getElementById('actionModal').classList.remove('show');
+        function connectWallet() {
+            document.getElementById('walletBtn').innerText = "인증완료";
+            alert("지갑 연결 및 백그라운드 KYYC/KYD 인증이 완료되었습니다.");
         }
+        function openFeature(name) {
+            alert(`[토스 스타일 뱅킹] ${name} 모듈을 실행합니다.`);
+        }
+        function openAction(type) {
+            alert(`[간편 금융] ${type.toUpperCase()} 작업을 시작합니다.`);
+        }
+        function togglePiniChat() {
+            document.getElementById('piniChatModal').classList.toggle('hidden');
+        }
+        function sendPiniMessage() {
+            const input = document.getElementById('chatInput');
+            const logs = document.getElementById('chatLogs');
+            if(!input.value.trim()) return;
 
-        document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-blue-600 text-white p-3 rounded-2xl self-end max-w-[85%] text-xs shadow-sm";
+            userMsg.innerText = input.value;
+            logs.appendChild(userMsg);
 
-        document.getElementById('btnSend').addEventListener('click', () => openModal('mSendTitle', 'mSendDesc'));
-        document.getElementById('btnFill').addEventListener('click', () => openModal('mFillTitle', 'mFillDesc'));
-        document.getElementById('btnManage').addEventListener('click', () => openModal('mManageTitle', 'mManageDesc'));
-        document.getElementById('btnLp').addEventListener('click', () => openModal('mLpTitle', 'mLpDesc'));
-        document.getElementById('t165Btn').addEventListener('click', (e) => { e.preventDefault(); openModal('t165Title', 't165Desc'); });
+            const q = input.value;
+            input.value = "";
+            logs.scrollTop = logs.scrollHeight;
 
-        document.getElementById('menu-1').addEventListener('click', () => openModal('m1Title', 'm1Desc'));
-        document.getElementById('menu-2').addEventListener('click', () => openModal('m2Title', 'm2Desc'));
-        document.getElementById('menu-3').addEventListener('click', () => openModal('m3Title', 'm3Desc'));
-        document.getElementById('menu-4').addEventListener('click', () => openModal('m4Title', 'm4Desc'));
-        document.getElementById('menu-5').addEventListener('click', () => openModal('m5Title', 'm5Desc'));
-        document.getElementById('menu-6').addEventListener('click', () => openModal('m6Title', 'm6Desc'));
-        document.getElementById('menu-7').addEventListener('click', () => openModal('m7Title', 'm7Desc'));
-        document.getElementById('menu-8').addEventListener('click', () => openModal('m8Title', 'm8Desc'));
-        document.getElementById('menu-9').addEventListener('click', () => openModal('m9Title', 'm9Desc'));
-        document.getElementById('menu-10').addEventListener('click', () => openModal('m10Title', 'm10Desc'));
-
-        document.getElementById('navHome').addEventListener('click', () => openModal('navHomeTitle', 'navHomeDesc'));
-        document.getElementById('navTransfer').addEventListener('click', () => openModal('mSendTitle', 'mSendDesc'));
-        document.getElementById('navAssets').addEventListener('click', () => openModal('navAssetsTitle', 'navAssetsDesc'));
-        document.getElementById('navPini').addEventListener('click', () => openModal('navPiniTitle', 'navPiniDesc'));
-        document.getElementById('navSettings').addEventListener('click', () => openModal('navSettingsTitle', 'navSettingsDesc'));
-
-        const i18nData = {
-            ko: {
-                heroH1:"글로벌 슈퍼 뱅킹 플랫폼 🌐", heroP:"오늘도 안전하고 스마트한 금융 생활을 지원합니다.",
-                txtMainAcc:"HK 주거래통장", txtSendAvail:"송금가능", btnSend:"송금하기", btnFill:"채우기",
-                txtPiBox:"🪙 Pi 신탁 & 세이프박스", txtPiRate:"연 31.41% 복리", btnManage:"관리하기", btnLp:"유동성 풀참전",
-                txtQuickMenu:"빠른 금융 작업", txtAffiliates:"HK 그룹 전략 계열사 링크",
-                m1:"지갑연결", m2:"송금", m3:"결제", m4:"예치", m5:"보상", m6:"기본소득", m7:"스왑", m8:"DEX스왑", m9:"LP스테이킹", m10:"파이수량",
-                txtTxHistory:"최근의 거래내역", txTitle1:"HK-ROBOT 계열사자금", txSub1:"스마트시티 인프라", txTitle2:"HK-NEXUS 스마트 안경 펀딩", txSub2:"웨어러블 디바이스 R&D",
-                txtFooter:"AGI 고객센터 삐니(Pini) 24시간 대기 중", btnClose:"확인",
-                navHome:"홈", navTransfer:"송금", navAssets:"자산", navPini:"삐니AGI", navSettings:"설정",
-                mSendTitle:"송금하기", mSendDesc:"HK 주거래통장에서 보낼 금액과 받는 계좌 정보를 입력해 주세요.",
-                mFillTitle:"채우기", mFillDesc:"연동된 계좌에서 HK 주거래통장으로 잔액을 충전합니다.",
-                mManageTitle:"Pi 신탁 관리", mManageDesc:"31.41% 복리 세이프박스 및 신탁 설정을 관리합니다.",
-                mLpTitle:"유동성 풀참전", mLpDesc:"HK WORLD BANK 유동성 풀(LP) 예치 서비스로 이동합니다.",
-                t165Title:"경주 165층 T165 랜드마크", t165Desc:"해오름 특별시 경주에 건립되는 165층 HK 그룹 통합 사옥 및 글로벌 비즈니스 허브입니다.",
-                m1Title:"지갑연결", m1Desc:"블록체인 지갑 및 백그라운드 KYC/KYD 보안 인증을 연동합니다.",
-                m2Title:"송금", m2Desc:"HK 글로벌 이체 시스템으로 즉시 송금을 진행합니다.",
-                m3Title:"결제", m3Desc:"글로벌 온·오프라인 가맹점 즉시 통합 결제 시스템입니다.",
-                m4Title:"예치", m4Desc:"안전 자산 예치 및 고금리 리워드 연동 시스템입니다.",
-                m5Title:"보상", m5Desc:"생태계 기여도에 따른 실시간 리워드 보상을 확인합니다.",
-                m6Title:"기본소득 (UBI)", m6Desc:"HK 사회재단 순이익 30% 환원 UBI 기본소득을 지급합니다.",
-                m7Title:"스왑", m7Desc:"디지털 자산 간의 초고속 실시간 환전 스왑을 지원합니다.",
-                m8Title:"DEX 스왑", m8Desc:"탈중앙화 유동성 풀 기반 DEX 스왑 거래를 시작합니다.",
-                m9Title:"LP 스테이킹", m9Desc:"유동성 풀(LP) 예치 및 스테이킹 보상을 수령합니다.",
-                m10Title:"파이 수량", m10Desc:"Pi Network 디지털 자산 잔액 및 네트워크 연동 상태입니다.",
-                navHomeTitle:"홈 화면", navHomeDesc:"HK WORLD BANK 메인 대시보드입니다.",
-                navAssetsTitle:"통합 자산 관리", navAssetsDesc:"보유 중인 KRW, PI 및 디지털 자산 포트폴리오를 조회합니다.",
-                navPiniTitle:"AGI 삐니(Pini) 고객센터", navPiniDesc:"AI 어시스턴트 삐니가 24시간 금융 및 기술 지원을 제공합니다.",
-                navSettingsTitle:"플랫폼 설정", navSettingsDesc:"보안, 알림, 60개국 언어 및 11개국 컴플라이언스 설정을 관리합니다."
-            },
-            en: {
-                heroH1:"Global Super Banking Platform 🌐", heroP:"Supporting your safe & smart financial life today.",
-                txtMainAcc:"HK Main Account", txtSendAvail:"Transferable", btnSend:"Send", btnFill:"Deposit",
-                txtPiBox:"🪙 Pi Trust & SafeBox", txtPiRate:"31.41% APY Compound", btnManage:"Manage", btnLp:"Join LP",
-                txtQuickMenu:"Quick Financial Work", txtAffiliates:"HK Group Strategic Affiliates",
-                m1:"Wallet Connect", m2:"Transfer", m3:"Payment", m4:"Deposit", m5:"Rewards", m6:"UBI Income", m7:"Swap", m8:"DEX Swap", m9:"LP Staking", m10:"Pi Balance",
-                txtTxHistory:"Recent Transactions", txTitle1:"HK-ROBOT Subsidiary Funds", txSub1:"Smart City Infrastructure", txTitle2:"HK-NEXUS Smart Glasses Funding", txSub2:"Wearable Device R&D",
-                txtFooter:"AGI Customer Support PINI Active 24/7", btnClose:"Confirm",
-                navHome:"Home", navTransfer:"Transfer", navAssets:"Assets", navPini:"PINI AGI", navSettings:"Settings",
-                mSendTitle:"Transfer", mSendDesc:"Enter transfer amount and recipient details.",
-                mFillTitle:"Deposit", mFillDesc:"Top up your HK Main Account from linked accounts.",
-                mManageTitle:"Pi Trust Management", mManageDesc:"Manage your 31.41% APY compound SafeBox settings.",
-                mLpTitle:"Join Liquidity Pool", mLpDesc:"Navigate to HK WORLD BANK LP deposit services.",
-                t165Title:"Gyeongju 165-Floor T165 Landmark", t165Desc:"The 165-story HK Group headquarters and global business hub in Gyeongju.",
-                m1Title:"Wallet Connect", m1Desc:"Connect wallet with background KYC/KYD security.",
-                m2Title:"Transfer", m2Desc:"Execute instant transfers via HK global system.",
-                m3Title:"Payment", m3Desc:"Instant unified payment system for global merchants.",
-                m4Title:"Deposit", m4Desc:"Secure asset deposit and high-yield reward system.",
-                m5Title:"Rewards", m5Desc:"Check real-time rewards based on ecosystem contribution.",
-                m6Title:"UBI Income", m6Desc:"Receive UBI funded by 30% net profit from HK Social Foundation.",
-                m7Title:"Swap", m7Desc:"Ultra-fast real-time currency swap between digital assets.",
-                m8Title:"DEX Swap", m8Desc:"Start DEX swap trading based on decentralized pools.",
-                m9Title:"LP Staking", m9Desc:"Deposit into liquidity pools and claim staking rewards.",
-                m10Title:"Pi Balance", m10Desc:"Pi Network digital asset balance and network sync status.",
-                navHomeTitle:"Home", navHomeDesc:"HK WORLD BANK main dashboard.",
-                navAssetsTitle:"Assets Management", navAssetsDesc:"View your KRW, PI, and digital asset portfolio.",
-                navPiniTitle:"AGI PINI Support", navPiniDesc:"AI assistant PINI provides 24/7 financial & tech support.",
-                navSettingsTitle:"Settings", navSettingsDesc:"Manage security, notifications, language and compliance."
-            },
-            es: {
-                heroH1:"Plataforma Super Bancaria Global 🌐", heroP:"Apoyando su vida financiera segura e inteligente.",
-                txtMainAcc:"Cuenta Principal HK", txtSendAvail:"Transferible", btnSend:"Enviar", btnFill:"Depositar",
-                txtPiBox:"🪙 Pi Fideicomiso & Caja Fuerte", txtPiRate:"31.41% Compuesto Anual", btnManage:"Gestionar", btnLp:"Unirse al Pool",
-                txtQuickMenu:"Operaciones Rápidas", txtAffiliates:"Afiliadas Estratégicas de HK Group",
-                m1:"Conectar Billetera", m2:"Transferencia", m3:"Pago", m4:"Depósito", m5:"Recompensas", m6:"Ingreso Básico", m7:"Intercambio", m8:"DEX Swap", m9:"Staking LP", m10:"Cantidad Pi",
-                txtTxHistory:"Transacciones Recientes", txTitle1:"Fondos HK-ROBOT", txSub1:"Infraestructura Ciudad Inteligente", txTitle2:"Financiación Gafas HK-NEXUS", txSub2:"I+D de Dispositivos Wearables",
-                txtFooter:"Soporte AGI PINI 24/7", btnClose:"Confirmar",
-                navHome:"Inicio", navTransfer:"Enviar", navAssets:"Activos", navPini:"PINI AGI", navSettings:"Ajustes",
-                mSendTitle:"Enviar", mSendDesc:"Ingrese el monto y los datos de la cuenta de destino.",
-                mFillTitle:"Depositar", mFillDesc:"Recargue su Cuenta Principal HK desde cuentas vinculadas.",
-                mManageTitle:"Gestión Fiduciaria Pi", mManageDesc:"Gestione su Caja Fuerte y configuración con 31.41% compuesto.",
-                mLpTitle:"Unirse al Pool", mLpDesc:"Ir a los servicios de depósito de liquidez de HK WORLD BANK.",
-                t165Title:"Hito T165 de 165 Pisos en Gyeongju", t165Desc:"La sede central de HK Group de 165 pisos y centro de negocios global.",
-                m1Title:"Conectar Billetera", m1Desc:"Conecte su billetera con seguridad KYC/KYD en segundo plano.",
-                m2Title:"Transferencia", m2Desc:"Realice transferencias instantáneas mediante el sistema global HK.",
-                m3Title:"Pago", m3Desc:"Sistema de pago integrado instantáneo para comercios.",
-                m4Title:"Depósito", m4Desc:"Depósito de activos seguros y sistema de recompensas.",
-                m5Title:"Recompensas", m5Desc:"Verifique recompensas en tiempo real basadas en la contribución.",
-                m6Title:"Ingreso Básico", m6Desc:"Reciba UBI financiado por el 30% de las ganancias netas de HK.",
-                m7Title:"Intercambio", m7Desc:"Intercambio en tiempo real ultrarrápido entre activos digitales.",
-                m8Title:"DEX Swap", m8Desc:"Inicie operaciones DEX basadas en pools de liquidez descentralizados.",
-                m9Title:"Staking LP", m9Desc:"Deposite en pools de liquidez y reclame recompensas de staking.",
-                m10Title:"Cantidad Pi", m10Desc:"Saldo de activos digitales Pi Network y estado de red.",
-                navHomeTitle:"Inicio", navHomeDesc:"Panel principal de HK WORLD BANK.",
-                navAssetsTitle:"Gestión de Activos", navAssetsDesc:"Vea su cartera de KRW, PI y activos digitales.",
-                navPiniTitle:"Soporte AGI PINI", navPiniDesc:"El asistente de IA PINI ofrece soporte financiero y técnico 24/7.",
-                navSettingsTitle:"Ajustes", navSettingsDesc:"Gestione seguridad, notificaciones, idioma y cumplimiento."
-            },
-            ja: {
-                heroH1:"グローバルスーパーバンキングプラットフォーム 🌐", heroP:"安全でスマートなマネーライフをサポートします。",
-                txtMainAcc:"HK メイン口座", txtSendAvail:"送金可能", btnSend:"送金する", btnFill:"チャージ",
-                txtPiBox:"🪙 Pi 信託 & セーフボックス", txtPiRate:"年 31.41% 複利", btnManage:"管理", btnLp:"流動性プール参加",
-                txtQuickMenu:"クイック金融操作", txtAffiliates:"HKグループ戦略子会社リンク",
-                m1:"ウォレット接続", m2:"送金", m3:"決済", m4:"預金", m5:"報酬", m6:"ベーシックインカム", m7:"スワップ", m8:"DEXスワップ", m9:"LPステーキング", m10:"Pi保有量",
-                txtTxHistory:"最近の取引履歴", txTitle1:"HK-ROBOT 子会社資金", txSub1:"スマートシティインフラ", txTitle2:"HK-NEXUS スマートグラス資金", txSub2:"ウェアラブルデバイスR&D",
-                txtFooter:"AGI カスタマーセンター PINI 24時間待機中", btnClose:"確認",
-                navHome:"ホーム", navTransfer:"送金", navAssets:"資産", navPini:"PINI AGI", navSettings:"設定",
-                mSendTitle:"送金する", mSendDesc:"送金金額と受取人の口座情報を入力してください。",
-                mFillTitle:"チャージ", mFillDesc:"連携口座からメイン口座に残高をチャージします。",
-                mManageTitle:"Pi信託管理", mManageDesc:"年31.41%複利セーフボックスおよび信託設定を管理します。",
-                mLpTitle:"流動性プール参加", mLpDesc:"HK WORLD BANK流動性プール(LP)預金サービスに移動します。",
-                t165Title:"慶州165階 T165ランドマーク", t165Desc:"慶州に建立される165階建てHKグループ統合社屋およびグローバルハブです。",
-                m1Title:"ウォレット接続", m1Desc:"ブロックチェーンウォレットとKYC/KYD認証を連携します。",
-                m2Title:"送金", m2Desc:"HKグローバル送金システムで即座に送金を行います。",
-                m3Title:"決済", m3Desc:"グローバル店舗向けの即時統合決済システムです。",
-                m4Title:"預金", m4Desc:"安全資産預金および高金利リワード連動システムです。",
-                m5Title:"報酬", m5Desc:"エコシステム貢献度に応じたリアルタイム報酬を確認します。",
-                m6Title:"ベーシックインカム", m6Desc:"HK社会財団の純利益30%還元UBIベーシックインカムを支給します。",
-                m7Title:"スワップ", m7Desc:"デジタル資産間の超高速リアルタイム両替スワップをサポートします。",
-                m8Title:"DEXスワップ", m8Desc:"分散型流動性プールベースのDEXスワップ取引を開始します。",
-                m9Title:"LPステーキング", m9Desc:"流動性プール預金およびステーキング報酬を受け取ります。",
-                m10Title:"Pi保有量", m10Desc:"Pi Networkデジタル資産残高およびネットワーク連動状態です。",
-                navHomeTitle:"ホーム", navHomeDesc:"HK WORLD BANKメインダッシュボードです。",
-                navAssetsTitle:"資産管理", navAssetsDesc:"保有中のKRW、PI、デジタル資産ポートフォリオを照会します。",
-                navPiniTitle:"AGI PINI サポート", navPiniDesc:"AIアシスタントPINIが24時間金融および技術サポートを提供します。",
-                navSettingsTitle:"設定", navSettingsDesc:"セキュリティ、通知、言語、コンプライアンス設定を管理します。"
-            },
-            hi: {
-                heroH1:"ग्लोबल सुपर बैंकिंग प्लेटफॉर्म 🌐", heroP:"आज आपके सुरक्षित और स्मार्ट वित्तीय जीवन का समर्थन कर रहा है।",
-                txtMainAcc:"HK मुख्य खाता", txtSendAvail:"स्थानांतरण योग्य", btnSend:"भेजें", btnFill:"जमा करें",
-                txtPiBox:"🪙 Pi ट्रस्ट और सेफ़बॉक्स", txtPiRate:"31.41% वार्षिक चक्रवृद्धि", btnManage:"प्रबंध करें", btnLp:"LP में शामिल हों",
-                txtQuickMenu:"त्वरित वित्तीय कार्य", txtAffiliates:"HK ग्रुप रणनीतिक सहयोगी",
-                m1:"वॉलेट कनेक्ट", m2:"स्थानांतरण", m3:"भुगतान", m4:"जमा", m5:"पुरस्कार", m6:"बुनियादी आय", m7:"स्वैप", m8:"DEX स्वैप", m9:"LP स्टेकिंग", m10:"Pi शेष",
-                txtTxHistory:"हाल के लेन-देन", txTitle1:"HK-ROBOT सहायक फंड", txSub1:"स्मार्ट सिटी इंफ्रास्ट्रक्चर", txTitle2:"HK-NEXUS स्मार्ट ग्लास फंडिंग", txSub2:"वेरेबल डिवाइस R&D",
-                txtFooter:"AGI ग्राहक सेवा PINI 24/7 सक्रिय", btnClose:"पुष्टि करें",
-                navHome:"होम", navTransfer:"स्थानांतरण", navAssets:"संपत्ति", navPini:"PINI AGI", navSettings:"सेटिंग्स",
-                mSendTitle:"भेजें", mSendDesc:"स्थानांतरण राशि और प्राप्तकर्ता खाता विवरण दर्ज करें।",
-                mFillTitle:"जमा करें", mFillDesc:"लिंक किए गए खातों से अपने HK मुख्य खाते को टॉप अप करें।",
-                mManageTitle:"Pi ट्रस्ट प्रबंधन", mManageDesc:"31.41% वार्षिक चक्रवृद्धि सेफ़बॉक्स सेटिंग्स प्रबंधित करें।",
-                mLpTitle:"LP में शामिल हों", mLpDesc:"HK WORLD BANK LP जमा सेवाओं पर नेविगेट करें।",
-                t165Title:"Gyeongju 165-मंजिला T165 लैंडमार्क", t165Desc:"गेongju में 165 मंजिला HK ग्रुप का मुख्यालय और वैश्विक व्यापार केंद्र।",
-                m1Title:"वॉलेट कनेक्ट", m1Desc:"बैकग्राउंड KYC/KYD सुरक्षा के साथ वॉलेट कनेक्ट करें।",
-                m2Title:"स्थानांतरण", m2Desc:"HK ग्लोबल ट्रांसफर सिस्टम के माध्यम से तुरंत ट्रांसफर करें।",
-                m3Title:"भुगतान", m3Desc:"वैश्विक मर्चेंट के लिए तत्काल एकीकृत भुगतान प्रणाली।",
-                m4Title:"जमा", m4Desc:"सुरक्षित संपत्ति जमा और उच्च-उपज पुरस्कार प्रणाली।",
-                m5Title:"पुरस्कार", m5Desc:"पारिस्थितिकी तंत्र योगदान के आधार पर पुरस्कार जांचें।",
-                m6Title:"बुनियादी आय", m6Desc:"HK सोशल फाउंडेशन से 30% शुद्ध लाभ द्वारा वित्त पोषित UBI प्राप्त करें।",
-                m7Title:"स्वैप", m7Desc:"डिजिटल संपत्तियों के बीच अल्ट्रा-फास्ट रियल-टाइम करेंसी स्वैप।",
-                m8Title:"DEX स्वैप", m8Desc:"विकेंद्रीकृत तरलता पूल के आधार पर DEX स्वैप ट्रेडिंग शुरू करें।",
-                m9Title:"LP स्टेकिंग", m9Desc:"तरलता पूल में जमा करें और स्टेकिंग पुरस्कारों का दावा करें।",
-                m10Title:"Pi शेष", m10Desc:"Pi Network डिजिटल संपत्ति शेष और नेटवर्क सिंक स्थिति।",
-                navHomeTitle:"होम", navHomeDesc:"HK WORLD BANK मुख्य डैशबोर्ड।",
-                navAssetsTitle:"संपत्ति प्रबंधन", navAssetsDesc:"अपना KRW, PI और डिजिटल संपत्ति पोर्टफोल리오 देखें।",
-                navPiniTitle:"AGI PINI सहायता", navPiniDesc:"AI सहायक PINI 24/7 वित्तीय और तकनीकी सहायता प्रदान करता है.",
-                navSettingsTitle:"सेटिंग्स", navSettingsDesc:"सुरक्षा, सूचनाएं, भाषा और अनुपालन प्रबंधित करें।"
-            }
-        };
-
-        const languageSelect = document.getElementById('languageSelect');
-        languageSelect.addEventListener('change', function(e) {
-            const lang = e.target.value;
-            const translations = i18nData[lang] || i18nData['en'];
-            
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[key]) {
-                    element.innerText = translations[key];
-                }
-            });
-
-            const modalEl = document.getElementById('actionModal');
-            if (modalEl.classList.contains('show')) {
-                document.getElementById('modalTitle').innerText = translations[currentModalKeyTitle] || currentModalKeyTitle;
-                document.getElementById('modalDesc').innerText = translations[currentModalKeyDesc] || currentModalKeyDesc;
-            }
-
-            this.blur();
-        });
+            setTimeout(() => {
+                const piniMsg = document.createElement('div');
+                piniMsg.className = "bg-white p-3 rounded-2xl border border-gray-200 self-start max-w-[85%] text-xs shadow-sm";
+                piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${q}" 요청을 토스 스타일 뱅킹에 완벽히 반영했습니다!`;
+                logs.appendChild(piniMsg);
+                logs.scrollTop = logs.scrollHeight;
+            }, 500);
+        }
     </script>
 </body>
-            fr: {
-                heroH1:"Plateforme Super Bancaire Mondiale 🌐", heroP:"Soutenir votre vie financière sûre et intelligente.",
-                txtMainAcc:"Compte Principal HK", txtSendAvail:"Transférable", btnSend:"Envoyer", btnFill:"Recharger",
-                txtPiBox:"🪙 Pi Trust & Coffre", txtPiRate:"31.41% Composé Annuel", btnManage:"Gérer", btnLp:"Rejoindre Pool",
-                txtQuickMenu:"Opérations Rapides", txtAffiliates:"Affiliées Stratégiques de HK Group",
-                m1:"Connexion", m2:"Transfert", m3:"Paiement", m4:"Dépôt", m5:"Récompenses", m6:"Revenu de Base", m7:"Swap", m8:"DEX Swap", m9:"Staking LP", m10:"Solde Pi",
-                txtTxHistory:"Transactions Récentes", txTitle1:"Fonds HK-ROBOT", txSub1:"Infrastructure Ville Intelligente", txTitle2:"Financement Gafas HK-NEXUS", txSub2:"R&D Dispositifs",
-                txtFooter:"Support AGI PINI 24/7", btnClose:"Confirmer",
-                navHome:"Accueil", navTransfer:"Transfert", navAssets:"Actifs", navPini:"PINI AGI", navSettings:"Paramètres",
-                mSendTitle:"Envoyer", mSendDesc:"Entrez le montant et les détails du destinataire.",
-                mFillTitle:"Déposer", mFillDesc:"Rechargez votre compte principal HK.",
-                mManageTitle:"Gestion Pi Trust", mManageDesc:"Gérez votre SafeBox à 31.41% composé.",
-                mLpTitle:"Rejoindre le Pool", mLpDesc:"Accéder aux services de dépôt LP.",
-                t165Title:"Siège T165 Gyeongju (165 étages)", t165Desc:"Le siège social mondial de HK Group et hub d'affaires.",
-                m1Title:"Connexion Portefeuille", m1Desc:"Connexion avec sécurité KYC/KYD.",
-                m2Title:"Transfert", m2Desc:"Transfert instantané via le système HK.",
-                m3Title:"Paiement", m3Desc:"Paiement unifié pour commerçants mondiaux.",
-                m4Title:"Dépôt", m4Desc:"Dépôt d'actifs sécurisé et haut rendement.",
-                m5Title:"Récompenses", m5Desc:"Vérifiez les récompenses en temps réel.",
-                m6Title:"Revenu de Base", m6Desc:"Recevez l'UBI financé par les bénéfices de HK.",
-                m7Title:"Swap", m7Desc:"Échange instantané d'actifs numériques.",
-                m8Title:"DEX Swap", m8Desc:"Trading DEX sur pools décentralisés.",
-                m9Title:"Staking LP", m9Desc:"Déposez dans les pools et réclamez les récompenses.",
-                m10Title:"Solde Pi", m10Desc:"Solde Pi Network et état de synchronisation.",
-                navHomeTitle:"Accueil", navHomeDesc:"Tableau de bord principal HK WORLD BANK.",
-                navAssetsTitle:"Gestion des Actifs", navAssetsDesc:"Consultez votre portefeuille KRW, PI et actifs.",
-                navPiniTitle:"Support AGI PINI", navPiniDesc:"L'assistant IA PINI offre un support 24/7.",
-                navSettingsTitle:"Paramètres", navSettingsDesc:"Gérez sécurité, langue et conformité."
-            },
-            de: {
-                heroH1:"Globale Super-Banking-Plattform 🌐", heroP:"Unterstützung für Ihr sicheres & smartes Finanzleben.",
-                txtMainAcc:"HK Hauptkonto", txtSendAvail:"Überweisbar", btnSend:"Senden", btnFill:"Einzahlen",
-                txtPiBox:"🪙 Pi Trust & SafeBox", txtPiRate:"31.41% Zinseszins p.a.", btnManage:"Verwalten", btnLp:"Pool Beitreten",
-                txtQuickMenu:"Schnelle Finanzaktionen", txtAffiliates:"HK Group Strategische Partner",
-                m1:"Wallet", m2:"Überweisung", m3:"Zahlung", m4:"Einlage", m5:"Belohnungen", m6:"Grundeinkommen", m7:"Swap", m8:"DEX Swap", m9:"LP Staking", m10:"Pi Bestand",
-                txtTxHistory:"Letzte Transaktionen", txTitle1:"HK-ROBOT Mittel", txSub1:"Smart City Infrastruktur", txTitle2:"HK-NEXUS Finanzierung", txSub2:"Wearable R&D",
-                txtFooter:"AGI Kundenservice PINI 24/7", btnClose:"Bestätigen",
-                navHome:"Home", navTransfer:"Senden", navAssets:"Vermögen", navPini:"PINI AGI", navSettings:"Einstellungen",
-                mSendTitle:"Senden", mSendDesc:"Geben Sie den Betrag und die Empfängerdetails ein.",
-                mFillTitle:"Einzahlen", mFillDesc:"Laden Sie Ihr HK Hauptkonto auf.",
-                mManageTitle:"Pi Trust Verwaltung", mManageDesc:"Verwalten Sie Ihre SafeBox mit 31.41% Zinseszins.",
-                mLpTitle:"Pool Beitreten", mLpDesc:"Zu den LP-Einlagediensten von HK WORLD BANK.",
-                t165Title:"Gyeongju 165-stöckiges T165 Landmark", t165Desc:"Die 165-stöckige HK Group Zentrale in Gyeongju.",
-                m1Title:"Wallet Verbinden", m1Desc:"Wallet mit Hintergrund-KYC/KYD verbinden.",
-                m2Title:"Überweisung", m2Desc:"Sofortige Überweisung über das HK-System.",
-                m3Title:"Zahlung", m3Desc:"Integriertes Zahlungssystem für globale Händler.",
-                m4Title:"Einlage", m4Desc:"Sichere Vermögenseinlage und Prämiensystem.",
-                m5Title:"Belohnungen", m5Desc:"Echtzeit-Belohnungen prüfen.",
-                m6Title:"Grundeinkommen", m6Desc:"UBI aus 31.41% Gewinnausschüttung erhalten.",
-                m7Title:"Swap", m7Desc:"Blitzschneller Währungstausch.",
-                m8Title:"DEX Swap", m8Desc:"Dezentraler DEX-Handel.",
-                m9Title:"LP Staking", m9Desc:"In Liquiditätspools einzahlen und Staking-Prämien erhalten.",
-                m10Title:"Pi Bestand", m10Desc:"Pi Network Kontostand und Status.",
-                navHomeTitle:"Home", navHomeDesc:"HK WORLD BANK Hauptdashboard.",
-                navAssetsTitle:"Vermögensverwaltung", navAssetsDesc:"Portfolio aus KRW, PI und digitalen Assets einsehen.",
-                navPiniTitle:"AGI PINI Support", navPiniDesc:"KI-Assistent PINI bietet 24/7 Finanz- und Tech-Support.",
-                navSettingsTitle:"Einstellungen", navSettingsDesc:"Sicherheit, Sprache und Compliance verwalten."
-            },
-            ru: {
-                heroH1:"Глобальная Супер Банковская Платформа 🌐", heroP:"Поддержка вашей безопасной и умной финансовой жизни.",
-                txtMainAcc:"Основной счет HK", txtSendAvail:"Доступно", btnSend:"Отправить", btnFill:"Пополнить",
-                txtPiBox:"🪙 Pi Траст и Сейф", txtPiRate:"31.41% Сложные проценты", btnManage:"Управление", btnLp:"Пул Ликвидности",
-                txtQuickMenu:"Быстрые Операции", txtAffiliates:"Стратегические партнеры HK Group",
-                m1:"Кошелек", m2:"Перевод", m3:"Оплата", m4:"Депозит", m5:"Награды", m6:"Базовый Доход", m7:"Обмен", m8:"DEX Обмен", m9:"LP Стейкинг", m10:"Баланс Pi",
-                txtTxHistory:"История Транзакций", txTitle1:"Фонды HK-ROBOT", txSub1:"Инфраструктура Умного Города", txTitle2:"Финансирование HK-NEXUS", txSub2:"R&D Устройств",
-                txtFooter:"Служба поддержки AGI PINI 24/7", btnClose:"Подтвердить",
-                navHome:"Главная", navTransfer:"Перевод", navAssets:"Активы", navPini:"PINI AGI", navSettings:"Настройки",
-                mSendTitle:"Перевод", mSendDesc:"Введите сумму и данные получателя.",
-                mFillTitle:"Пополнение", mFillDesc:"Пополните основной счет HK.",
-                mManageTitle:"Управление Pi Траст", mManageDesc:"Управление Сейфом под 31.41% годовых.",
-                mLpTitle:"Пул Ликвидности", mLpDesc:"Переход к депозитам LP в HK WORLD BANK.",
-                t165Title:"Штаб-квартира T165 в Кенджу (165 этажей)", t165Desc:"165-этажная штаб-квартира HK Group в Кенджу.",
-                m1Title:"Подключение Кошелька", m1Desc:"Подключение с фоновой проверкой KYC/KYD.",
-                m2Title:"Перевод", m2Desc:"Мгновенные переводы через систему HK.",
-                m3Title:"Оплата", m3Desc:"Унифицированная система платежей.",
-                m4Title:"Депозит", m4Desc:"Безопасный депозит и высокая доходность.",
-                m5Title:"Награды", m5Desc:"Проверка наград в реальном времени.",
-                m6Title:"Базовый Доход", m6Desc:"Получение UBI от прибыли фонда HK.",
-                m7Title:"Обмен", m7Desc:"Сверхбыстрый обмен цифровых активов.",
-                m8Title:"DEX Обмен", m8Desc:"Торговля на децентрализованных пулах.",
-                m9Title:"LP Стейкинг", m9Desc:"Депозит в пулы ликвидности и получение наград.",
-                m10Title:"Баланс Pi", m10Desc:"Баланс Pi Network и статус синхронизации.",
-                navHomeTitle:"Главная", navHomeDesc:"Главная панель HK WORLD BANK.",
-                navAssetsTitle:"Управление Активами", navAssetsDesc:"Просмотр портфеля KRW, PI и цифровых активов.",
-                navPiniTitle:"Поддержка AGI PINI", navPiniDesc:"ИИ-ассистент PINI обеспечивает поддержку 24/7.",
-                navSettingsTitle:"Настройки", navSettingsDesc:"Управление безопасностью, языком и комплаенсом."
-            }
-
 </html>
-
-이어지는 2부(자바스크립트 엔진 및 다국어 딕셔너리) 코드를 바로 올려드리겠습니다! 형님, 잠시만 기다려주세요!
-
