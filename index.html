@@ -11,10 +11,9 @@
         :root {
             --bg-primary: #f4f6f9;
             --bg-secondary: #ffffff;
-            --card-bg: #ffffff;
             --card-border: #e2e8f0;
             --accent-blue: #0066ff;
-            --accent-blue-glow: rgba(0, 102, 255, 0.25);
+            --accent-blue-glow: rgba(0, 102, 255, 0.2);
             --accent-green: #00c853;
             --text-main: #1a202c;
             --text-muted: #718096;
@@ -42,7 +41,6 @@
             align-items: flex-start;
             min-height: 100vh;
             overflow-x: hidden;
-            padding: 0;
         }
 
         .app-container {
@@ -83,7 +81,6 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             font-size: 15px;
-            letter-spacing: 0.5px;
         }
 
         .bank-text {
@@ -91,7 +88,6 @@
             font-weight: 900;
             font-size: 18px;
             color: #1a202c;
-            letter-spacing: 1px;
         }
 
         .header-right {
@@ -135,7 +131,7 @@
             font-size: 11px;
             outline: none;
             cursor: pointer;
-            max-width: 190px;
+            max-width: 210px;
         }
 
         main {
@@ -152,9 +148,6 @@
             font-weight: 900;
             color: #1a202c;
             margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .greeting-sub {
@@ -162,7 +155,6 @@
             color: var(--text-muted);
         }
 
-        /* 주거래 통장 카드 */
         .account-card {
             background: #ffffff;
             border: 1px solid var(--card-border);
@@ -170,7 +162,6 @@
             padding: 22px;
             margin-bottom: 16px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
         }
 
         .account-header {
@@ -222,21 +213,14 @@
             color: #2d3748;
             cursor: pointer;
             text-align: center;
-            transition: all 0.2s;
         }
 
         .btn-action.primary {
             background: var(--accent-blue);
             color: #fff;
             border-color: var(--accent-blue);
-            box-shadow: 0 4px 12px var(--accent-blue-glow);
         }
 
-        .btn-action:active {
-            transform: scale(0.97);
-        }
-
-        /* Pi 신탁 & 세이프박스 카드 */
         .pi-trust-card {
             background: linear-gradient(135deg, #1a202c, #2d3748);
             border-radius: 20px;
@@ -244,7 +228,6 @@
             margin-bottom: 24px;
             color: #fff;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative;
         }
 
         .pi-trust-header {
@@ -269,7 +252,6 @@
             border-radius: 6px;
             font-size: 11px;
             font-weight: 700;
-            border: 1px solid rgba(0, 200, 83, 0.4);
         }
 
         .pi-trust-balance {
@@ -303,7 +285,6 @@
             border-color: var(--accent-blue);
         }
 
-        /* 빠른 메뉴 4종 아이콘바 */
         .quick-menu-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -333,11 +314,6 @@
             justify-content: center;
             align-items: center;
             font-size: 20px;
-            transition: transform 0.2s;
-        }
-
-        .quick-item:active .quick-icon-circle {
-            transform: scale(0.9);
         }
 
         .quick-label {
@@ -346,7 +322,6 @@
             color: #4a5568;
         }
 
-        /* 최근 거래 내역 */
         .history-section {
             background: #fff;
             border: 1px solid var(--card-border);
@@ -368,22 +343,12 @@
             color: #1a202c;
         }
 
-        .history-more {
-            font-size: 12px;
-            color: var(--text-muted);
-            cursor: pointer;
-        }
-
         .history-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 12px 0;
             border-bottom: 1px solid #f7fafc;
-        }
-
-        .history-item:last-child {
-            border-bottom: none;
         }
 
         .history-info h4 {
@@ -407,23 +372,21 @@
         .history-amount.plus { color: var(--accent-green); }
         .history-amount.minus { color: #e53e3e; }
 
-        /* 모달 팝업 */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
             z-index: 300;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.2s ease;
-            padding: 20px;
         }
 
         .modal.active {
@@ -434,22 +397,28 @@
         .modal-body {
             background: #fff;
             width: 100%;
-            max-width: 420px;
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-            position: relative;
+            max-width: 480px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            padding: 24px 24px 36px 24px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            transform: translateY(100%);
+            transition: transform 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        .modal.active .modal-body {
+            transform: translateY(0);
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .modal-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 900;
             color: #1a202c;
         }
@@ -457,7 +426,7 @@
         .modal-close {
             background: none;
             border: none;
-            font-size: 22px;
+            font-size: 20px;
             color: #a0aec0;
             cursor: pointer;
         }
@@ -466,21 +435,13 @@
             margin-bottom: 16px;
         }
 
-        .form-label {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 6px;
-            display: block;
-        }
-
         .form-input {
             width: 100%;
             background: #f7fafc;
             border: 1px solid var(--card-border);
             padding: 14px;
             border-radius: 12px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: #1a202c;
             outline: none;
@@ -500,7 +461,6 @@
             font-size: 15px;
             font-weight: 900;
             cursor: pointer;
-            margin-top: 6px;
             box-shadow: 0 4px 15px var(--accent-blue-glow);
         }
 
@@ -519,7 +479,6 @@
 <body>
 
     <div class="app-container">
-        <!-- 상단 헤더 -->
         <header>
             <div class="logo-box">
                 <span class="hk-logo">HK</span>
@@ -527,11 +486,11 @@
             </div>
             <div class="header-right">
                 <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
-                <button class="icon-btn" onclick="openNavDrawer()"><i class="fa-solid fa-bars"></i></button>
+                <button class="icon-btn"><i class="fa-solid fa-bars"></i></button>
             </div>
         </header>
 
-        <!-- 60개국 언어 선택 바 -->
+        <!-- 60개국 언어 엔진 드롭다운 (60개국어 전체 탑재) -->
         <div class="lang-bar">
             <div class="lang-info">
                 <i class="fa-solid fa-globe"></i>
@@ -556,30 +515,69 @@
                 <option value="tr">🇹🇷 튀르키예어 (Turkish)</option>
                 <option value="vi">🇻🇳 베트남어 (Vietnamese)</option>
                 <option value="th">🇹🇭 태국어 (Thai)</option>
+                <option value="pl">🇵🇱 폴란드어 (Polish)</option>
+                <option value="nl">🇳🇱 네덜란드어 (Dutch)</option>
+                <option value="ms">🇲🇾 말레이어 (Malay)</option>
+                <option value="tl">🇵🇭 필리핀어 (Filipino)</option>
+                <option value="uk">🇺🇦 우크라이나어 (Ukrainian)</option>
+                <option value="fa">🇮🇷 페르시아어 (Persian)</option>
+                <option value="sv">🇸🇪 스웨덴어 (Swedish)</option>
+                <option value="bn">🇧🇩 벵골어 (Bengali)</option>
+                <option value="ur">🇵🇰 우르두어 (Urdu)</option>
+                <option value="cs">🇨🇿 체코어 (Czech)</option>
+                <option value="el">🇬🇷 그리스어 (Greek)</option>
+                <option value="hu">🇭🇺 헝가리어 (Hungarian)</option>
+                <option value="ro">🇷🇴 루마니아어 (Romanian)</option>
+                <option value="da">🇩🇰 덴마크어 (Danish)</option>
+                <option value="fi">🇫🇮 핀란드어 (Finnish)</option>
+                <option value="no">🇳🇴 노르웨이어 (Norwegian)</option>
+                <option value="sk">🇸lovakia어 (Slovak)</option>
+                <option value="bg">🇧🇬 불가리아어 (Bulgarian)</option>
+                <option value="hr">🇭🇷 크로아티아어 (Croatian)</option>
+                <option value="sr">🇷🇸 세르비아어 (Serbian)</option>
+                <option value="sl">🇸🇮 슬로베니아어 (Slovenian)</option>
+                <option value="et">🇪🇪 에스토니아어 (Estonian)</option>
+                <option value="lv">🇱🇻 라트비아어 (Latvian)</option>
+                <option value="lt">🇱🇹 리투아니아어 (Lithuanian)</option>
+                <option value="he">🇮🇱 히브리어 (Hebrew)</option>
+                <option value="sw">🇰🇪 스와힐리어 (Swahili)</option>
+                <option value="af">🇿🇦 아프리칸스어 (Afrikaans)</option>
+                <option value="am">🇪🇹 암하라어 (Amharic)</option>
+                <option value="az">🇦🇿 아제르바이잔어 (Azerbaijani)</option>
+                <option value="ka">🇬🇪 조지아어 (Georgian)</option>
+                <option value="kk">🇰ℤ 카자흐어 (Kazakh)</option>
+                <option value="km">🇰🇭 크메르어 (Khmer)</option>
+                <option value="lo">🇱🇦 라오어 (Lao)</option>
+                <option value="mn">🇲🇳 몽골어 (Mongolian)</option>
+                <option value="my">🇲🇲 미얀마어 (Burmese)</option>
+                <option value="ne">🇳🇵 네팔어 (Nepali)</option>
+                <option value="si">🇱🇰 싱할라어 (Sinhala)</option>
+                <option value="so">🇸🇴 소말리어 (Somali)</option>
+                <option value="ta">🇮🇳 타밀어 (Tamil)</option>
+                <option value="te">🇮🇳 텔루구어 (Telugu)</option>
+                <option value="uz">🇺🇿 우즈베크어 (Uzbek)</option>
+                <option value="zu">🇿🇦 줄루어 (Zulu)</option>
             </select>
         </div>
 
         <main>
-            <!-- 인사말 영역 -->
             <div class="greeting-box">
                 <h1 class="greeting-title" data-i18n="greetingTitle">글로벌 슈퍼 뱅킹 플랫폼 👋</h1>
                 <p class="greeting-sub" data-i18n="greetingSub">오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
             </div>
 
-            <!-- HK 주거래통장 카드 -->
             <div class="account-card">
                 <div class="account-header">
                     <span class="account-name"><i class="fa-solid fa-wallet" style="color:var(--accent-blue);"></i> <span data-i18n="accountName">HK 주거래통장</span></span>
                     <span class="account-badge" data-i18n="accountBadge">출금가능</span>
                 </div>
-                <div class="account-balance" id="krwBalanceDisplay">314,159,000 원</div>
+                <div class="account-balance">314,159,000 원</div>
                 <div class="account-btns">
                     <button class="btn-action" data-i18n="btnTransfer" onclick="openBankModal('transfer')">송금하기</button>
                     <button class="btn-action primary" data-i18n="btnFill" onclick="openBankModal('fill')">채우기</button>
                 </div>
             </div>
 
-            <!-- Pi 신탁 & 세이프박스 카드 -->
             <div class="pi-trust-card">
                 <div class="pi-trust-header">
                     <span class="pi-trust-title"><span style="color:var(--pi-color); font-weight:900;">π</span> <span data-i18n="piTrustTitle">Pi 신탁 & 세이프박스</span></span>
@@ -592,7 +590,6 @@
                 </div>
             </div>
 
-            <!-- 빠른 메뉴 4종 그리드 -->
             <div class="quick-menu-grid">
                 <div class="quick-item" onclick="openBankModal('transfer')">
                     <div class="quick-icon-circle"><i class="fa-solid fa-paper-plane"></i></div>
@@ -612,13 +609,10 @@
                 </div>
             </div>
 
-            <!-- 최근 거래 내역 -->
             <div class="history-section">
                 <div class="history-header">
                     <h3 class="history-title" data-i18n="historyTitle">최근의 거래내역</h3>
-                    <span class="history-more" data-i18n="historyMore">전체보기</span>
                 </div>
-
                 <div class="history-item">
                     <div class="history-info">
                         <h4 data-i18n="hist1_name">HK-ROBOT 개발지원금</h4>
@@ -626,7 +620,6 @@
                     </div>
                     <div class="history-amount plus">+ 50,000,000원</div>
                 </div>
-
                 <div class="history-item">
                     <div class="history-info">
                         <h4 data-i18n="hist2_name">스타벅스 (블랙커피)</h4>
@@ -638,18 +631,17 @@
         </main>
     </div>
 
-    <!-- 뱅킹 작업 모달 팝업 -->
+    <!-- 미니멀 팝업 모달 -->
     <div class="modal" id="bankModal" onclick="closeModalOutside(event)">
         <div class="modal-body" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3 class="modal-title" id="modalTitle">간편 금융 작업</h3>
+                <h3 class="modal-title" id="modalTitle">금액 입력</h3>
                 <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div id="modalContent"></div>
         </div>
     </div>
 
-    <!-- 스크립트 엔진 -->
     <script>
         let currentLang = 'ko';
 
@@ -670,22 +662,16 @@
             quickLoan: "마이너스대출",
             quickQR: "QR결제",
             historyTitle: "최근의 거래내역",
-            historyMore: "전체보기",
             hist1_name: "HK-ROBOT 개발지원금",
             hist2_name: "스타벅스 (블랙커피)",
             
-            // 모달 다국어
-            modal_transfer_title: "계좌간 간편 송금",
-            modal_fill_title: "계좌 잔액 채우기",
-            modal_loan_title: "마이너스대출 한도 조회",
-            modal_qr_title: "QR 결제 스캐너 구동",
-            modal_amount_label: "거래 금액 입력",
-            modal_ph_amount: "금액 입력 (원 또는 PI)",
-            modal_submit_transfer: "송금하기",
-            modal_submit_fill: "가져오기",
-            modal_submit_loan: "한도 승인 신청",
-            modal_submit_qr: "QR 코드 스캔 승인",
-            modal_success: "✅ HK BANK 금융 작업이 정상 처리되었습니다."
+            modal_transfer: "계좌간 간편 송금",
+            modal_fill: "계좌 잔액 채우기",
+            modal_loan: "마이너스대출 한도 조회",
+            modal_qr: "QR 결제 승인",
+            modal_ph: "금액 입력 (원 또는 PI)",
+            modal_btn: "확인 완료",
+            success_msg: "✅ 정상 처리되었습니다."
         };
 
         const translationCache = { ko: koSource };
@@ -733,32 +719,28 @@
             const contentEl = document.getElementById('modalContent');
             const curDict = translationCache[currentLang] || koSource;
 
-            let titleKey = 'modal_transfer_title';
-            let btnKey = 'modal_submit_transfer';
+            let titleKey = 'modal_transfer';
+            if(type === 'fill') titleKey = 'modal_fill';
+            else if(type === 'loan') titleKey = 'modal_loan';
+            else if(type === 'qr') titleKey = 'modal_qr';
+            else if(type === 'manage' || type === 'swap') titleKey = 'piTrustTitle';
 
-            if(type === 'fill') { titleKey = 'modal_fill_title'; btnKey = 'modal_submit_fill'; }
-            else if(type === 'loan') { titleKey = 'modal_loan_title'; btnKey = 'modal_submit_loan'; }
-            else if(type === 'qr') { titleKey = 'modal_qr_title'; btnKey = 'modal_submit_qr'; }
-            else if(type === 'manage' || type === 'swap') { titleKey = 'piTrustTitle'; btnKey = 'btnSwap'; }
-
-            titleEl.innerText = await translateText(curDict[titleKey] || "금융 작업", currentLang);
-            let labelText = await translateText(curDict.modal_amount_label || "거래 금액 입력", currentLang);
-            let phText = await translateText(curDict.modal_ph_amount || "금액 입력", currentLang);
-            let btnText = await translateText(curDict[btnKey] || "확인", currentLang);
+            titleEl.innerText = await translateText(curDict[titleKey] || "금액 입력", currentLang);
+            let phText = await translateText(curDict.modal_ph || "금액 입력", currentLang);
+            let btnText = await translateText(curDict.modal_btn || "확인", currentLang);
 
             contentEl.innerHTML = `
                 <div class="form-group">
-                    <label class="form-label">${labelText}</label>
-                    <input class="form-input" id="bankInputAmount" placeholder="${phText}">
+                    <input class="form-input" id="bankInputAmount" placeholder="${phText}" autofocus>
                 </div>
-                <button class="modal-btn" onclick="executeBankAction('${type}')">${btnText}</button>
+                <button class="modal-btn" onclick="executeBankAction()">${btnText}</button>
             `;
             modal.classList.add('active');
         }
 
-        function executeBankAction(type) {
+        function executeBankAction() {
             const curDict = translationCache[currentLang] || koSource;
-            alert(curDict.modal_success || "✅ HK BANK 금융 작업이 정상 처리되었습니다.");
+            alert(curDict.success_msg || "✅ 정상 처리되었습니다.");
             closeModal();
         }
 
@@ -768,10 +750,6 @@
 
         function closeModalOutside(event) {
             if (event.target.id === 'bankModal') closeModal();
-        }
-
-        function openNavDrawer() {
-            alert("HK BANK 네비게이터 메뉴가 호출되었습니다.");
         }
 
         async function changeLanguage(lang) {
