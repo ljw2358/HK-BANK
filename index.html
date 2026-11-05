@@ -75,7 +75,7 @@
             border-radius: 8px;
             font-size: 13px;
             outline: none;
-            max-width: 130px;
+            max-width: 140px;
             cursor: pointer;
             position: relative;
             z-index: 11;
@@ -198,6 +198,7 @@
             border: none;
             outline: none;
             transition: transform 0.2s;
+            padding: 4px;
         }
 
         .menu-item:active {
@@ -374,7 +375,7 @@
                 <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
                 <option value="my">🇲🇲 မြန်မာ</option>
                 <option value="km">🇰🇭 ខ្មែរ</option>
-                <option value="lo">🇱اؤ</option>
+                <option value="lo">🇱🇦 ລາວ</option>
                 <option value="am">🇪🇹 አማርኛ</option>
                 <option value="ka">🇬🇪 ქართული</option>
                 <option value="hy">🇦🇲 Հայերեն</option>
@@ -426,128 +427,40 @@
             <!-- 10대 연동망 메뉴 (Grid) -->
             <div class="section-title" data-i18n="txtQuickMenu">빠른 금융 작업</div>
             <div class="grid-menu">
-                <button class="menu-item" id="menu-1">
+                <button class="menu-item" id="menu-1" type="button">
                     <div class="menu-icon">🔗</div>
                     <div class="menu-name" data-i18n="m1">지갑연결</div>
                 </button>
-                <button class="menu-item" id="menu-2">
+                <button class="menu-item" id="menu-2" type="button">
                     <div class="menu-icon">💸</div>
                     <div class="menu-name" data-i18n="m2">송금</div>
                 </button>
-                <button class="menu-item" id="menu-3">
+                <button class="menu-item" id="menu-3" type="button">
                     <div class="menu-icon">💳</div>
                     <div class="menu-name" data-i18n="m3">결제</div>
                 </button>
-                <button class="menu-item" id="menu-4">
+                <button class="menu-item" id="menu-4" type="button">
                     <div class="menu-icon">🏦</div>
-                    <div class="menu-name" id="m4" data-i18n="m4">예치</div>
+                    <div class="menu-name" data-i18n="m4">예치</div>
                 </button>
-                <button class="menu-item" id="menu-5">
+                <button class="menu-item" id="menu-5" type="button">
                     <div class="menu-icon">🎁</div>
                     <div class="menu-name" data-i18n="m5">보상</div>
                 </button>
-                <button class="menu-item" id="menu-6">
+                <button class="menu-item" id="menu-6" type="button">
                     <div class="menu-icon">🌍</div>
                     <div class="menu-name" data-i18n="m6">기본소득</div>
                 </button>
-                <button class="menu-item" id="menu-7">
+                <button class="menu-item" id="menu-7" type="button">
                     <div class="menu-icon">🔄</div>
                     <div class="menu-name" data-i18n="m7">스왑</div>
                 </button>
-                <button class="menu-item" id="menu-8">
+                <button class="menu-item" id="menu-8" type="button">
                     <div class="menu-icon">⚡</div>
                     <div class="menu-name" data-i18n="m8">DEX스왑</div>
                 </button>
-                <button class="menu-item" id="menu-9">
+                <button class="menu-item" id="menu-9" type="button">
                     <div class="menu-icon">💧</div>
                     <div class="menu-name" data-i18n="m9">LP스테이킹</div>
                 </button>
-                <button class="menu-item" id="menu-10">
-                    <div class="menu-icon">🪙</div>
-                    <div class="menu-name" data-i18n="m10">파이수량</div>
-                </button>
-            </div>
-
-            <!-- 최근 거래 내역 -->
-            <div class="section-title" data-i18n="txtTxHistory">최근의 거래내역</div>
-            <div class="tx-list">
-                <div class="tx-item">
-                    <div class="tx-info">
-                        <h4 data-i18n="txTitle1">HK-ROBOT 계열사자금</h4>
-                        <span data-i18n="txSub1">스마트시티 인프라</span>
-                    </div>
-                    <div class="tx-amount">+ 50,000,000 KRW</div>
-                </div>
-            </div>
-
-            <div class="footer-support" data-i18n="txtFooter">
-                AGI 고객센터 삐니(Pini) 24시간 대기 중
-            </div>
-        </div>
-    </div>
-
-    <!-- 팝업 모달 -->
-    <div id="actionModal">
-        <div class="modal-content">
-            <h3 id="modalTitle">알림</h3>
-            <p id="modalDesc">기능이 실행됩니다.</p>
-            <button class="modal-close" id="modalCloseBtn">확인</button>
-        </div>
-    </div>
-
-    <script>
-        // 모달 제어 함수
-        function openModal(title, desc) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('actionModal').classList.add('show');
-        }
-
-        function closeModal() {
-            document.getElementById('actionModal').classList.remove('show');
-        }
-
-        document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
-
-        // 상단 계좌 버튼 이벤트
-        document.getElementById('btnSend').onclick = function() { openModal('송금하기', 'HK 주거래통장에서 보낼 금액과 받는 계좌 정보를 입력해 주세요.'); };
-        document.getElementById('btnFill').onclick = function() { openModal('채우기', '연동된 계좌에서 HK 주거래통장으로 잔액을 충전합니다.'); };
-        document.getElementById('btnManage').onclick = function() { openModal('Pi 신탁 관리', '31.41% 복리 세이프박스 및 신탁 설정을 관리합니다.'); };
-        document.getElementById('btnLp').onclick = function() { openModal('유동성 풀참전', 'HK WORLD BANK 유동성 풀(LP) 예치 서비스로 이동합니다.'); };
-
-        // 10대 연동망 버튼 이벤트
-        document.getElementById('menu-1').onclick = function() { openModal('지갑연결', '블록체인 지갑 및 백그라운드 KYC/KYD 보안 인증을 연동합니다.'); };
-        document.getElementById('menu-2').onclick = function() { openModal('송금', 'HK 글로벌 이체 시스템으로 즉시 송금을 진행합니다.'); };
-        document.getElementById('menu-3').onclick = function() { openModal('결제', '글로벌 온·오프라인 가맹점 즉시 통합 결제 시스템입니다.'); };
-        document.getElementById('menu-4').onclick = function() { openModal('예치', '안전 자산 예치 및 고금리 리워드 연동 시스템입니다.'); };
-        document.getElementById('menu-5').onclick = function() { openModal('보상', '생태계 기여도에 따른 실시간 리워드 보상을 확인합니다.'); };
-        document.getElementById('menu-6').onclick = function() { openModal('기본소득 (UBI)', 'HK 사회재단 순이익 30% 환원 UBI 기본소득을 지급합니다.'); };
-        document.getElementById('menu-7').onclick = function() { openModal('스왑', '디지털 자산 간의 초고속 실시간 환전 스왑을 지원합니다.'); };
-        document.getElementById('menu-8').onclick = function() { openModal('DEX 스왑', '탈중앙화 유동성 풀 기반 DEX 스왑 거래를 시작합니다.'); };
-        document.getElementById('menu-9').onclick = function() { openModal('LP 스테이킹', '유동성 풀(LP) 예치 및 스테이킹 보상을 수령합니다.'); };
-        document.getElementById('menu-10').onclick = function() { openModal('파이 수량', 'Pi Network 디지털 자산 잔액 및 네트워크 연동 상태입니다.'); };
-
-        // 60개국 다국어 번역 엔진
-        const i18nData = {
-            ko: { heroH1:"글로벌 슈퍼 뱅킹 플랫폼 🌐", heroP:"오늘도 안전하고 스마트한 금융 생활을 지원합니다.", txtMainAcc:"HK 주거래통장", txtSendAvail:"송금가능", btnSend:"송금하기", btnFill:"채우기", txtPiBox:"🪙 Pi 신탁 & 세이프박스", txtPiRate:"연 31.41% 복리", btnManage:"관리하기", btnLp:"유동성 풀참전", txtQuickMenu:"빠른 금융 작업", m1:"지갑연결", m2:"송금", m3:"결제", m4:"예치", m5:"보상", m6:"기본소득", m7:"스왑", m8:"DEX스왑", m9:"LP스테이킹", m10:"파이수량", txtTxHistory:"최근의 거래내역", txTitle1:"HK-ROBOT 계열사자금", txSub1:"스마트시티 인프라", txtFooter:"AGI 고객센터 삐니(Pini) 24시간 대기 중" },
-            en: { heroH1:"Global Super Banking Platform 🌐", heroP:"Supporting your safe & smart financial life today.", txtMainAcc:"HK Main Account", txtSendAvail:"Transferable", btnSend:"Send", btnFill:"Deposit", txtPiBox:"🪙 Pi Trust & SafeBox", txtPiRate:"31.41% APY Compound", btnManage:"Manage", btnLp:"Join LP", txtQuickMenu:"Quick Financial Work", m1:"Wallet Connect", m2:"Transfer", m3:"Payment", m4:"Deposit", m5:"Rewards", m6:"UBI Income", m7:"Swap", m8:"DEX Swap", m9:"LP Staking", m10:"Pi Balance", txtTxHistory:"Recent Transactions", txTitle1:"HK-ROBOT Subsidiary Funds", txSub1:"Smart City Infrastructure", txtFooter:"AGI Customer Support PINI Active 24/7" },
-            zh: { heroH1:"全球超级银行平台 🌐", heroP:"为您提供安全、智能的金融生活支持。", txtMainAcc:"HK 主交易账户", txtSendAvail:"可转账", btnSend:"转账", btnFill:"充值", txtPiBox:"🪙 Pi 信托 & 保险箱", txtPiRate:"年化 31.41% 复利", btnManage:"管理", btnLp:"加入流动性池", txtQuickMenu:"快捷金融操作", m1:"连接钱包", m2:"转账", m3:"支付", m4:"存款", m5:"奖励", m6:"基本收入", m7:"兑换", m8:"DEX兑换", m9:"LP质押", m10:"Pi数量", txtTxHistory:"最近交易记录", txTitle1:"HK-ROBOT 集团资金", txSub1:"智慧城市基础设施", txtFooter:"AGI 客服 centers PINI 24小时在线" },
-            ja: { heroH1:"グローバルスーパーバンキングプラットフォーム 🌐", heroP:" safeでスマートなマネーライフをサポートします。", txtMainAcc:"HK メイン口座", txtSendAvail:"送金可能", btnSend:"送金する", btnFill:"チャージ", txtPiBox:"🪙 Pi 信託 & セーフボックス", txtPiRate:"年 31.41% 複利", btnManage:"管理", btnLp:"流動性プール参加", txtQuickMenu:"クイック金融操作", m1:"ウォレット接続", m2:"送金", m3:"決済", m4:"預金", m5:"報酬", m6:"ベーシックインカム", m7:"スワップ", m8:"DEXスワップ", m9:"LPステーキング", m10:"Pi保有量", txtTxHistory:"最近の取引履歴", txTitle1:"HK-ROBOT 子会社資金", txSub1:"スマートシティインフラ", txtFooter:"AGI カスタマーセンター PINI 24時間待機中" }
-        };
-
-        const languageSelect = document.getElementById('languageSelect');
-        languageSelect.addEventListener('change', function(e) {
-            const lang = e.target.value;
-            const translations = i18nData[lang] || i18nData['en'];
-            
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[key]) {
-                    element.innerText = translations[key];
-                }
-            });
-            this.blur();
-        });
-    </script>
-</body>
-</html>
+                <button class="menu-item" id
