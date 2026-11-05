@@ -58,12 +58,6 @@
             z-index: 100;
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .logo-text {
             font-size: 20px;
             font-weight: 800;
@@ -73,21 +67,16 @@
             width: 100%;
         }
 
-        .header-icons {
-            display: flex;
-            gap: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
         .lang-selector {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 6px 12px;
+            padding: 6px 10px;
             border-radius: 8px;
             font-size: 13px;
             outline: none;
+            max-width: 130px;
+            cursor: pointer;
         }
 
         /* Main Content */
@@ -222,6 +211,7 @@
             font-weight: 700;
             margin-top: 10px;
             margin-bottom: -5px;
+            text-align: center;
         }
 
         .tx-list {
@@ -270,111 +260,265 @@
     <div class="app-container">
         <!-- Header -->
         <header>
-            <div style="width: 40px;"></div>
+            <div style="width: 20px;"></div>
             <div class="logo-text">HK WORLD BANK</div>
-            <select class="lang-selector">
-                <option value="ko">한국어 (Korean)</option>
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-                <option value="ja">日本語</option>
+            <select class="lang-selector" id="languageSelect">
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="id">🇮🇩 Bahasa</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+                <option value="th">🇹🇭 ไทย</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="uk">🇺🇦 Українська</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="sv">🇸🇪 Svenska</option>
+                <option value="no">🇳🇴 Norsk</option>
+                <option value="fi">🇫🇮 Suomi</option>
+                <option value="da">🇩🇰 Dansk</option>
+                <option value="el">🇬🇷 Ελληνικά</option>
+                <option value="cs">🇨🇿 Čeština</option>
+                <option value="hu">🇭🇺 Magyar</option>
+                <option value="ro">🇷🇴 Română</option>
+                <option value="bg">🇧🇬 Български</option>
+                <option value="sk">🇸🇰 Slovenčina</option>
+                <option value="hr">🇭🇷 Hrvatski</option>
+                <option value="sr">🇷🇸 Српски</option>
+                <option value="ms">🇲🇾 Bahasa Melayu</option>
+                <option value="fil">🇵🇭 Tagalog</option>
+                <option value="sw">🇰🇪 Kiswahili</option>
+                <option value="he">🇮🇱 한국어/עברית</option>
+                <option value="fa">🇮🇷 فارسی</option>
+                <option value="ur">🇵🇰 اردو</option>
+                <option value="bn">🇧🇩 বাংলা</option>
+                <option value="ta">🇮🇳 தமிழ்</option>
+                <option value="te">🇮🇳 తెలుగు</option>
+                <option value="mr">🇮🇳 मराठी</option>
+                <option value="gu">🇮🇳 ગુજરાતી</option>
+                <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+                <option value="ml">🇮🇳 മലയാളം</option>
+                <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+                <option value="my">🇲🇲 မြန်မာ</option>
+                <option value="km">🇰🇭 ខ្មែរ</option>
+                <option value="lo">🇱🇦 ລາວ</option>
+                <option value="am">🇪🇹 አማርኛ</option>
+                <option value="ka">🇬🇪 ქართული</option>
+                <option value="hy">🇦🇲 Հայերեն</option>
+                <option value="az">🇦🇿 Azərbaycanca</option>
+                <option value="kk">🇰🇿 Қазақша</option>
+                <option value="uz">🇺🇿 O‘zbekcha</option>
+                <option value="mn">🇲🇳 Монгол</option>
+                <option value="ne">🇳🇵 नेपाली</option>
+                <option value="si">🇱🇰 සිංහල</option>
+                <option value="eu">🇪🇸 Euskara</option>
+                <option value="gl">🇪🇸 Galego</option>
+                <option value="ca">🇪🇸 Català</option>
             </select>
         </header>
 
         <!-- Content -->
         <div class="content">
             <div class="hero-title">
-                <h1>글로벌 슈퍼 뱅킹 플랫폼 🌐</h1>
-                <p>오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
+                <h1 id="heroH1">글로벌 슈퍼 뱅킹 플랫폼 🌐</h1>
+                <p id="heroP">오늘도 안전하고 스마트한 금융 생활을 지원합니다.</p>
             </div>
 
             <!-- 계좌 잔액 카드 -->
             <div class="card">
                 <div class="card-header">
-                    <span>HK 주거래통장</span>
-                    <span>송금가능</span>
+                    <span id="txtMainAcc">HK 주거래통장</span>
+                    <span id="txtSendAvail">송금가능</span>
                 </div>
-                <div class="card-balance">314,159,000 원</div>
+                <div class="card-balance">314,159,000 KRW</div>
                 <div class="card-actions">
-                    <button class="btn btn-primary">송금하기</button>
-                    <button class="btn btn-secondary">채우기</button>
+                    <button class="btn btn-primary" id="btnSend">송금하기</button>
+                    <button class="btn btn-secondary" id="btnFill">채우기</button>
                 </div>
             </div>
 
             <!-- Pi & 유동성풀 지갑 카드 -->
             <div class="card" style="border-color: var(--pi-color);">
                 <div class="card-header">
-                    <span>🪙 Pi 신탁 & 세이프박스</span>
-                    <span style="color: var(--success);">연 31.41% 복리</span>
+                    <span id="txtPiBox">🪙 Pi 신탁 & 세이프박스</span>
+                    <span id="txtPiRate" style="color: var(--success);">연 31.41% 복리</span>
                 </div>
                 <div class="card-balance" style="color: var(--pi-color);">314,159.00 PI</div>
                 <div class="card-actions">
-                    <button class="btn btn-secondary">관리하기</button>
-                    <button class="btn btn-pi">유동성 풀참전</button>
+                    <button class="btn btn-secondary" id="btnManage">관리하기</button>
+                    <button class="btn btn-pi" id="btnLp">유동성 풀참전</button>
                 </div>
             </div>
 
             <!-- 10대 연동망 메뉴 (Grid) -->
-            <div class="section-title">빠른 금융 작업</div>
+            <div class="section-title" id="txtQuickMenu">빠른 금융 작업</div>
             <div class="grid-menu">
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🔗</div>
-                    <div class="menu-name">지갑연결</div>
+                    <div class="menu-name" id="m1">지갑연결</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">💸</div>
-                    <div class="menu-name">송금</div>
+                    <div class="menu-name" id="m2">송금</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">💳</div>
-                    <div class="menu-name">결제</div>
+                    <div class="menu-name" id="m3">결제</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🏦</div>
-                    <div class="menu-name">예치</div>
+                    <div class="menu-name" id="m4">예치</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🎁</div>
-                    <div class="menu-name">보상</div>
+                    <div class="menu-name" id="m5">보상</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🌍</div>
-                    <div class="menu-name">기본소득</div>
+                    <div class="menu-name" id="m6">기본소득</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🔄</div>
-                    <div class="menu-name">스왑</div>
+                    <div class="menu-name" id="m7">스왑</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">⚡</div>
-                    <div class="menu-name">DEX스왑</div>
+                    <div class="menu-name" id="m8">DEX스왑</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">💧</div>
-                    <div class="menu-name">LP스테이킹</div>
+                    <div class="menu-name" id="m9">LP스테이킹</div>
                 </a>
                 <a href="#" class="menu-item">
                     <div class="menu-icon">🪙</div>
-                    <div class="menu-name">파이수량</div>
+                    <div class="menu-name" id="m10">파이수량</div>
                 </a>
             </div>
 
             <!-- 최근 거래 내역 -->
-            <div class="section-title">최근의 거래내역</div>
+            <div class="section-title" id="txtTxHistory">최근의 거래내역</div>
             <div class="tx-list">
                 <div class="tx-item">
                     <div class="tx-info">
-                        <h4>HK-ROBOT 계열사지금</h4>
-                        <span>스마트시티 인프라</span>
+                        <h4 id="txTitle1">HK-ROBOT 계열사자금</h4>
+                        <span id="txSub1">스마트시티 인프라</span>
                     </div>
-                    <div class="tx-amount">+ 50,000,000 원</div>
+                    <div class="tx-amount">+ 50,000,000 KRW</div>
                 </div>
             </div>
 
-            <div class="footer-support">
+            <div class="footer-support" id="txtFooter">
                 AGI 고객센터 삐니(Pini) 24시간 대기 중
             </div>
         </div>
     </div>
 
+    <script>
+        const i18nData = {
+            ko: {
+                heroH1: "글로벌 슈퍼 뱅킹 플랫폼 🌐",
+                heroP: "오늘도 안전하고 스마트한 금융 생활을 지원합니다.",
+                txtMainAcc: "HK 주거래통장",
+                txtSendAvail: "송금가능",
+                btnSend: "송금하기",
+                btnFill: "채우기",
+                txtPiBox: "🪙 Pi 신탁 & 세이프박스",
+                txtPiRate: "연 31.41% 복리",
+                btnManage: "관리하기",
+                btnLp: "유동성 풀참전",
+                txtQuickMenu: "빠른 금융 작업",
+                m1: "지갑연결", m2: "송금", m3: "결제", m4: "예치", m5: "보상",
+                m6: "기본소득", m7: "스왑", m8: "DEX스왑", m9: "LP스테이킹", m10: "파이수량",
+                txtTxHistory: "최근의 거래내역",
+                txTitle1: "HK-ROBOT 계열사자금",
+                txSub1: "스마트시티 인프라",
+                txtFooter: "AGI 고객센터 삐니(Pini) 24시간 대기 중"
+            },
+            en: {
+                heroH1: "Global Super Banking Platform 🌐",
+                heroP: "Supporting your safe and smart financial life today.",
+                txtMainAcc: "HK Main Account",
+                txtSendAvail: "Transfer Available",
+                btnSend: "Transfer",
+                btnFill: "Deposit",
+                txtPiBox: "🪙 Pi Trust & SafeBox",
+                txtPiRate: "31.41% APY Compound",
+                btnManage: "Manage",
+                btnLp: "Join Liquidity Pool",
+                txtQuickMenu: "Quick Financial Operations",
+                m1: "Connect Wallet", m2: "Transfer", m3: "Payment", m4: "Deposit", m5: "Rewards",
+                m6: "UBI Income", m7: "Swap", m8: "DEX Swap", m9: "LP Staking", m10: "Pi Balance",
+                txtTxHistory: "Recent Transactions",
+                txTitle1: "HK-ROBOT Subsidiary Funds",
+                txSub1: "Smart City Infrastructure",
+                txtFooter: "AGI Customer Support PINI Active 24/7"
+            },
+            zh: {
+                heroH1: "全球超级银行平台 🌐",
+                heroP: "为您提供安全、智能的金融生活支持。",
+                txtMainAcc: "HK 主交易账户",
+                txtSendAvail: "可转账",
+                btnSend: "转账",
+                btnFill: "充值",
+                txtPiBox: "🪙 Pi 信托 & 保险箱",
+                txtPiRate: "年化 31.41% 复利",
+                btnManage: "管理",
+                btnLp: "加入流动性池",
+                txtQuickMenu: "快捷金融操作",
+                m1: "连接钱包", m2: "转账", m3: "支付", m4: "存款", m5: "奖励",
+                m6: "基本收入", m7: "兑换", m8: "DEX兑换", m9: "LP质押", m10: "Pi数量",
+                txtTxHistory: "最近交易记录",
+                txTitle1: "HK-ROBOT 集团资金",
+                txSub1: "智慧城市基础设施",
+                txtFooter: "AGI 客服 centers PINI 24小时在线"
+            },
+            ja: {
+                heroH1: "グローバルスーパーバンキングプラットフォーム 🌐",
+                heroP: " safeでスマートなマネーライフをサポートします。",
+                txtMainAcc: "HK 메인口座",
+                txtSendAvail: "送金可能",
+                btnSend: "送金する",
+                btnFill: "チャージ",
+                txtPiBox: "🪙 Pi 信託 & セーフボックス",
+                txtPiRate: "年 31.41% 複利",
+                btnManage: "管理",
+                btnLp: "流動性プール参加",
+                txtQuickMenu: "クイック金融操作",
+                m1: "ウォレット接続", m2: "送金", m3: "決済", m4: "預金", m5: "報酬",
+                m6: "ベーシックインカム", m7: "スワップ", m8: "DEXスワップ", m9: "LPステーキング", m10: "Pi保有量",
+                txtTxHistory: "最近の取引履歴",
+                txTitle1: "HK-ROBOT 子会社資金",
+                txSub1: "スマートシティインフラ",
+                txtFooter: "AGI カスタマーセンター PINI 24時間待機中"
+            }
+        };
+
+        const languageSelect = document.getElementById('languageSelect');
+
+        languageSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const data = i18nData[lang] || i18nData['en'];
+
+            for (let key in data) {
+                const el = document.getElementById(key);
+                if (el) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
+                        el.innerText = data[key];
+                    } else {
+                        el.innerText = data[key];
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
