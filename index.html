@@ -75,7 +75,7 @@
             border-radius: 8px;
             font-size: 13px;
             outline: none;
-            max-width: 130px;
+            max-width: 140px;
             cursor: pointer;
         }
 
@@ -162,7 +162,7 @@
             color: #ffffff;
         }
 
-        /* 10대 연동망 그리드 (Quick Menu) */
+        /* 10대 연동망 그리드 */
         .grid-menu {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -205,7 +205,6 @@
             text-align: center;
         }
 
-        /* Transaction History */
         .section-title {
             font-size: 16px;
             font-weight: 700;
@@ -246,7 +245,6 @@
             color: var(--success);
         }
 
-        /* Footer AGI Support Info */
         .footer-support {
             text-align: center;
             padding: 20px 0;
@@ -297,7 +295,7 @@
                 <option value="ms">🇲🇾 Bahasa Melayu</option>
                 <option value="fil">🇵🇭 Tagalog</option>
                 <option value="sw">🇰🇪 Kiswahili</option>
-                <option value="he">🇮🇱 한국어/עברית</option>
+                <option value="he">🇮🇱 עברית</option>
                 <option value="fa">🇮🇷 فارسی</option>
                 <option value="ur">🇵🇰 اردو</option>
                 <option value="bn">🇧🇩 বাংলা</option>
@@ -423,99 +421,30 @@
     </div>
 
     <script>
-        const i18nData = {
-            ko: {
-                heroH1: "글로벌 슈퍼 뱅킹 플랫폼 🌐",
-                heroP: "오늘도 안전하고 스마트한 금융 생활을 지원합니다.",
-                txtMainAcc: "HK 주거래통장",
-                txtSendAvail: "송금가능",
-                btnSend: "송금하기",
-                btnFill: "채우기",
-                txtPiBox: "🪙 Pi 신탁 & 세이프박스",
-                txtPiRate: "연 31.41% 복리",
-                btnManage: "관리하기",
-                btnLp: "유동성 풀참전",
-                txtQuickMenu: "빠른 금융 작업",
-                m1: "지갑연결", m2: "송금", m3: "결제", m4: "예치", m5: "보상",
-                m6: "기본소득", m7: "스왑", m8: "DEX스왑", m9: "LP스테이킹", m10: "파이수량",
-                txtTxHistory: "최근의 거래내역",
-                txTitle1: "HK-ROBOT 계열사자금",
-                txSub1: "스마트시티 인프라",
-                txtFooter: "AGI 고객센터 삐니(Pini) 24시간 대기 중"
-            },
-            en: {
-                heroH1: "Global Super Banking Platform 🌐",
-                heroP: "Supporting your safe and smart financial life today.",
-                txtMainAcc: "HK Main Account",
-                txtSendAvail: "Transfer Available",
-                btnSend: "Transfer",
-                btnFill: "Deposit",
-                txtPiBox: "🪙 Pi Trust & SafeBox",
-                txtPiRate: "31.41% APY Compound",
-                btnManage: "Manage",
-                btnLp: "Join Liquidity Pool",
-                txtQuickMenu: "Quick Financial Operations",
-                m1: "Connect Wallet", m2: "Transfer", m3: "Payment", m4: "Deposit", m5: "Rewards",
-                m6: "UBI Income", m7: "Swap", m8: "DEX Swap", m9: "LP Staking", m10: "Pi Balance",
-                txtTxHistory: "Recent Transactions",
-                txTitle1: "HK-ROBOT Subsidiary Funds",
-                txSub1: "Smart City Infrastructure",
-                txtFooter: "AGI Customer Support PINI Active 24/7"
-            },
-            zh: {
-                heroH1: "全球超级银行平台 🌐",
-                heroP: "为您提供安全、智能的金融生活支持。",
-                txtMainAcc: "HK 主交易账户",
-                txtSendAvail: "可转账",
-                btnSend: "转账",
-                btnFill: "充值",
-                txtPiBox: "🪙 Pi 信托 & 保险箱",
-                txtPiRate: "年化 31.41% 复利",
-                btnManage: "管理",
-                btnLp: "加入流动性池",
-                txtQuickMenu: "快捷金融操作",
-                m1: "连接钱包", m2: "转账", m3: "支付", m4: "存款", m5: "奖励",
-                m6: "基本收入", m7: "兑换", m8: "DEX兑换", m9: "LP质押", m10: "Pi数量",
-                txtTxHistory: "最近交易记录",
-                txTitle1: "HK-ROBOT 集团资金",
-                txSub1: "智慧城市基础设施",
-                txtFooter: "AGI 客服 centers PINI 24小时在线"
-            },
-            ja: {
-                heroH1: "グローバルスーパーバンキングプラットフォーム 🌐",
-                heroP: " safeでスマートなマネーライフをサポートします。",
-                txtMainAcc: "HK 메인口座",
-                txtSendAvail: "送金可能",
-                btnSend: "送金する",
-                btnFill: "チャージ",
-                txtPiBox: "🪙 Pi 信託 & セーフボックス",
-                txtPiRate: "年 31.41% 複利",
-                btnManage: "管理",
-                btnLp: "流動性プール参加",
-                txtQuickMenu: "クイック金融操作",
-                m1: "ウォレット接続", m2: "送金", m3: "決済", m4: "預金", m5: "報酬",
-                m6: "ベーシックインカム", m7: "スワップ", m8: "DEXスワップ", m9: "LPステーキング", m10: "Pi保有量",
-                txtTxHistory: "最近の取引履歴",
-                txTitle1: "HK-ROBOT 子会社資金",
-                txSub1: "スマートシティインフラ",
-                txtFooter: "AGI カスタマーセンター PINI 24時間待機中"
-            }
+        const i18nDict = {
+            ko: { heroH1:"글로벌 슈퍼 뱅킹 플랫폼 🌐", heroP:"오늘도 안전하고 스마트한 금융 생활을 지원합니다.", txtMainAcc:"HK 주거래통장", txtSendAvail:"송금가능", btnSend:"송금하기", btnFill:"채우기", txtPiBox:"🪙 Pi 신탁 & 세이프박스", txtPiRate:"연 31.41% 복리", btnManage:"관리하기", btnLp:"유동성 풀참전", txtQuickMenu:"빠른 금융 작업", m1:"지갑연결", m2:"송금", m3:"결제", m4:"예치", m5:"보상", m6:"기본소득", m7:"스왑", m8:"DEX스왑", m9:"LP스테이킹", m10:"파이수량", txtTxHistory:"최근의 거래내역", txTitle1:"HK-ROBOT 계열사자금", txSub1:"스마트시티 인프라", txtFooter:"AGI 고객센터 삐니(Pini) 24시간 대기 중" },
+            en: { heroH1:"Global Super Banking Platform 🌐", heroP:"Supporting your safe & smart financial life today.", txtMainAcc:"HK Main Account", txtSendAvail:"Transferable", btnSend:"Send Money", btnFill:"Deposit", txtPiBox:"🪙 Pi Trust & SafeBox", txtPiRate:"31.41% APY Compound", btnManage:"Manage", btnLp:"Join Liquidity Pool", txtQuickMenu:"Quick Financial Work", m1:"Wallet Connect", m2:"Transfer", m3:"Payment", m4:"Deposit", m5:"Rewards", m6:"UBI Income", m7:"Swap", m8:"DEX Swap", m9:"LP Staking", m10:"Pi Balance", txtTxHistory:"Recent Transactions", txTitle1:"HK-ROBOT Subsidiary Funds", txSub1:"Smart City Infrastructure", txtFooter:"AGI Customer Support PINI Active 24/7" },
+            zh: { heroH1:"全球超级银行平台 🌐", heroP:"为您提供安全、智能的金融生活支持。", txtMainAcc:"HK 主交易账户", txtSendAvail:"可转账", btnSend:"转账", btnFill:"充值", txtPiBox:"🪙 Pi 信托 & 保险箱", txtPiRate:"年化 31.41% 复利", btnManage:"管理", btnLp:"加入流动性池", txtQuickMenu:"快捷金融操作", m1:"连接钱包", m2:"转账", m3:"支付", m4:"存款", m5:"奖励", m6:"基本收入", m7:"兑换", m8:"DEX兑换", m9:"LP质押", m10:"Pi数量", txtTxHistory:"最近交易记录", txTitle1:"HK-ROBOT 集团资金", txSub1:"智慧城市基础设施", txtFooter:"AGI 客服 centers PINI 24小时在线" },
+            ja: { heroH1:"グローバルスーパーバンキングプラットフォーム 🌐", heroP:" safeでスマートなマネーライフをサポートします。", txtMainAcc:"HK メイン口座", txtSendAvail:"送金可能", btnSend:"送金する", btnFill:"チャージ", txtPiBox:"🪙 Pi 信託 & セーフボックス", txtPiRate:"年 31.41% 複利", btnManage:"管理", btnLp:"流動性プール参加", txtQuickMenu:"クイック金融操作", m1:"ウォレット接続", m2:"送金", m3:"決済", m4:"預金", m5:"報酬", m6:"ベーシックインカム", m7:"スワップ", m8:"DEXスワップ", m9:"LPステーキング", m10:"Pi保有量", txtTxHistory:"最近の取引履歴", txTitle1:"HK-ROBOT 子会社資金", txSub1:"スマートシティインフラ", txtFooter:"AGI カスタマーセンター PINI 24時間待機中" },
+            es: { heroH1:"Plataforma Super Bancaria Global 🌐", heroP:"Apoyando su vida financiera segura e inteligente.", txtMainAcc:"Cuenta Principal HK", txtSendAvail:"Transferible", btnSend:"Enviar", btnFill:"Depositar", txtPiBox:"🪙 Pi Fideicomiso y Caja Fuerte", txtPiRate:"31.41% Compuesto Anual", btnManage:"Gestionar", btnLp:"Unirse al Pool", txtQuickMenu:"Operaciones Rápidas", m1:"Conectar Billetera", m2:"Transferencia", m3:"Pago", m4:"Depósito", m5:"Recompensas", m6:"Ingreso Básico", m7:"Intercambio", m8:"DEX Swap", m9:"Staking LP", m10:"Cantidad Pi", txtTxHistory:"Transacciones Recientes", txTitle1:"Fondos HK-ROBOT", txSub1:"Infraestructura Ciudad Inteligente", txtFooter:"Soporte AGI PINI 24/7" },
+            fr: { heroH1:"Plateforme Super Bancaire Mondiale 🌐", heroP:"Soutenir votre vie financière sûre et intelligente.", txtMainAcc:"Compte Principal HK", txtSendAvail:"Transférable", btnSend:"Envoyer", btnFill:"Recharger", txtPiBox:"🪙 Pi Trust & Coffre", txtPiRate:"31.41% Composé Annel", btnManage:"Gérer", btnLp:"Rejoindre Pool", txtQuickMenu:"Opérations Rapides", m1:"Connexion Portefeuille", m2:"Transfert", m3:"Paiement", m4:"Dépôt", m5:"Récompenses", m6:"Revenu de Base", m7:"Swap", m8:"DEX Swap", m9:"Staking LP", m10:"Solde Pi", txtTxHistory:"Transactions Récents", txTitle1:"Fonds HK-ROBOT", txSub1:"Infrastructure Ville Intelligente", txtFooter:"Support AGI PINI 24/7" },
+            de: { heroH1:"Globale Super-Banking-Plattform 🌐", heroP:"Unterstützung für Ihr sicheres & meisterhaftes Finanzleben.", txtMainAcc:"HK Hauptkonto", txtSendAvail:"Überweisbar", btnSend:"Senden", btnFill:"Einzahlen", txtPiBox:"🪙 Pi Trust & SafeBox", txtPiRate:"31.41% Zinseszins p.a.", btnManage:"Verwalten", btnLp:"Pool Beitreten", txtQuickMenu:"Schnelle Finanzaktionen", m1:"Wallet Verbinden", m2:"Überweisung", m3:"Zahlung", m4:"Einlage", m5:"Belohnungen", m6:"Grundeinkommen", m7:"Swap", m8:"DEX Swap", m9:"LP Staking", m10:"Pi Bestand", txtTxHistory:"Letzte Transaktionen", txTitle1:"HK-ROBOT Mittel", txSub1:"Smart City Infrastruktur", txtFooter:"AGI Kundenservice PINI rund um die Uhr" },
+            ru: { heroH1:"Глобальная Супер Банковская Платформа 🌐", heroP:"Поддержка вашей безопасной и умной финансовой жизни.", txtMainAcc:"Основной счет HK", txtSendAvail:"Доступно к переводу", btnSend:"Отправить", btnFill:"Пополнить", txtPiBox:"🪙 Pi Траст и Сейф", txtPiRate:"31.41% Сложные проценты", btnManage:"Управление", btnLp:"Пул Ликвидности", txtQuickMenu:"Быстрые Операции", m1:"Подключить кошелек", m2:"Перевод", m3:"Оплата", m4:"Депозит", m5:"Награды", m6:"Базовый Доход", m7:"Обмен", m8:"DEX Обмен", m9:"LP Стейкинг", m10:"Баланс Pi", txtTxHistory:"История Транзакций", txTitle1:"Фонды HK-ROBOT", txSub1:"Инфраструктура Умного Города", txtFooter:"Служба поддержки AGI PINI 24/7" },
+            ar: { heroH1:"منصة الخدمات المصرفية الفائقة العالمية 🌐", heroP:"دعم حياتك المالية الآمنة والذكية اليوم.", txtMainAcc:"حساب HK الرئيسي", txtSendAvail:"متاح للتحويل", btnSend:"إرسال", btnFill:"إيداع", txtPiBox:"🪙 Pi الصندوق والأمان", txtPiRate:"31.41% فائدة مرکبة", btnManage:"إدارة", btnLp:"الانضمام لمجمع السيولة", txtQuickMenu:"عمليات مالية سريعة", m1:"ربط المحفظة", m2:"تحويل", m3:"دفع", m4:"إيداع", m5:"مكافآت", m6:"الدخل الأساسي", m7:"تبديل", m8:"DEX تبديل", m9:"تخزين LP", m10:"رصيد Pi", txtTxHistory:"المعاملات الأخيرة", txTitle1:"أموال شركة HK-ROBOT", txSub1:"البنية التحتية للمدينة الذكية", txtFooter:"دعم العملاء AGI PINI متواجد 24/7" },
+            pt: { heroH1:"Plataforma Super Bancária Global 🌐", heroP:"Suportando sua vida financeira segura e inteligente.", txtMainAcc:"Conta Principal HK", txtSendAvail:"Transferível", btnSend:"Enviar", btnFill:"Depositar", txtPiBox:"🪙 Pi Trust & Cofre", txtPiRate:"31.41% Composto Anual", btnManage:"Gerenciar", btnLp:"Entrar no Pool", txtQuickMenu:"Operações Rápidas", m1:"Conectar Carteira", m2:"Transferência", m3:"Pagamento", m4:"Depósito", m5:"Recompensas", m6:"Renda Básica", m7:"Swap", m8:"DEX Swap", m9:"Staking LP", m10:"Saldo Pi", txtTxHistory:"Transações Recentes", txTitle1:"Fundos HK-ROBOT", txSub1:"Infraestrutura Cidade Inteligente", txtFooter:"Suporte AGI PINI 24/7" }
         };
 
         const languageSelect = document.getElementById('languageSelect');
 
         languageSelect.addEventListener('change', (e) => {
             const lang = e.target.value;
-            const data = i18nData[lang] || i18nData['en'];
+            // 기본값은 영어(en)로 대체하여 60개국 언어 미작동 방지
+            const data = i18nDict[lang] || i18nDict['en'];
 
             for (let key in data) {
                 const el = document.getElementById(key);
                 if (el) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') {
-                        el.innerText = data[key];
-                    } else {
-                        el.innerText = data[key];
-                    }
+                    el.innerText = data[key];
                 }
             }
         });
