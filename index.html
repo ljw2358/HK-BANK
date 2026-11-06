@@ -28,7 +28,6 @@
         ::-webkit-scrollbar-track { background: #05020a; }
         ::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 3px; }
         select option { background-color: #1a102f; color: #ffffff; padding: 10px; }
-        /* 지구본 펄스 배경 애니메이션 */
         @keyframes pulseGlow {
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.05); }
@@ -42,12 +41,11 @@
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-purple-900/20 via-indigo-900/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none globe-bg z-0"></div>
 
     <!-- ========================================== -->
-    <!-- 1. HEADER (중앙 정렬형 미니멀 브랜딩) -->
+    <!-- 1. HEADER -->
     <!-- ========================================== -->
     <header class="w-full bg-hkdark/90 backdrop-blur-md border-b border-purple-900/40 sticky top-0 z-[999] shadow-2xl">
         <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             
-            <!-- 브랜딩 & 선언문 -->
             <div class="text-center sm:text-left">
                 <h1 class="text-2xl sm:text-3xl font-black tracking-widest bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
                     HK WORLD BANK
@@ -57,7 +55,7 @@
                 </p>
             </div>
 
-            <!-- 언어 선택 & 지갑 연결 -->
+            <!-- 글로벌 i18n 셀렉터 & 지갑 연결 -->
             <div class="flex items-center gap-3 flex-wrap justify-center relative z-[9999]">
                 <div class="relative">
                     <select id="langSelect" onchange="changeI18nLanguage(this.value)" class="bg-[#1a102f] border border-purple-500/80 text-white text-xs rounded-xl px-3 py-2 outline-none focus:border-amber-400 cursor-pointer shadow-xl font-bold">
@@ -83,11 +81,11 @@
     </header>
 
     <!-- ========================================== -->
-    <!-- 2. MAIN 3초 직관형 대시보드 -->
+    <!-- 2. MAIN DASHBOARD -->
     <!-- ========================================== -->
     <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full space-y-10 relative z-10">
         
-        <!-- 첫장 미니멀 히어로 & 파이 자산 카드 -->
+        <!-- 히어로 배너 -->
         <section class="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-600/40 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="text-center lg:text-left space-y-3 max-w-2xl">
                 <span class="bg-purple-600/20 border border-purple-400/30 text-amber-300 text-[11px] px-3 py-1 rounded-full font-bold inline-block">
@@ -100,7 +98,6 @@
                     아프리카 오지에서 울산·경주·포항까지, 전 세계 누구나 단 한 번의 지갑 연결로 기본소득(UBI)과 무중단 금융 혜택을 누립니다.
                 </p>
             </div>
-            <!-- 자산 요약 박스 -->
             <div class="bg-black/60 border border-purple-500/30 px-6 py-5 rounded-2xl text-center lg:text-right min-w-[260px] shadow-inner shrink-0">
                 <div data-i18n="assetLabel" class="text-[11px] text-purple-300 font-medium">실시간 총 자산 평가액 (Pi)</div>
                 <div class="text-2xl sm:text-3xl font-black text-amber-300 mt-1">314,159.00 PI</div>
@@ -108,7 +105,7 @@
             </div>
         </section>
 
-        <!-- 10대 연동망 깔끔한 그리드 -->
+        <!-- 10대 연동망 그리드 -->
         <section class="space-y-4">
             <h3 data-i18n="gridTitle" class="text-lg font-extrabold text-purple-200 tracking-wide text-center">
                 글로벌 10대 분산 연동망 서비스
@@ -256,7 +253,7 @@
                     headerSubtitle: "The Dawn of 21st Century Web3 Finance • KYYC / KYD",
                     walletBtnText: "Connect Wallet (KYYC/KYD)",
                     badgeText: "8B People UBI Loop • Haeoreum Special Megacity",
-                    heroHeading: "Borderles Global Financial Innovation Powered by Pi Seed",
+                    heroHeading: "Borderless Global Financial Innovation Powered by Pi Seed",
                     heroDesc: "From remote African villages to Ulsan, Gyeongju, and Pohang, everyone enjoys UBI and seamless banking via a single wallet connection.",
                     assetLabel: "Total Asset Evaluation (Pi Based)",
                     gridTitle: "Global 10-Network Decentralized Services",
