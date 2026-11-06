@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK WORLD BANK - Global 8B+ Pi Super Banking Platform</title>
+    <title>HK WORLD BANK - 8B+ Pi Super Banking Platform</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -15,7 +15,7 @@
             theme: {
                 extend: {
                     colors: {
-                        hkdark: '#07040d',
+                        hkdark: '#05020a',
                         hkpurple: '#4c1d95',
                         hkgold: '#fbbf24',
                     }
@@ -24,179 +24,137 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #07040d; }
-        ::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #05020a; }
+        ::-webkit-scrollbar-thumb { background: #4c1d95; border-radius: 3px; }
         select option { background-color: #1a102f; color: #ffffff; padding: 10px; }
+        /* 지구본 펄스 배경 애니메이션 */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+        .globe-bg { animation: pulseGlow 8s infinite ease-in-out; }
     </style>
 </head>
-<body class="bg-hkdark text-white min-h-screen flex flex-col justify-between font-sans selection:bg-purple-500 selection:text-white">
+<body class="bg-hkdark text-white min-h-screen flex flex-col justify-between font-sans selection:bg-purple-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- 배경 3D UBI 지구본 앰비언트 효과 -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-purple-900/20 via-indigo-900/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none globe-bg z-0"></div>
 
     <!-- ========================================== -->
-    <!-- 1. HEADER (글로벌 i18n 셀렉터 & 지갑연결) -->
+    <!-- 1. HEADER (중앙 정렬형 미니멀 브랜딩) -->
     <!-- ========================================== -->
-    <header class="w-full bg-hkdark/95 backdrop-blur-md border-b border-purple-900/60 sticky top-0 z-[999] shadow-2xl">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    <header class="w-full bg-hkdark/90 backdrop-blur-md border-b border-purple-900/40 sticky top-0 z-[999] shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             
-            <div class="text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl font-black tracking-wider bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
+            <!-- 브랜딩 & 선언문 -->
+            <div class="text-center sm:text-left">
+                <h1 class="text-2xl sm:text-3xl font-black tracking-widest bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
                     HK WORLD BANK
                 </h1>
-                <p data-i18n="headerSubtitle" class="text-xs md:text-sm text-amber-300 tracking-widest mt-1 font-extrabold uppercase">
+                <p data-i18n="headerSubtitle" class="text-[11px] sm:text-xs text-amber-300 tracking-wider mt-0.5 font-bold uppercase">
                     21세기의 웹3 금융의 출발 • KYYC / KYD
                 </p>
             </div>
 
-            <!-- 글로벌 i18n 60개국어 지원 셀렉터 -->
+            <!-- 언어 선택 & 지갑 연결 -->
             <div class="flex items-center gap-3 flex-wrap justify-center relative z-[9999]">
                 <div class="relative">
-                    <select id="langSelect" onchange="changeI18nLanguage(this.value)" class="bg-[#1a102f] border-2 border-purple-500 text-white text-xs rounded-xl px-4 py-2.5 outline-none focus:border-amber-400 cursor-pointer shadow-2xl font-bold">
-                        <!-- 아시아 & 태평양 -->
+                    <select id="langSelect" onchange="changeI18nLanguage(this.value)" class="bg-[#1a102f] border border-purple-500/80 text-white text-xs rounded-xl px-3 py-2 outline-none focus:border-amber-400 cursor-pointer shadow-xl font-bold">
                         <option value="ko">🇰🇷 한국어 (Korean)</option>
                         <option value="en">🇺🇸 English</option>
                         <option value="zh">🇨🇳 中文 (Chinese)</option>
                         <option value="ja">🇯🇵 日本語 (Japanese)</option>
-                        <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
-                        <option value="th">🇹🇭 ไทย (Thai)</option>
-                        <option value="id">🇮🇩 Bahasa Indonesia</option>
-                        <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                        <option value="ms">🇲🇾 Bahasa Melayu</option>
-                        <option value="fil">🇵🇭 Tagalog (Filipino)</option>
-                        
-                        <!-- 유럽 & 남미 -->
                         <option value="es">🇪🇸 Español (Spanish)</option>
                         <option value="fr">🇫🇷 Français (French)</option>
                         <option value="de">🇩🇪 Deutsch (German)</option>
-                        <option value="ru">🇷🇺 Русский (Russian)</option>
-                        <option value="pt">🇵🇹 Português (Portuguese)</option>
-                        <option value="it">🇮🇹 Italiano (Italian)</option>
-                        <option value="nl">🇳🇱 Nederlands (Dutch)</option>
-                        <option value="tr">🇹🇷 Türkçe (Turkish)</option>
-
-                        <!-- 중동 & 아프리카 오지 모국어 지원 -->
-                        <option value="sw">🇰🇪 Kiswahili (Swahili - 아프리카)</option>
-                        <option value="am">🇪🇹 አማርኛ (Amharic - 에ቲኦፒአ)</option>
+                        <option value="sw">🇰🇪 Kiswahili (Swahili)</option>
+                        <option value="am">🇪🇹 አማርኛ (Amharic)</option>
                         <option value="ar">🇸🇦 العربية (Arabic)</option>
-                        <option value="fa">🇮🇷 فارسی (Persian)</option>
-                        <option value="ur">🇵🇰 اردو (Urdu)</option>
-                        <option value="af">🇿🇦 Afrikaans (남아공)</option>
                     </select>
                 </div>
 
-                <button onclick="triggerWalletAuth()" id="walletBtn" class="bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg border border-purple-400/40 transition-all flex items-center gap-2 text-xs">
+                <button onclick="triggerWalletAuth()" id="walletBtn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-4 py-2 rounded-xl shadow-lg border border-purple-400/30 transition-all flex items-center gap-2 text-xs">
                     <i class="fa-solid fa-shield-halved text-amber-300"></i>
-                    <span id="walletBtnText" data-i18n="walletBtnText">지갑 연결 (KYYC/KYD 인증)</span>
+                    <span id="walletBtnText" data-i18n="walletBtnText">지갑 연결 (KYYC/KYD)</span>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- ========================================== -->
-    <!-- 2. MAIN DASHBOARD -->
+    <!-- 2. MAIN 3초 직관형 대시보드 -->
     <!-- ========================================== -->
-    <main class="max-w-7xl mx-auto px-6 py-8 flex-grow w-full space-y-8 relative z-10">
+    <main class="max-w-6xl mx-auto px-6 py-10 flex-grow w-full space-y-10 relative z-10">
         
-        <!-- 히어로 자산 배너 -->
-        <section class="bg-gradient-to-r from-purple-950/90 via-indigo-950/90 to-purple-950/90 border border-purple-600/50 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-left space-y-3">
-                <span class="bg-purple-600/30 border border-purple-400/40 text-amber-300 text-xs px-3.5 py-1.5 rounded-full font-bold inline-block">
-                    <i class="fa-solid fa-bolt"></i> <span data-i18n="badgeText">파이(Pi) 온체인 유동성풀 및 UBI 30% 환원 시스템</span>
+        <!-- 첫장 미니멀 히어로 & 파이 자산 카드 -->
+        <section class="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-600/40 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="text-center lg:text-left space-y-3 max-w-2xl">
+                <span class="bg-purple-600/20 border border-purple-400/30 text-amber-300 text-[11px] px-3 py-1 rounded-full font-bold inline-block">
+                    <i class="fa-solid fa-globe"></i> <span data-i18n="badgeText">80억 인류 UBI 선순환 • 해오름 특별시 메가시티</span>
                 </span>
-                <h2 data-i18n="heroHeading" class="text-2xl md:text-3xl font-black text-white tracking-wide leading-snug">
-                    80억 인류를 위한 차세대 글로벌 금융 대변혁의 문이 열립니다.
+                <h2 data-i18n="heroHeading" class="text-xl sm:text-2xl font-black text-white tracking-wide leading-snug">
+                    파이(Pi) 밑천 기반의 무경계 글로벌 금융 혁신
                 </h2>
-                <p data-i18n="heroDesc" class="text-xs md:text-sm text-purple-200/80 leading-relaxed">
-                    파이 네트워크를 밑천 삼아 전 세계 누구나 경계 없이 연결되며, 플랫폼 순이익의 30%는 HK 사회재단을 통해 기본소득(UBI)으로 자동 환원됩니다.
+                <p data-i18n="heroDesc" class="text-xs sm:text-sm text-purple-200/80 leading-relaxed">
+                    아프리카 오지에서 울산·경주·포항까지, 전 세계 누구나 단 한 번의 지갑 연결로 기본소득(UBI)과 무중단 금융 혜택을 누립니다.
                 </p>
             </div>
-            <div class="bg-black/70 border border-purple-500/40 px-6 py-6 rounded-2xl text-right min-w-[280px] shadow-inner shrink-0">
-                <div data-i18n="assetLabel" class="text-xs text-purple-300 font-semibold">파이(Pi) 기반 총 자산 평가액</div>
-                <div class="text-2xl md:text-3xl font-black text-amber-300 mt-1">314,159.00 PI</div>
-                <div class="text-xs text-purple-300/80 mt-1">₩ 314,159,000 KRW 상당</div>
+            <!-- 자산 요약 박스 -->
+            <div class="bg-black/60 border border-purple-500/30 px-6 py-5 rounded-2xl text-center lg:text-right min-w-[260px] shadow-inner shrink-0">
+                <div data-i18n="assetLabel" class="text-[11px] text-purple-300 font-medium">실시간 총 자산 평가액 (Pi)</div>
+                <div class="text-2xl sm:text-3xl font-black text-amber-300 mt-1">314,159.00 PI</div>
+                <div class="text-[11px] text-purple-300/80 mt-1">₩ 314,159,000 KRW 상당</div>
             </div>
         </section>
 
-        <!-- 10대 연동망 그리드 -->
+        <!-- 10대 연동망 깔끔한 그리드 -->
         <section class="space-y-4">
-            <h3 data-i18n="gridTitle" class="text-xl font-extrabold text-purple-200 tracking-wide text-center">
-                글로벌 금융 서비스 (10대 연동망)
+            <h3 data-i18n="gridTitle" class="text-lg font-extrabold text-purple-200 tracking-wide text-center">
+                글로벌 10대 분산 연동망 서비스
             </h3>
             
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                <div onclick="openProcessModal('1', 'grid1')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-link text-2xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5">
+                <div onclick="openProcessModal('1', 'grid1')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-link text-xl text-purple-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid1" class="text-xs font-bold text-white">지갑 연결</span>
                 </div>
-                <div onclick="openProcessModal('2', 'grid2')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-paper-plane text-2xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('2', 'grid2')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-paper-plane text-xl text-blue-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid2" class="text-xs font-bold text-white">송금</span>
                 </div>
-                <div onclick="openProcessModal('3', 'grid3')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-credit-card text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('3', 'grid3')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-credit-card text-xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid3" class="text-xs font-bold text-white">결제</span>
                 </div>
-                <div onclick="openProcessModal('4', 'grid4')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-vault text-2xl text-amber-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('4', 'grid4')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-vault text-xl text-amber-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid4" class="text-xs font-bold text-white">예치</span>
                 </div>
-                <div onclick="openProcessModal('5', 'grid5')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-gift text-2xl text-pink-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('5', 'grid5')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-gift text-xl text-pink-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid5" class="text-xs font-bold text-white">보상</span>
                 </div>
-                <div onclick="openProcessModal('6', 'grid6')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-hand-holding-heart text-2xl text-red-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('6', 'grid6')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-hand-holding-heart text-xl text-red-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid6" class="text-xs font-bold text-white">기본소득 (UBI)</span>
                 </div>
-                <div onclick="openProcessModal('7', 'grid7')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-rotate text-2xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('7', 'grid7')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-rotate text-xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid7" class="text-xs font-bold text-white">스왑</span>
                 </div>
-                <div onclick="openProcessModal('8', 'grid8')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-chart-line text-2xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('8', 'grid8')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-chart-line text-xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid8" class="text-xs font-bold text-white">DEX 스왑</span>
                 </div>
-                <div onclick="openProcessModal('9', 'grid9')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-solid fa-layer-group text-2xl text-teal-400 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('9', 'grid9')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-layer-group text-xl text-teal-400 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid9" class="text-xs font-bold text-white">LP 스테이킹</span>
                 </div>
-                <div onclick="openProcessModal('10', 'grid10')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2.5 group">
-                    <i class="fa-brands fa-pied-piper text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+                <div onclick="openProcessModal('10', 'grid10')" class="bg-purple-950/30 hover:bg-purple-900/50 border border-purple-800/40 rounded-2xl p-4 cursor-pointer transition-all hover:scale-105 shadow-md flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-brands fa-pied-piper text-xl text-amber-300 group-hover:scale-110 transition-transform"></i>
                     <span data-i18n="grid10" class="text-xs font-bold text-white">파이 수량</span>
                 </div>
-            </div>
-        </section>
-
-        <!-- 정보 패널 -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-purple-950/40 border border-purple-800/60 rounded-3xl p-6 shadow-xl space-y-4">
-                <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
-                    <i class="fa-solid fa-list-check"></i> <span data-i18n="panel1Title">실시간 글로벌 거래 및 UBI 적립 현황</span>
-                </h3>
-                <div class="space-y-3 text-xs">
-                    <div class="flex justify-between items-center bg-black/40 p-3 rounded-xl border border-purple-900/50">
-                        <div>
-                            <div class="font-bold text-white" data-i18n="ubiLogTitle">HK 사회재단 UBI 기금 자동 적립 (30%)</div>
-                            <div class="text-[10px] text-purple-300" data-i18n="ubiLogSub">실시간 글로벌 온체인 트랜잭션</div>
-                        </div>
-                        <div class="text-amber-300 font-black">+1,500.00 PI</div>
-                    </div>
-                    <div class="flex justify-between items-center bg-black/40 p-3 rounded-xl border border-purple-900/50">
-                        <div>
-                            <div class="font-bold text-white" data-i18n="cityLogTitle">해오름 특별시 스마트 가맹점 정산</div>
-                            <div class="text-[10px] text-purple-300" data-i18n="cityLogSub">울산·경주·포항 통합 메가시티</div>
-                        </div>
-                        <div class="text-purple-200 font-black">-350.00 PI</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-purple-950/40 border border-purple-800/60 rounded-3xl p-6 shadow-xl space-y-4">
-                <h3 class="text-base font-bold text-amber-300 flex items-center gap-2">
-                    <i class="fa-solid fa-network-wired"></i> <span data-i18n="panel2Title">11개국 디지털 자산 컴플라이언스 & KYYC</span>
-                </h3>
-                <p data-i18n="panel2Desc" class="text-xs text-purple-200/80 leading-relaxed">
-                    미국, EU MiCA 등 글로벌 주요 11개국 디지털 자산 규제를 완벽히 준수하며, 백그라운드 KYYC 및 디바이스(KYD) 검증을 통해 기관 및 80억 인류에게 무중단 금융 서비스를 제공합니다.
-                </p>
             </div>
         </section>
 
@@ -206,20 +164,20 @@
     <!-- 3. PROCESS MODAL -->
     <!-- ========================================== -->
     <div id="processModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[10000] flex items-center justify-center p-4">
-        <div class="bg-hkdark border-2 border-purple-600 w-full max-w-md rounded-3xl p-6 shadow-2xl relative space-y-4">
-            <button onclick="closeProcessModal()" class="absolute top-4 right-4 text-purple-300 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+        <div class="bg-hkdark border border-purple-600/60 w-full max-w-sm rounded-3xl p-6 shadow-2xl relative space-y-4">
+            <button onclick="closeProcessModal()" class="absolute top-4 right-4 text-purple-300 hover:text-white text-base"><i class="fa-solid fa-xmark"></i></button>
             <div class="flex items-center gap-3">
-                <div class="bg-purple-900/80 p-3 rounded-2xl text-amber-300 text-xl font-black" id="modalNo">01</div>
+                <div class="bg-purple-900/60 p-2.5 rounded-xl text-amber-300 text-sm font-black" id="modalNo">01</div>
                 <div>
-                    <h4 class="text-lg font-black text-white" id="modalTitle">모듈 명칭</h4>
-                    <p class="text-xs text-purple-300">HK WORLD BANK 온체인 분산 연동망</p>
+                    <h4 class="text-base font-bold text-white" id="modalTitle">모듈 명칭</h4>
+                    <p class="text-[10px] text-purple-300">HK WORLD BANK 온체인 연동망</p>
                 </div>
             </div>
-            <p class="text-xs text-purple-200/90 leading-relaxed bg-black/40 p-4 rounded-xl border border-purple-900/50" id="modalDesc">
-                연동 프로세스 모듈이 구동 준비 상태입니다.
+            <p class="text-xs text-purple-200/90 leading-relaxed bg-black/40 p-3.5 rounded-xl border border-purple-900/40" id="modalDesc">
+                모듈이 활성화되었습니다.
             </p>
-            <button onclick="closeProcessModal()" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-3 rounded-xl text-xs shadow-lg" data-i18n="modalBtn">
-                확인 및 모듈 실행
+            <button onclick="closeProcessModal()" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-2.5 rounded-xl text-xs shadow-md" data-i18n="modalBtn">
+                확인
             </button>
         </div>
     </div>
@@ -228,42 +186,42 @@
     <!-- 4. AGI PINI CHAT AGENT -->
     <!-- ========================================== -->
     <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="togglePiniChat()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center border-2 border-white/20 transition-all hover:scale-110">
-            <i class="fa-solid fa-robot text-xl text-amber-300"></i>
+        <button onclick="togglePiniChat()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center border border-white/20 transition-all hover:scale-110">
+            <i class="fa-solid fa-robot text-lg text-amber-300"></i>
         </button>
-        <div id="piniChatModal" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-hkdark border border-purple-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
-            <div class="bg-purple-900 px-5 py-3.5 flex items-center justify-between border-b border-purple-700">
+        <div id="piniChatModal" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-hkdark border border-purple-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+            <div class="bg-purple-900/90 px-4 py-3 flex items-center justify-between border-b border-purple-700/60">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-robot text-amber-300"></i>
+                    <i class="fa-solid fa-robot text-amber-300 text-xs"></i>
                     <span data-i18n="piniTitle" class="font-extrabold text-xs text-white">AGI 고객센터 - 삐니 (Pini)</span>
                 </div>
-                <button onclick="togglePiniChat()" class="text-purple-300 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="togglePiniChat()" class="text-purple-300 hover:text-white text-xs"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="p-4 h-60 overflow-y-auto text-xs text-purple-200 flex flex-col gap-3 bg-black/50" id="chatLogs">
-                <div data-i18n="piniWelcome" class="bg-purple-950/90 p-3 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed">
+            <div class="p-3.5 h-52 overflow-y-auto text-xs text-purple-200 flex flex-col gap-2.5 bg-black/50" id="chatLogs">
+                <div data-i18n="piniWelcome" class="bg-purple-950/90 p-3 rounded-2xl border border-purple-800/50 self-start max-w-[88%] leading-relaxed">
                     안녕하세요 혜공 형님! 파이 밑천 기반 80억 글로벌 뱅크 AGI 삐니입니다. 무엇을 도와드릴까요?
                 </div>
             </div>
-            <div class="p-3 bg-purple-950 border-t border-purple-800 flex gap-2">
-                <input type="text" id="chatInput" placeholder="삐니에게 질문하기..." class="flex-grow bg-purple-900/50 border border-purple-700 rounded-xl px-3 py-2 text-xs outline-none text-white focus:border-amber-400">
-                <button onclick="sendPiniMessage()" data-i18n="sendBtn" class="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md">전송</button>
+            <div class="p-2.5 bg-purple-950 border-t border-purple-800/60 flex gap-2">
+                <input type="text" id="chatInput" placeholder="삐니에게 질문하기..." class="flex-grow bg-purple-900/50 border border-purple-700/60 rounded-xl px-3 py-2 text-xs outline-none text-white focus:border-amber-400">
+                <button onclick="sendPiniMessage()" data-i18n="sendBtn" class="bg-purple-600 hover:bg-purple-500 px-3.5 py-2 rounded-xl text-xs font-bold text-white shadow">전송</button>
             </div>
         </div>
     </div>
 
     <!-- ========================================== -->
-    <!-- 5. FOOTER (유튜브 & 틱톡 화이트 아이콘) -->
+    <!-- 5. FOOTER -->
     <!-- ========================================== -->
-    <footer class="w-full bg-purple-950/95 border-t border-purple-900/60 py-5 text-center">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p data-i18n="footerText" class="text-xs text-purple-300/80 font-medium">
+    <footer class="w-full bg-purple-950/90 border-t border-purple-900/40 py-4 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p data-i18n="footerText" class="text-[11px] text-purple-300/70 font-medium">
                 © 2026 HK WORLD BANK. Global 8B+ Pi Banking. Chairman Hyekong.
             </p>
             <div class="flex items-center gap-4">
-                <a href="https://youtube.com/@Hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-lg" title="YouTube @Hyekong2026">
+                <a href="https://youtube.com/@Hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-base" title="YouTube">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://tiktok.com/@hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-lg" title="TikTok @hyekong2026">
+                <a href="https://tiktok.com/@hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-base" title="TikTok">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
             </div>
@@ -271,29 +229,22 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- 6. i18n 번역 엔진 및 온체인 연동 스크립트 -->
+    <!-- 6. i18n 번역 및 인터랙티브 엔진 -->
     <!-- ========================================== -->
     <script>
         const i18nResources = {
             ko: {
                 translation: {
                     headerSubtitle: "21세기의 웹3 금융의 출발 • KYYC / KYD",
-                    walletBtnText: "지갑 연결 (KYYC/KYD 인증)",
-                    badgeText: "파이(Pi) 온체인 유동성풀 및 UBI 30% 환원 시스템",
-                    heroHeading: "80억 인류를 위한 차세대 글로벌 금융 대변혁의 문이 열립니다.",
-                    heroDesc: "파이 네트워크를 밑천 삼아 전 세계 누구나 경계 없이 연결되며, 플랫폼 순이익의 30%는 HK 사회재단을 통해 기본소득(UBI)으로 자동 환원됩니다.",
-                    assetLabel: "파이(Pi) 기반 총 자산 평가액",
-                    gridTitle: "글로벌 금융 서비스 (10대 연동망)",
+                    walletBtnText: "지갑 연결 (KYYC/KYD)",
+                    badgeText: "80억 인류 UBI 선순환 • 해오름 특별시 메가시티",
+                    heroHeading: "파이(Pi) 밑천 기반의 무경계 글로벌 금융 혁신",
+                    heroDesc: "아프리카 오지에서 울산·경주·포항까지, 전 세계 누구나 단 한 번의 지갑 연결로 기본소득(UBI)과 무중단 금융 혜택을 누립니다.",
+                    assetLabel: "실시간 총 자산 평가액 (Pi)",
+                    gridTitle: "글로벌 10대 분산 연동망 서비스",
                     grid1: "지갑 연결", grid2: "송금", grid3: "결제", grid4: "예치", grid5: "보상",
                     grid6: "기본소득 (UBI)", grid7: "스왑", grid8: "DEX 스왑", grid9: "LP 스테이킹", grid10: "파이 수량",
-                    panel1Title: "실시간 글로벌 거래 및 UBI 적립 현황",
-                    panel2Title: "11개국 디지털 자산 컴플라이언스 & KYYC",
-                    panel2Desc: "미국, EU MiCA 등 글로벌 주요 11개국 디지털 자산 규제를 완벽히 준수하며, 백그라운드 KYYC 및 디바이스(KYD) 검증을 통해 기관 및 80억 인류에게 무중단 금융 서비스를 제공합니다.",
-                    ubiLogTitle: "HK 사회재단 UBI 기금 자동 적립 (30%)",
-                    ubiLogSub: "실시간 글로벌 온체인 트랜잭션",
-                    cityLogTitle: "해오름 특별시 스마트 가맹점 정산",
-                    cityLogSub: "울산·경주·포항 통합 메가시티",
-                    modalBtn: "확인 및 모듈 실행",
+                    modalBtn: "확인",
                     piniTitle: "AGI 고객센터 - 삐니 (Pini)",
                     piniWelcome: "안녕하세요 혜공 형님! 파이 밑천 기반 80억 글로벌 뱅크 AGI 삐니입니다. 무엇을 도와드릴까요?",
                     sendBtn: "전송",
@@ -304,80 +255,58 @@
                 translation: {
                     headerSubtitle: "The Dawn of 21st Century Web3 Finance • KYYC / KYD",
                     walletBtnText: "Connect Wallet (KYYC/KYD)",
-                    badgeText: "Pi On-Chain Liquidity Pool & UBI 30% Return System",
-                    heroHeading: "The gateway to next-gen global financial transformation for 8 billion people.",
-                    heroDesc: "Powered by Pi Network seed capital, connecting everyone globally without borders. 30% of net profits fund UBI via HK Social Foundation.",
-                    assetLabel: "Total Asset Value (Pi Based)",
-                    gridTitle: "Global Financial Services (10-Network)",
+                    badgeText: "8B People UBI Loop • Haeoreum Special Megacity",
+                    heroHeading: "Borderles Global Financial Innovation Powered by Pi Seed",
+                    heroDesc: "From remote African villages to Ulsan, Gyeongju, and Pohang, everyone enjoys UBI and seamless banking via a single wallet connection.",
+                    assetLabel: "Total Asset Evaluation (Pi Based)",
+                    gridTitle: "Global 10-Network Decentralized Services",
                     grid1: "Connect Wallet", grid2: "Transfer", grid3: "Payment", grid4: "Deposit", grid5: "Reward",
                     grid6: "UBI", grid7: "Swap", grid8: "DEX Swap", grid9: "LP Staking", grid10: "Pi Balance",
-                    panel1Title: "Real-time Global Transactions & UBI Accrual",
-                    panel2Title: "11-Country Digital Asset Compliance & KYYC",
-                    panel2Desc: "Fully compliant with digital asset regulations in 11 major global jurisdictions including US and EU MiCA.",
-                    ubiLogTitle: "HK Social Foundation UBI Fund Auto-Accrual (30%)",
-                    ubiLogSub: "Real-time Global On-Chain Transactions",
-                    cityLogTitle: "Haeoreum Special City Merchant Settlement",
-                    cityLogSub: "Ulsan-Gyeongju-Pohang Integrated Megacity",
-                    modalBtn: "Confirm & Execute Module",
+                    modalBtn: "Confirm",
                     piniTitle: "AGI Support - Pini",
                     piniWelcome: "Hello Chairman Hyekong! I am Pini, your global Pi-backed bank AGI assistant. How can I help you?",
                     sendBtn: "Send",
                     footerText: "© 2026 HK WORLD BANK. Global 8B+ Pi Banking. Chairman Hyekong."
                 }
             },
-            sw: { // 아프리카 스와힐리어
+            sw: { // 스와힐리어
                 translation: {
                     headerSubtitle: "Mwanzo wa Fedha za Web3 za Karne ya 21 • KYYC / KYD",
-                    walletBtnText: "Unganisha Mkoba (KYYC/KYD)",
-                    badgeText: "Dimbwi la Ukwasi la Pi na Mfumo wa UBI wa 30%",
-                    heroHeading: "Lango la mageuzi ya kijeshi ya kifedha duniani kwa watu bilioni 8.",
-                    heroDesc: "Inaendeshwa na mtaji wa Pi Network. Asilimia 30 ya faida safi inafadhili UBI moja kwa moja kupitia Mfuko wa Kijamii wa HK.",
+                    walletBtnText: "Unganisha Mkoba",
+                    badgeText: "Mzunguko wa UBI kwa Watu Bilioni 8",
+                    heroHeading: "Ubunifu wa Kifedha wa Kimataifa Kupitia Pi",
+                    heroDesc: "Kutoka vijiji vya Afrika hadi ulimwenguni kote, kila mtu anafurahia UBI na huduma za kibenki kwa urahisi.",
                     assetLabel: "Thamani Yote ya Mali (Kwa Pi)",
-                    gridTitle: "Huduma za Kifedha za Dunia (Mtandao 10)",
+                    gridTitle: "Huduma za Kifedha za Mitandao 10",
                     grid1: "Unganisha Mkoba", grid2: "Tuma Pesa", grid3: "Malipo", grid4: "Weka Akiba", grid5: "Zawadi",
                     grid6: "UBI", grid7: "Badilisha", grid8: "DEX Swap", grid9: "LP Staking", grid10: "Salio la Pi",
-                    panel1Title: "Miamala ya Dunia ya Wakati Halisi na Uimbaji wa UBI",
-                    panel2Title: "Utekelezaji wa Sheria za Mali za Dijiti Nchi 11 & KYYC",
-                    panel2Desc: "Inazingatia kikamilifu kanuni za kimataifa, ikitoa huduma thabiti kupitia uthibitishaji wa nyuma wa KYYC.",
-                    ubiLogTitle: "Hifadhi ya UBI ya Mfuko wa Kijamii wa HK (30%)",
-                    ubiLogSub: "Miamala ya Mtandaoni ya Wakati Halisi",
-                    cityLogTitle: "Malipo ya Wafanyabiashara wa Mji wa Haeoreum",
-                    cityLogSub: "Mji Mkuu wa Ulsan-Gyeongju-Pohang",
-                    modalBtn: "Thibitisha na Utekeleze",
+                    modalBtn: "Thibitisha",
                     piniTitle: "Msaada wa AGI - Pini",
                     piniWelcome: "Habari Mwenyekiti Hyekong! Mimi ni Pini, msaidizi wako wa benki wa AGI. Ninawezaje kukusaidia?",
                     sendBtn: "Tuma",
                     footerText: "© 2026 HK WORLD BANK. Global 8B+ Pi Banking. Chairman Hyekong."
                 }
             },
-            am: { // 에티오피아 암하라어
+            am: { // 암하라어
                 translation: {
                     headerSubtitle: "የ21ኛው ክፍለ ዘመን የWeb3 ፋይናንስ ጅምር • KYYC / KYD",
-                    walletBtnText: "ቦርሳ ያገናኙ (KYYC/KYD)",
-                    badgeText: "የፓይ ኦን-ቼይን ልክዊዲቲ ፑል እና የ30% UBI ስርዓት",
-                    heroHeading: "ለ8 ቢሊዮን ህዝብ የሚሆን ቀጣይ ትውልድ ዓለም አቀፍ የፋይናንስ ለውጥ በር ይከፈታል።",
-                    heroDesc: "በፓይ ኔትወርክ ካፒታል የሚመራ ሲሆን ከጠቅላላው ትርፍ 30% በHK ማህበራዊ ፋውንዴሽን አማካኝነት ለዩቢአይ (UBI) ይውላል።",
+                    walletBtnText: "ቦርሳ ያገናኙ",
+                    badgeText: "የ8 ቢሊዮን ህዝብ የUBI ስርዓት",
+                    heroHeading: "በፓይ ካፒታል የተደገፈ ዓለም አቀፍ የፋይናንስ ፈጠራ",
+                    heroDesc: "ከአፍሪካ መንደሮች እስከ ዓለም አቀፍ ደረጃ ሁሉም ሰው በነፃነት የፋይናንስ አገልግሎት ያገኛል።",
                     assetLabel: "አጠቃላይ የንብረት ዋጋ (በፓይ)",
-                    gridTitle: "ዓለም አቀፍ የፋይናንስ አገልግሎቶች (10 ኔትወርክ)",
+                    gridTitle: "ዓለም አቀፍ የ10 ኔትወርክ አገልግሎቶች",
                     grid1: "ቦርሳ ማገናኘት", grid2: "ገንዘብ መላክ", grid3: "ክፍያ", grid4: "ማስቀመጥ", grid5: "ሽልማት",
                     grid6: "መሰረታዊ ገቢ (UBI)", grid7: "መለወጥ", grid8: "DEX Swap", grid9: "LP Staking", grid10: "የፓይ መጠን",
-                    panel1Title: "ቀጥታ የዓለም አቀፍ ግብይቶች እና የUBI ክምችት",
-                    panel2Title: "የ11 ሀገራት ዲጂታል ንብረት ደንብ ማክበር እና KYYC",
-                    panel2Desc: "በጀርባ KYYC እና በመሳሪያ (KYD) ማረጋገጫ አማካኝነት ያልተቋረጠ የፋይናንስ አገልግሎት ይሰጣል።",
-                    ubiLogTitle: "የHK ማህበራዊ ፋውንዴሽን UBI ፈንድ (30%)",
-                    ubiLogSub: "የቀጥታ ስርጭት ኦን-ቼይን ግብይቶች",
-                    cityLogTitle: "የሃኦሬም ልዩ ከተማ ነጋዴዎች ክፍያ",
-                    cityLogSub: "የኡልሳን-ግዮንግጁ-ፖሃንግ የተቀናጀ ሜጋሲቲ",
-                    modalBtn: "አረጋግጥ እና ተግብር",
-                    piniTitle: "የኤጂአይ ድጋፍ - ፒኒ",
-                    piniWelcome: "ሰላም ፕሬዚዳንት ሃይኮንግ! እኔ ፒኒ የባንክዎ የኤጂአይ ረዳት ነኝ። እንዴት ልረዳዎ እችላለሁ?",
+                    modalBtn: "አረጋግጥ",
+                    piniTitle: "የኤጂአይ ድጋፍ - 삐니",
+                    piniWelcome: "ሰላም ፕሬዚዳንት ሃይኮንግ! እኔ 삐니 የባንክዎ ረዳት ነኝ። እንዴት ልረዳዎ እችላለሁ?",
                     sendBtn: "ላክ",
                     footerText: "© 2026 HK WORLD BANK. Global 8B+ Pi Banking. Chairman Hyekong."
                 }
             }
         };
 
-        // i18n 엔진 즉시 동기화 초기화
         i18next.init({
             lng: 'ko',
             fallbackLng: 'en',
@@ -389,7 +318,9 @@
         function updateI18nContent() {
             document.querySelectorAll('[data-i18n]').forEach(function(element) {
                 const key = element.getAttribute('data-i18n');
-                element.innerText = i18next.t(key);
+                if(i18next.exists(key)) {
+                    element.innerText = i18next.t(key);
+                }
             });
         }
 
@@ -401,7 +332,7 @@
 
         function triggerWalletAuth() {
             const btnText = document.getElementById('walletBtnText');
-            btnText.innerText = "KYYC/KYD 인증 완료";
+            btnText.innerText = "KYYC/KYD 인증완료";
             alert("[보안 인증 완료] 파이 온체인 지갑 연결 및 백그라운드 KYYC·KYD 검증이 완료되었습니다.");
         }
 
@@ -426,7 +357,7 @@
             if(!input.value.trim()) return;
 
             const userMsg = document.createElement('div');
-            userMsg.className = "bg-purple-600/40 p-3 rounded-2xl border border-purple-500/50 self-end max-w-[88%] text-white leading-relaxed";
+            userMsg.className = "bg-purple-600/40 p-2.5 rounded-xl border border-purple-500/50 self-end max-w-[88%] text-white leading-relaxed";
             userMsg.innerText = input.value;
             logs.appendChild(userMsg);
 
@@ -436,7 +367,7 @@
 
             setTimeout(() => {
                 const piniMsg = document.createElement('div');
-                piniMsg.className = "bg-purple-950/90 p-3 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed";
+                piniMsg.className = "bg-purple-950/90 p-2.5 rounded-xl border border-purple-800/50 self-start max-w-[88%] leading-relaxed";
                 piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${q}" 요청을 80억 글로벌 네트워크에 완벽히 반영했습니다!`;
                 logs.appendChild(piniMsg);
                 logs.scrollTop = logs.scrollHeight;
