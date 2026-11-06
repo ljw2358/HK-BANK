@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK WORLD BANK - Global Super Banking Platform</title>
+    <title>HK-BANK & HK WORLD BANK - Hybrid Super Banking Platform</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -39,10 +39,10 @@
             <!-- Branding: Centered & Large -->
             <div class="text-center w-full md:w-auto">
                 <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
-                    HK WORLD BANK
+                    HK-BANK & WORLD BANK
                 </h1>
                 <p class="text-xs text-purple-300/90 tracking-widest mt-1 font-medium">
-                    글로벌 슈퍼 뱅킹 플랫폼 • 해오름 특별시
+                    웹2 일상뱅크 + 웹3 글로벌 슈퍼 뱅크 • 해오름 특별시
                 </p>
             </div>
 
@@ -61,16 +61,6 @@
                         <option value="vi">🇻🇳 Tiếng Việt</option>
                         <option value="th">🇹🇭 ไทย</option>
                         <option value="id">🇮🇩 Bahasa Indonesia</option>
-                        <option value="ru">🇷🇺 Русский</option>
-                        <option value="ar">🇸🇦 العربية</option>
-                        <option value="hi">🇮🇳 हिन्दी</option>
-                        <option value="pt">🇵🇹 Português</option>
-                        <option value="it">🇮🇹 Italiano</option>
-                        <option value="tr">🇹🇷 Türkçe</option>
-                        <option value="nl">🇳🇱 Nederlands</option>
-                        <option value="pl">🇵🇱 Polski</option>
-                        <option value="sv">🇸🇻 Svenska</option>
-                        <option value="el">🇬🇷 Ελληνικά</option>
                     </select>
                 </div>
 
@@ -88,38 +78,37 @@
     <!-- ========================================== -->
     <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full text-center space-y-10">
         
-        <!-- Asset Summary & Quick Actions Banner -->
+        <!-- Hybrid Asset Summary Banner (웹2 일상계좌 + 웹3 유동성풀 통합) -->
         <section class="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-600/40 rounded-3xl p-6 md:p-8 shadow-2xl">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="text-left space-y-2">
                     <span class="bg-purple-600/30 border border-purple-400/40 text-amber-300 text-xs px-3 py-1 rounded-full font-semibold">
-                        <i class="fa-solid fa-shield-halved"></i> 백그라운드 KYYC & KYD 보안 활성화
+                        <i class="fa-solid fa-bolt"></i> 웹2 인터넷은행 & 웹3 디지털 뱅크 하이브리드 연동
                     </span>
                     <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
-                        오늘도 안전하고 스마트한 금융 생활을 지원합니다.
+                        일상 금융부터 글로벌 Web3 자산까지 한 번에 관리하세요.
                     </h2>
                     <p class="text-xs text-purple-200/80">
-                        미인증 사용자는 구경만 가능하며, 지갑 연결 시 자동 검증을 거쳐 관리자 권한 및 풀 서비스가 개방됩니다.
+                        카카오뱅크·토스처럼 간편한 원화/디지털화폐 송금과 Pi Network 온체인 유동성풀 예치를 동시에 지원합니다.
                     </p>
                 </div>
                 <div class="bg-black/60 border border-purple-500/30 px-6 py-4 rounded-2xl text-right min-w-[240px]">
-                    <div class="text-xs text-purple-300">보유 자산 평가액 (Pi Trust & SafeBox)</div>
+                    <div class="text-xs text-purple-300">통합 총 자산 평가액</div>
                     <div class="text-xl md:text-2xl font-black text-amber-300 mt-1">314,159.00 PI</div>
-                    <div class="text-xs text-purple-300/80 mt-0.5">₩ 314,159,000 KRW</div>
+                    <div class="text-xs text-purple-300/80 mt-0.5">₩ 314,159,000 KRW 상당</div>
                 </div>
             </div>
             
             <!-- Quick Action Buttons -->
             <div class="flex flex-wrap justify-center gap-3 mt-6 pt-6 border-t border-purple-800/50">
-                <button onclick="openFeature('transfer')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">송금하기</button>
-                <button onclick="openFeature('deposit')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">채우기</button>
+                <button onclick="openFeature('transfer')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">간편 송금</button>
+                <button onclick="openFeature('deposit')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">계좌 채우기</button>
                 <button onclick="openFeature('safe')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">Pi Trust & SafeBox</button>
-                <button onclick="openFeature('admin')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-amber-300 transition-all">관리자 적기</button>
-                <button onclick="openFeature('pool')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-cyan-300 transition-all">유동성풀 충전</button>
+                <button onclick="openFeature('pool')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-cyan-300 transition-all">유동성풀 지갑</button>
             </div>
         </section>
 
-        <!-- Quick Financial Operations (빠른 금융 작업 - 10대 연동망) -->
+        <!-- Quick Financial Operations (10대 연동망) -->
         <section>
             <h2 class="text-xl md:text-2xl font-black mb-6 text-purple-200 tracking-wide text-center">
                 빠른 금융 작업 (10대 연동망)
@@ -190,26 +179,6 @@
             </div>
         </section>
 
-        <!-- Ecosystem & Landmark Section -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-            <div class="bg-purple-950/40 border border-purple-800/60 rounded-3xl p-6 shadow-xl space-y-3">
-                <h3 class="text-lg font-bold text-amber-300 flex items-center gap-2">
-                    <i class="fa-solid fa-landmark"></i> 시그니처 165층 사옥 (경주 T165)
-                </h3>
-                <p class="text-xs text-purple-200 leading-relaxed">
-                    해오름 특별시 경주에 건립되는 HK 그룹의 165층 랜드마크 사옥. 웹3 디지털 뱅크 본부 및 퀀텀바이오 연구소가 입주합니다.
-                </p>
-            </div>
-            <div class="bg-purple-950/40 border border-purple-800/60 rounded-3xl p-6 shadow-xl space-y-3">
-                <h3 class="text-lg font-bold text-amber-300 flex items-center gap-2">
-                    <i class="fa-solid fa-glasses"></i> HK-NEXUS 스마트 안경 연동
-                </h3>
-                <p class="text-xs text-purple-200 leading-relaxed">
-                    해온, 누리온, 라온 안경폰 라인업과 실시간 연동되어 언제 어디서나 초고속 AR 금융 거래 및 자산 관리를 제공합니다.
-                </p>
-            </div>
-        </section>
-
     </main>
 
     <!-- ========================================== -->
@@ -230,7 +199,7 @@
             </div>
             <div class="p-4 h-72 overflow-y-auto text-xs text-purple-200 flex flex-col gap-3 bg-black/50" id="chatLogs">
                 <div class="bg-purple-950/90 p-3.5 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed">
-                    안녕하세요 혜공 형님! HK WORLD BANK AGI 고객센터 AI 삐니입니다. 24시간 연중무휴 대기 중입니다!
+                    안녕하세요 혜공 형님! 웹2 일상뱅크와 웹3 디지털 뱅크가 완벽히 결합된 HK 하이브리드 플랫폼의 AGI 삐니입니다. 무엇을 도와드릴까요?
                 </div>
             </div>
             <div class="p-3 bg-purple-950 border-t border-purple-800 flex gap-2">
@@ -248,7 +217,7 @@
             
             <!-- Copyright -->
             <p class="text-xs text-purple-300/80 font-medium">
-                © 2026 HK WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong.
+                © 2026 HK-BANK & WORLD BANK. Hybrid Web2/Web3 Platform. Chairman Hyekong.
             </p>
 
             <!-- White Social Icons: YouTube @Hyekong2026, TikTok @hyekong2026 -->
@@ -270,17 +239,17 @@
     <script>
         function changeLanguage(lang) {
             console.log("Language changed to:", lang);
-            alert(`[HK WORLD BANK] 언어가 ${lang.toUpperCase()} (으)로 전환되었습니다.`);
+            alert(`[HK-BANK] 언어가 ${lang.toUpperCase()} (으)로 전환되었습니다.`);
         }
 
         function connectWallet() {
             const btnText = document.getElementById('walletBtnText');
             btnText.innerText = "인증완료 (KYC/KYD)";
-            alert("[보안 인증] 지갑 연결과 동시에 백그라운드 KYYC 및 KYD 자동 검증이 완료되었습니다.");
+            alert("[보안 인증] 지갑 연결 및 웹2/웹3 통합 백그라운드 KYYC·KYD 검증이 완료되었습니다.");
         }
 
         function openFeature(type) {
-            alert(`[HK WORLD BANK] ${type.toUpperCase()} 모듈이 정상 실행되었습니다.`);
+            alert(`[하이브리드 뱅킹] ${type.toUpperCase()} 모듈이 정상 실행되었습니다.`);
         }
 
         function togglePiniChat() {
@@ -305,7 +274,7 @@
             setTimeout(() => {
                 const piniMsg = document.createElement('div');
                 piniMsg.className = "bg-purple-950/90 p-3.5 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed";
-                piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${query}" 요청사항을 완벽하게 처리하였습니다!`;
+                piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${query}" 요청사항을 하이브리드 뱅킹 시스템에 완벽히 반영했습니다!`;
                 logs.appendChild(piniMsg);
                 logs.scrollTop = logs.scrollHeight;
             }, 600);
