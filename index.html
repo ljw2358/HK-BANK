@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK-BANK & HK WORLD BANK - Hybrid Super Banking Platform</title>
+    <title id="pageTitle">HK-BANK & WORLD BANK - Smart Hybrid Banking</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -31,41 +31,38 @@
 <body class="bg-hkdark text-white min-h-screen flex flex-col justify-between font-sans selection:bg-purple-500 selection:text-white">
 
     <!-- ========================================== -->
-    <!-- 1. HEADER SECTION (Centered & Large) -->
+    <!-- 1. HEADER SECTION (Smart & Clean Center) -->
     <!-- ========================================== -->
     <header class="w-full bg-hkdark/95 backdrop-blur-md border-b border-purple-900/60 sticky top-0 z-50 shadow-2xl">
-        <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
             
             <!-- Branding: Centered & Large -->
-            <div class="text-center w-full md:w-auto">
+            <div class="text-center md:text-left">
                 <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider bg-gradient-to-r from-purple-400 via-pink-400 to-amber-300 bg-clip-text text-transparent drop-shadow-lg">
-                    HK-BANK & WORLD BANK
+                    HK-BANK & WORLD
                 </h1>
-                <p class="text-xs text-purple-300/90 tracking-widest mt-1 font-medium">
-                    웹2 일상뱅크 + 웹3 글로벌 슈퍼 뱅크 • 해오름 특별시
+                <p id="subTitle" class="text-xs text-purple-300/90 tracking-widest mt-0.5 font-medium">
+                    웹2 인터넷은행 & 웹3 디지털 뱅크 • 해오름 특별시
                 </p>
             </div>
 
-            <!-- Global Controls: 60 Languages & Wallet/KYC -->
-            <div class="flex items-center gap-3 w-full md:w-auto justify-center flex-wrap">
-                <!-- 60 Languages Dropdown -->
+            <!-- Global Controls: Smart Language Selector & Unified Wallet Button -->
+            <div class="flex items-center gap-3">
+                <!-- Real-time Language Selector -->
                 <div class="relative">
-                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-purple-950/90 border border-purple-700/80 text-purple-200 text-sm rounded-xl px-4 py-2.5 outline-none focus:border-amber-400 cursor-pointer shadow-inner">
-                        <option value="ko">🇰🇷 한국어 (Korean)</option>
+                    <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-purple-950/90 border border-purple-700/80 text-purple-200 text-xs rounded-xl px-3 py-2 outline-none focus:border-amber-400 cursor-pointer shadow-inner font-bold">
+                        <option value="ko">🇰🇷 한국어</option>
                         <option value="en">🇺🇸 English</option>
-                        <option value="zh">🇨🇳 中文 (Chinese)</option>
-                        <option value="ja">🇯🇵 日本語 (Japanese)</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
                         <option value="es">🇪🇸 Español</option>
                         <option value="fr">🇫🇷 Français</option>
                         <option value="de">🇩🇪 Deutsch</option>
-                        <option value="vi">🇻🇳 Tiếng Việt</option>
-                        <option value="th">🇹🇭 ไทย</option>
-                        <option value="id">🇮🇩 Bahasa Indonesia</option>
                     </select>
                 </div>
 
-                <!-- Wallet & Background KYC/KYD Button -->
-                <button onclick="connectWallet()" id="walletBtn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-5 py-2.5 rounded-xl shadow-lg border border-purple-400/40 transition-all flex items-center gap-2 text-sm">
+                <!-- Unified Wallet & KYC Button -->
+                <button onclick="connectWallet()" id="walletBtn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-4 py-2 rounded-xl shadow-lg border border-purple-400/40 transition-all flex items-center gap-2 text-xs">
                     <i class="fa-solid fa-wallet text-amber-300"></i>
                     <span id="walletBtnText">지갑 연결 (KYC/KYD)</span>
                 </button>
@@ -74,106 +71,86 @@
     </header>
 
     <!-- ========================================== -->
-    <!-- 2. MAIN CONTENT AREA -->
+    <!-- 2. MAIN CONTENT AREA (Smart & Organized) -->
     <!-- ========================================== -->
-    <main class="max-w-7xl mx-auto px-4 py-10 flex-grow w-full text-center space-y-10">
+    <main class="max-w-6xl mx-auto px-6 py-8 flex-grow w-full space-y-8">
         
-        <!-- Hybrid Asset Summary Banner (웹2 일상계좌 + 웹3 유동성풀 통합) -->
-        <section class="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-600/40 rounded-3xl p-6 md:p-8 shadow-2xl">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="text-left space-y-2">
-                    <span class="bg-purple-600/30 border border-purple-400/40 text-amber-300 text-xs px-3 py-1 rounded-full font-semibold">
-                        <i class="fa-solid fa-bolt"></i> 웹2 인터넷은행 & 웹3 디지털 뱅크 하이브리드 연동
-                    </span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
-                        일상 금융부터 글로벌 Web3 자산까지 한 번에 관리하세요.
-                    </h2>
-                    <p class="text-xs text-purple-200/80">
-                        카카오뱅크·토스처럼 간편한 원화/디지털화폐 송금과 Pi Network 온체인 유동성풀 예치를 동시에 지원합니다.
-                    </p>
-                </div>
-                <div class="bg-black/60 border border-purple-500/30 px-6 py-4 rounded-2xl text-right min-w-[240px]">
-                    <div class="text-xs text-purple-300">통합 총 자산 평가액</div>
-                    <div class="text-xl md:text-2xl font-black text-amber-300 mt-1">314,159.00 PI</div>
-                    <div class="text-xs text-purple-300/80 mt-0.5">₩ 314,159,000 KRW 상당</div>
-                </div>
+        <!-- Smart Asset Summary Card -->
+        <section class="bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-600/40 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-left space-y-2">
+                <span id="badgeText" class="bg-purple-600/30 border border-purple-400/40 text-amber-300 text-xs px-3 py-1 rounded-full font-semibold">
+                    <i class="fa-solid fa-bolt"></i> 하이브리드 통합 자산관리 시스템
+                </span>
+                <h2 id="heroHeading" class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+                    일상 금융부터 Web3 유동성풀까지 스마트하게 관리하세요.
+                </h2>
+                <p id="heroDesc" class="text-xs text-purple-200/80">
+                    중복 없는 깔끔한 인터페이스로 원활한 금융 거래와 실시간 자산 평가를 지원합니다.
+                </p>
             </div>
-            
-            <!-- Quick Action Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mt-6 pt-6 border-t border-purple-800/50">
-                <button onclick="openFeature('transfer')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">간편 송금</button>
-                <button onclick="openFeature('deposit')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">계좌 채우기</button>
-                <button onclick="openFeature('safe')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all">Pi Trust & SafeBox</button>
-                <button onclick="openFeature('pool')" class="bg-purple-900/40 hover:bg-purple-800/60 border border-purple-700/50 px-4 py-2 rounded-xl text-xs font-bold text-cyan-300 transition-all">유동성풀 지갑</button>
+            <div class="bg-black/60 border border-purple-500/30 px-6 py-5 rounded-2xl text-right min-w-[260px] shadow-inner">
+                <div id="assetLabel" class="text-xs text-purple-300">통합 총 자산 평가액</div>
+                <div class="text-2xl font-black text-amber-300 mt-1">314,159.00 PI</div>
+                <div class="text-xs text-purple-300/80 mt-0.5">₩ 314,159,000 KRW 상당</div>
             </div>
         </section>
 
-        <!-- Quick Financial Operations (10대 연동망) -->
-        <section>
-            <h2 class="text-xl md:text-2xl font-black mb-6 text-purple-200 tracking-wide text-center">
-                빠른 금융 작업 (10대 연동망)
-            </h2>
+        <!-- Core Financial Operations (중복 없는 10대 연동망 그리드) -->
+        <section class="space-y-4">
+            <h3 id="gridTitle" class="text-lg font-extrabold text-purple-200 tracking-wide text-center">
+                스마트 금융 서비스 (10대 연동망)
+            </h3>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
                 
-                <!-- 1. 지갑연결 -->
-                <div onclick="openFeature('wallet')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-link text-2xl text-purple-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">지갑 연결</span>
+                <div onclick="openFeature('지갑연결')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-link text-xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">지갑 연결</span>
                 </div>
 
-                <!-- 2. 송금 -->
-                <div onclick="openFeature('transfer')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-paper-plane text-2xl text-blue-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">송금</span>
+                <div onclick="openFeature('송금')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-paper-plane text-xl text-blue-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">송금</span>
                 </div>
 
-                <!-- 3. 결제 -->
-                <div onclick="openFeature('payment')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-credit-card text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">결제</span>
+                <div onclick="openFeature('결제')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-credit-card text-xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">결제</span>
                 </div>
 
-                <!-- 4. 예치 -->
-                <div onclick="openFeature('deposit')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-vault text-2xl text-amber-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">예치</span>
+                <div onclick="openFeature('예치')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-vault text-xl text-amber-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">예치</span>
                 </div>
 
-                <!-- 5. 보상 -->
-                <div onclick="openFeature('reward')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-gift text-2xl text-pink-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">보상</span>
+                <div onclick="openFeature('보상')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-gift text-xl text-pink-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">보상</span>
                 </div>
 
-                <!-- 6. 기본소득 (UBI) -->
-                <div onclick="openFeature('ubi')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-hand-holding-heart text-2xl text-red-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">기본소득 (UBI)</span>
+                <div onclick="openFeature('기본소득')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-hand-holding-heart text-xl text-red-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">기본소득 (UBI)</span>
                 </div>
 
-                <!-- 7. 스왑 -->
-                <div onclick="openFeature('swap')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-rotate text-2xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">스왑</span>
+                <div onclick="openFeature('스왑')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-rotate text-xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">스왑</span>
                 </div>
 
-                <!-- 8. DEX 스왑 -->
-                <div onclick="openFeature('dex')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-chart-line text-2xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">DEX 스왑</span>
+                <div onclick="openFeature('DEX 스왑')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-chart-line text-xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">DEX 스왑</span>
                 </div>
 
-                <!-- 9. LP 스테이킹 -->
-                <div onclick="openFeature('lp')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-solid fa-layer-group text-2xl text-teal-400 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">LP 스테이킹</span>
+                <div onclick="openFeature('LP 스테이킹')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-layer-group text-xl text-teal-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">LP 스테이킹</span>
                 </div>
 
-                <!-- 10. 파이 수량 (Pi Network) -->
-                <div onclick="openFeature('pi')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-xl flex flex-col items-center justify-center gap-2 group">
-                    <i class="fa-brands fa-pied-piper text-2xl text-amber-300 group-hover:scale-110 transition-transform"></i>
-                    <span class="text-sm font-bold text-white">파이 수량</span>
+                <div onclick="openFeature('파이 수량')" class="bg-purple-900/20 hover:bg-purple-800/40 border border-purple-700/50 rounded-2xl p-5 cursor-pointer transition-all hover:scale-105 shadow-lg flex flex-col items-center justify-center gap-2 group">
+                    <i class="fa-brands fa-pied-piper text-xl text-amber-300 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-xs font-bold text-white">파이 수량</span>
                 </div>
 
             </div>
@@ -186,25 +163,25 @@
     <!-- ========================================== -->
     <div class="fixed bottom-6 right-6 z-50">
         <button onclick="togglePiniChat()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center border-2 border-white/20 transition-all hover:scale-110">
-            <i class="fa-solid fa-robot text-2xl text-amber-300"></i>
+            <i class="fa-solid fa-robot text-xl text-amber-300"></i>
         </button>
         <!-- Chat Window Modal -->
-        <div id="piniChatModal" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 bg-hkdark border border-purple-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
-            <div class="bg-purple-900 px-5 py-4 flex items-center justify-between border-b border-purple-700">
+        <div id="piniChatModal" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-hkdark border border-purple-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+            <div class="bg-purple-900 px-5 py-3 flex items-center justify-between border-b border-purple-700">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-robot text-amber-300 text-lg"></i>
-                    <span class="font-extrabold text-sm text-white">AGI 고객센터 - 삐니 (Pini)</span>
+                    <i class="fa-solid fa-robot text-amber-300"></i>
+                    <span id="piniTitle" class="font-extrabold text-xs text-white">AGI 고객센터 - 삐니 (Pini)</span>
                 </div>
-                <button onclick="togglePiniChat()" class="text-purple-300 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+                <button onclick="togglePiniChat()" class="text-purple-300 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="p-4 h-72 overflow-y-auto text-xs text-purple-200 flex flex-col gap-3 bg-black/50" id="chatLogs">
-                <div class="bg-purple-950/90 p-3.5 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed">
-                    안녕하세요 혜공 형님! 웹2 일상뱅크와 웹3 디지털 뱅크가 완벽히 결합된 HK 하이브리드 플랫폼의 AGI 삐니입니다. 무엇을 도와드릴까요?
+            <div class="p-4 h-60 overflow-y-auto text-xs text-purple-200 flex flex-col gap-3 bg-black/50" id="chatLogs">
+                <div id="piniWelcome" class="bg-purple-950/90 p-3 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed">
+                    안녕하세요 혜공 형님! 중복 없는 스마트 하이브리드 뱅크 AGI 삐니입니다. 무엇을 도와드릴까요?
                 </div>
             </div>
             <div class="p-3 bg-purple-950 border-t border-purple-800 flex gap-2">
-                <input type="text" id="chatInput" placeholder="삐니에게 질문하기..." class="flex-grow bg-purple-900/50 border border-purple-700 rounded-xl px-4 py-2.5 text-xs outline-none text-white focus:border-amber-400">
-                <button onclick="sendPiniMessage()" class="bg-purple-600 hover:bg-purple-500 px-5 py-2.5 rounded-xl text-xs font-bold text-white shadow-lg">전송</button>
+                <input type="text" id="chatInput" placeholder="삐니에게 질문하기..." class="flex-grow bg-purple-900/50 border border-purple-700 rounded-xl px-3 py-2 text-xs outline-none text-white focus:border-amber-400">
+                <button onclick="sendPiniMessage()" id="sendBtn" class="bg-purple-600 hover:bg-purple-500 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-md">전송</button>
             </div>
         </div>
     </div>
@@ -212,20 +189,18 @@
     <!-- ========================================== -->
     <!-- 4. FOOTER WITH WHITE SOCIAL ICONS -->
     <!-- ========================================== -->
-    <footer class="w-full bg-purple-950/95 border-t border-purple-900/60 py-6 text-center">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer class="w-full bg-purple-950/95 border-t border-purple-900/60 py-5 text-center">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
             
-            <!-- Copyright -->
-            <p class="text-xs text-purple-300/80 font-medium">
-                © 2026 HK-BANK & WORLD BANK. Hybrid Web2/Web3 Platform. Chairman Hyekong.
+            <p id="footerText" class="text-xs text-purple-300/80 font-medium">
+                © 2026 HK-BANK & WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong.
             </p>
 
-            <!-- White Social Icons: YouTube @Hyekong2026, TikTok @hyekong2026 -->
-            <div class="flex items-center gap-5">
-                <a href="https://youtube.com/@Hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-xl" title="YouTube @Hyekong2026">
+            <div class="flex items-center gap-4">
+                <a href="https://youtube.com/@Hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-lg" title="YouTube @Hyekong2026">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <a href="https://tiktok.com/@hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-xl" title="TikTok @hyekong2026">
+                <a href="https://tiktok.com/@hyekong2026" target="_blank" class="text-white hover:text-amber-300 transition-colors text-lg" title="TikTok @hyekong2026">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
             </div>
@@ -234,27 +209,92 @@
     </footer>
 
     <!-- ========================================== -->
-    <!-- 5. JAVASCRIPT LOGIC -->
+    <!-- 5. REAL-TIME LANGUAGE & APP LOGIC -->
     <!-- ========================================== -->
     <script>
+        // Real-time Multilingual Dictionary (실시간 다국어 번역 엔진)
+        const dict = {
+            ko: {
+                subTitle: "웹2 인터넷은행 & 웹3 디지털 뱅크 • 해오름 특별시",
+                walletBtnText: "지갑 연결 (KYC/KYD)",
+                badgeText: "하이브리드 통합 자산관리 시스템",
+                heroHeading: "일상 금융부터 Web3 유동성풀까지 스마트하게 관리하세요.",
+                heroDesc: "중복 없는 깔끔한 인터페이스로 원활한 금융 거래와 실시간 자산 평가를 지원합니다.",
+                assetLabel: "통합 총 자산 평가액",
+                gridTitle: "스마트 금융 서비스 (10대 연동망)",
+                piniTitle: "AGI 고객센터 - 삐니 (Pini)",
+                piniWelcome: "안녕하세요 혜공 형님! 중복 없는 스마트 하이브리드 뱅크 AGI 삐니입니다. 무엇을 도와드릴까요?",
+                sendBtn: "전송",
+                footerText: "© 2026 HK-BANK & WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong."
+            },
+            en: {
+                subTitle: "Web2 Internet Bank & Web3 Digital Bank • Haeoreum Special City",
+                walletBtnText: "Connect Wallet (KYC/KYD)",
+                badgeText: "Hybrid Integrated Asset Management System",
+                heroHeading: "Smartly manage everything from daily finance to Web3 liquidity pools.",
+                heroDesc: "Enjoy seamless financial transactions and real-time asset valuation with a clean interface.",
+                assetLabel: "Total Integrated Asset Value",
+                gridTitle: "Smart Financial Services (10-Network)",
+                piniTitle: "AGI Support - Pini",
+                piniWelcome: "Hello Chairman Hyekong! I am Pini, your smart hybrid bank AGI assistant. How can I help you today?",
+                sendBtn: "Send",
+                footerText: "© 2026 HK-BANK & WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong."
+            },
+            zh: {
+                subTitle: "Web2 互联网银行 & Web3 数字银行 • 日出特别市",
+                walletBtnText: "连接钱包 (KYC/KYD)",
+                badgeText: "混合综合资产管理系统",
+                heroHeading: "智能管理从日常金融到 Web3 流动性池的一切。",
+                heroDesc: "通过简洁无重复的界面支持顺畅的金融交易和实时资产评估。",
+                assetLabel: "综合总资产评估额",
+                gridTitle: "智能金融服务 (十大互联网络)",
+                piniTitle: "AGI 客户中心 - Pini",
+                piniWelcome: "您好，慧恭会长！我是智能混合银行 AGI 助手 Pini，有什么我可以帮您的吗？",
+                sendBtn: "发送",
+                footerText: "© 2026 HK-BANK & WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong."
+            },
+            ja: {
+                subTitle: "Web2 ネット銀行 & Web3 デジタルバンク • 海の日の特別市",
+                walletBtnText: "ウォレット接続 (KYC/KYD)",
+                badgeText: "ハイブリッド統合資産管理システム",
+                heroHeading: "日常金融からWeb3流動性プールまでスマートに管理します。",
+                heroDesc: "重複のないすっきりしたインターフェースで円滑な金融取引とリアルタイム資産評価をサポートします。",
+                assetLabel: "統合総資産評価額",
+                gridTitle: "スマート金融サービス (10大連動網)",
+                piniTitle: "AGI カスタマーセンター - ピニ",
+                piniWelcome: "こんにちは、ヘゴン会長！スマートハイブリッドバンクAGIアシスタントのピニです。どのようなご用件でしょうか？",
+                sendBtn: "送信",
+                footerText: "© 2026 HK-BANK & WORLD BANK. All Rights Reserved. Haeoreum Special City. Chairman Hyekong."
+            }
+        };
+
         function changeLanguage(lang) {
+            const t = dict[lang] || dict['ko'];
+            document.getElementById('subTitle').innerText = t.subTitle;
+            document.getElementById('walletBtnText').innerText = t.walletBtnText;
+            document.getElementById('badgeText').innerHTML = `<i class="fa-solid fa-bolt"></i> ${t.badgeText}`;
+            document.getElementById('heroHeading').innerText = t.heroHeading;
+            document.getElementById('heroDesc').innerText = t.heroDesc;
+            document.getElementById('assetLabel').innerText = t.assetLabel;
+            document.getElementById('gridTitle').innerText = t.gridTitle;
+            document.getElementById('piniTitle').innerText = t.piniTitle;
+            document.getElementById('piniWelcome').innerText = t.piniWelcome;
+            document.getElementById('sendBtn').innerText = t.sendBtn;
+            document.getElementById('footerText').innerText = t.footerText;
             console.log("Language changed to:", lang);
-            alert(`[HK-BANK] 언어가 ${lang.toUpperCase()} (으)로 전환되었습니다.`);
         }
 
         function connectWallet() {
-            const btnText = document.getElementById('walletBtnText');
-            btnText.innerText = "인증완료 (KYC/KYD)";
-            alert("[보안 인증] 지갑 연결 및 웹2/웹3 통합 백그라운드 KYYC·KYD 검증이 완료되었습니다.");
+            document.getElementById('walletBtnText').innerText = "인증완료 (KYC/KYD)";
+            alert("[보안 인증] 지갑 연결 및 백그라운드 KYYC·KYD 검증이 완료되었습니다.");
         }
 
         function openFeature(type) {
-            alert(`[하이브리드 뱅킹] ${type.toUpperCase()} 모듈이 정상 실행되었습니다.`);
+            alert(`[스마트 하이브리드 뱅크] ${type} 모듈을 실행합니다.`);
         }
 
         function togglePiniChat() {
-            const modal = document.getElementById('piniChatModal');
-            modal.classList.toggle('hidden');
+            document.getElementById('piniChatModal').classList.toggle('hidden');
         }
 
         function sendPiniMessage() {
@@ -263,21 +303,21 @@
             if(!input.value.trim()) return;
 
             const userMsg = document.createElement('div');
-            userMsg.className = "bg-purple-600/40 p-3.5 rounded-2xl border border-purple-500/50 self-end max-w-[88%] text-white leading-relaxed";
+            userMsg.className = "bg-purple-600/40 p-3 rounded-2xl border border-purple-500/50 self-end max-w-[88%] text-white leading-relaxed";
             userMsg.innerText = input.value;
             logs.appendChild(userMsg);
 
-            const query = input.value;
+            const q = input.value;
             input.value = "";
             logs.scrollTop = logs.scrollHeight;
 
             setTimeout(() => {
                 const piniMsg = document.createElement('div');
-                piniMsg.className = "bg-purple-950/90 p-3.5 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed";
-                piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${query}" 요청사항을 하이브리드 뱅킹 시스템에 완벽히 반영했습니다!`;
+                piniMsg.className = "bg-purple-950/90 p-3 rounded-2xl border border-purple-800/60 self-start max-w-[88%] leading-relaxed";
+                piniMsg.innerText = `[삐니 AGI] 혜공 형님, "${q}" 요청을 스마트하게 처리하였습니다!`;
                 logs.appendChild(piniMsg);
                 logs.scrollTop = logs.scrollHeight;
-            }, 600);
+            }, 500);
         }
     </script>
 </body>
